@@ -1,0 +1,157 @@
+{
+  "images": [
+    {
+      "file": "Chris Smith.jpg",
+      "alt": "Official portrait of Lord Chris Smith of Finsbury, candidate for Chancellor of the University of Cambridge (credit: Barbara Luckhurst)",
+      "caption": "Lord Chris Smith of Finsbury, candidate for Chancellor of the University of Cambridge",
+      "description": "Official portrait photograph of Lord Chris Smith, former Secretary of State for Culture and Master of Pembroke College",
+      "width": 4800,
+      "height": 4800,
+      "category": "portrait"
+    },
+    {
+      "file": "chris-smith-portrait.jpg",
+      "alt": "Official portrait of Lord Chris Smith of Finsbury, candidate for Chancellor of the University of Cambridge",
+      "caption": "Lord Chris Smith of Finsbury, candidate for Chancellor of the University of Cambridge",
+      "description": "Official portrait photograph of Lord Chris Smith, former Secretary of State for Culture and Master of Pembroke College",
+      "width": 1500,
+      "height": 2000,
+      "category": "portrait"
+    },
+    {
+      "file": "20250203 Sir Ian McKellen1.jpg",
+      "alt": "Sir Ian McKellen with Lord Chris Smith at a Pembroke event",
+      "caption": "Sir Ian McKellen and Lord Chris Smith",
+      "description": "Sir Ian McKellen, renowned actor and Cambridge graduate, supporting Chris Smith's campaign",
+      "width": 2000,
+      "height": 1333,
+      "category": "endorsement"
+    },
+    {
+      "file": "20250203 Sir Ian McKellen3.jpg",
+      "alt": "Sir Ian McKellen speaking at a Cambridge event supporting Chris Smith",
+      "caption": "Sir Ian McKellen and Lord Chris Smith",
+      "description": "Sir Ian McKellen addressing an audience regarding Chris Smith's qualifications for Chancellor",
+      "width": 2000,
+      "height": 1125,
+      "category": "endorsement"
+    },
+    {
+      "file": "20250203 Sir Ian McKellen4.jpg",
+      "alt": "Sir Ian McKellen at a Cambridge event for Chris Smith's campaign",
+      "caption": "Sir Ian McKellen at a campaign event for Chris Smith",
+      "description": "Sir Ian McKellen showing support for Chris Smith's bid to become Chancellor",
+      "width": 2000,
+      "height": 1125,
+      "category": "endorsement"
+    },
+    {
+      "file": "Beinn Damh.jpg",
+      "alt": "Mountain landscape of Beinn Damh in Scotland",
+      "caption": "Beinn Damh, reflecting Chris Smith's love for the outdoors and environment",
+      "description": "Scenic view of Beinn Damh, representing Chris Smith's environmental advocacy as former Chairman of the Environment Agency",
+      "width": 3648,
+      "height": 2736,
+      "category": "background"
+    },
+    {
+      "file": "CI081.jpg",
+      "alt": "Chris Smith at Cambridge University event",
+      "caption": "Lord Chris Smith addressing Cambridge community",
+      "description": "Chris Smith speaking at a University of Cambridge event",
+      "width": 2000,
+      "height": 1333,
+      "category": "campaign"
+    },
+    {
+      "file": "CI083.jpg",
+      "alt": "Chris Smith at a formal Cambridge event",
+      "caption": "Lord Chris Smith at a formal University event",
+      "description": "Chris Smith in formal attire at a Cambridge University function",
+      "width": 1333,
+      "height": 2000,
+      "category": "campaign"
+    },
+    {
+      "file": "CRS17a.jpg",
+      "alt": "Chris Smith meeting with Cambridge students",
+      "caption": "Lord Chris Smith engaging with Cambridge students",
+      "description": "Chris Smith in conversation with students at Cambridge University",
+      "width": 1475,
+      "height": 2238,
+      "category": "engagement"
+    },
+    {
+      "file": "CRS19b.jpg",
+      "alt": "Chris Smith at Pembroke College campus",
+      "caption": "Lord Chris Smith at Pembroke College where he served as Master",
+      "description": "Chris Smith on the grounds of Pembroke College, Cambridge",
+      "width": 3573,
+      "height": 2358,
+      "category": "cambridge"
+    },
+    {
+      "file": "CRS6a.jpg",
+      "alt": "Chris Smith in conversation at Cambridge",
+      "caption": "Lord Chris Smith in dialogue with Cambridge colleagues",
+      "description": "Chris Smith engaged in discussion with fellow academics at Cambridge",
+      "width": 942,
+      "height": 1467,
+      "category": "academic"
+    },
+    {
+      "file": "Stop the Clause.jpg",
+      "alt": "Chris Smith at 'Stop the Clause' protest, highlighting his LGBTQ+ advocacy",
+      "caption": "Chris Smith at the historic 'Stop the Clause' demonstration",
+      "description": "Historical image of Chris Smith at the protest against Section 28, demonstrating his commitment to LGBTQ+ rights as the first openly gay MP and Cabinet Minister",
+      "width": 3483,
+      "height": 2346,
+      "category": "activism"
+    },
+    {
+      "file": "Turner_GuterresPembroke041.jpg",
+      "alt": "Chris Smith with UN Secretary-General António Guterres at Pembroke College",
+      "caption": "Lord Chris Smith welcoming UN Secretary-General António Guterres to Pembroke",
+      "description": "Chris Smith as Master of Pembroke hosting UN Secretary-General António Guterres",
+      "width": 2000,
+      "height": 1335,
+      "category": "leadership"
+    },
+    {
+      "file": "Turner_GuterresPembroke048.jpg",
+      "alt": "Chris Smith in discussion with UN Secretary-General at Cambridge",
+      "caption": "Lord Chris Smith in dialogue with UN Secretary-General António Guterres",
+      "description": "Chris Smith engaged in conversation with UN Secretary-General at a Cambridge event",
+      "width": 1618,
+      "height": 1080,
+      "category": "leadership"
+    },
+    {
+      "file": "Turner_GuterresPembroke050.jpg",
+      "alt": "Chris Smith with UN Secretary-General and Cambridge officials",
+      "caption": "Lord Chris Smith with UN Secretary-General and Cambridge colleagues",
+      "description": "Chris Smith hosting UN Secretary-General António Guterres with University of Cambridge representatives",
+      "width": 2000,
+      "height": 1335,
+      "category": "leadership"
+    },
+    {
+      "file": "Turner_GuterresPembroke061.jpg",
+      "alt": "Chris Smith at formal event with UN Secretary-General",
+      "caption": "Lord Chris Smith at formal reception with UN Secretary-General",
+      "description": "Chris Smith at a formal Cambridge event with UN Secretary-General António Guterres",
+      "width": 2000,
+      "height": 1335,
+      "category": "leadership"
+    },
+    {
+      "file": "Turner_GuterresPembroke063.jpg",
+      "alt": "Chris Smith giving a tour of Pembroke College to UN Secretary-General",
+      "caption": "Lord Chris Smith showing Pembroke College to UN Secretary-General",
+      "description": "Chris Smith guiding UN Secretary-General António Guterres through Pembroke College",
+      "width": 2000,
+      "height": 1335,
+      "category": "leadership"
+    }
+  ]
+}
