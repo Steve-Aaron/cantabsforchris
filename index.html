@@ -124,29 +124,80 @@
             left: 0;
         }
         
-        .portrait-container {
+        .photo-frame {
             width: 40%;
             position: relative;
-            z-index: 1;
+            border: 8px solid white;
+            box-shadow: 
+                0 1px 4px rgba(0,0,0,0.3),
+                0 0 40px rgba(0,0,0,0.1) inset,
+                4px 4px 10px rgba(0,0,0,0.2);
+            background-color: white;
+            padding: 4px;
+            margin-bottom: 40px;
         }
         
-        .portrait {
+        #photo-display {
+            position: relative;
             width: 100%;
-            max-width: 350px;
-            border-radius: 4px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-            border: 3px solid white;
+            height: 300px;
+            overflow: hidden;
         }
         
-        .portrait::after {
-            content: '';
+        #photo-display img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(1, 33, 88, 0.3), transparent);
-            pointer-events: none;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.05) inset;
+        }
+        
+        #photo-display img.visible {
+            opacity: 1;
+            z-index: 1;
+        }
+        
+        .photo-caption {
+            text-align: center;
+            padding: 8px 4px;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--cambridge-blue);
+            height: 36px;
+            overflow: hidden;
+        }
+        
+        .photo-controls {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .photo-btn {
+            border: none;
+            background-color: var(--cambridge-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .photo-btn:hover {
+            background-color: var(--cambridge-dark);
         }
         
         /* Endorsements section styled more prominently */
@@ -387,9 +438,17 @@
                 flex-direction: column;
             }
             
-            .portrait-container {
-                width: 80%;
-                margin-bottom: 1rem;
+            .photo-frame {
+                width: 85%;
+                margin: 1rem auto 2.5rem auto;
+            }
+            
+            #photo-display {
+                height: 250px;
+            }
+            
+            .photo-caption {
+                font-size: 0.75rem;
             }
             
             .lead-quote {
@@ -446,18 +505,19 @@
                     "Universities matter more than ever in these difficult times. The Chancellor must be a champion for Cambridge, and for the role the University plays in fostering learning and knowledge."
                 </blockquote>
                 
-                <div class="portrait-container">
-                    <picture>
-                        <source srcset="
-                            images/responsive/Chris Smith-320.webp 320w,
-                            images/responsive/Chris Smith-640.webp 640w,
-                            images/responsive/Chris Smith-768.webp 768w,
-                            images/responsive/Chris Smith-1024.webp 1024w,
-                            images/responsive/Chris Smith-1280.webp 1280w"
-                            sizes="(max-width: 768px) 100vw, 350px"
-                            type="image/webp">
-                        <img src="images/Chris Smith.jpg" alt="Lord Chris Smith" class="portrait">
-                    </picture>
+                <div class="photo-frame">
+                    <div id="photo-display">
+                        <img src="images/Chris Smith.jpg" alt="Lord Chris Smith" class="visible" data-index="0">
+                        <img src="images/CRS19b.jpg" alt="Lord Chris Smith at Pembroke College" data-index="1">
+                        <img src="images/Turner_GuterresPembroke041.jpg" alt="Lord Chris Smith with UN Secretary-General" data-index="2">
+                        <img src="images/20250203 Sir Ian McKellen1.jpg" alt="Lord Chris Smith with Sir Ian McKellen" data-index="3">
+                        <img src="images/Stop the Clause.jpg" alt="Chris Smith at Stop the Clause demonstration" data-index="4">
+                    </div>
+                    <div class="photo-caption" id="photo-caption">Official portrait of Lord Chris Smith of Finsbury</div>
+                    <div class="photo-controls">
+                        <button class="photo-btn" id="prev-photo">←</button>
+                        <button class="photo-btn" id="next-photo">→</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -611,47 +671,98 @@
     </footer>
     
     <script>
-        // Carousel functionality
+        // All carousel functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('.carousel-inner');
-            const items = document.querySelectorAll('.carousel-item');
+            // Endorsements carousel
+            const endorsementCarousel = document.querySelector('.carousel-inner');
+            const endorsementItems = document.querySelectorAll('.carousel-item');
             const dots = document.querySelectorAll('.carousel-dot');
-            let currentIndex = 0;
-            let autoSlideInterval;
+            let currentEndorsementIndex = 0;
+            let autoEndorsementInterval;
             
-            function showSlide(index) {
-                currentIndex = index;
-                if (currentIndex < 0) currentIndex = items.length - 1;
-                if (currentIndex >= items.length) currentIndex = 0;
+            function showEndorsementSlide(index) {
+                currentEndorsementIndex = index;
+                if (currentEndorsementIndex < 0) currentEndorsementIndex = endorsementItems.length - 1;
+                if (currentEndorsementIndex >= endorsementItems.length) currentEndorsementIndex = 0;
                 
                 // Update items
-                items.forEach(item => item.classList.remove('active'));
-                items[currentIndex].classList.add('active');
+                endorsementItems.forEach(item => item.classList.remove('active'));
+                endorsementItems[currentEndorsementIndex].classList.add('active');
                 
                 // Update dots
                 dots.forEach(dot => dot.classList.remove('active'));
-                dots[currentIndex].classList.add('active');
+                dots[currentEndorsementIndex].classList.add('active');
                 
                 // Reset auto slide timer
-                resetAutoSlide();
+                resetEndorsementAutoSlide();
             }
             
-            function nextSlide() {
-                showSlide(currentIndex + 1);
+            function nextEndorsementSlide() {
+                showEndorsementSlide(currentEndorsementIndex + 1);
             }
             
-            function resetAutoSlide() {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(nextSlide, 5000);
+            function resetEndorsementAutoSlide() {
+                clearInterval(autoEndorsementInterval);
+                autoEndorsementInterval = setInterval(nextEndorsementSlide, 5000);
             }
             
             // Set up event listeners for the dots
             dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => showSlide(index));
+                dot.addEventListener('click', () => showEndorsementSlide(index));
             });
             
-            // Start auto slide
-            resetAutoSlide();
+            // Start auto slide for endorsements
+            resetEndorsementAutoSlide();
+            
+            // Photo display carousel - ultra simple implementation
+            const photos = document.querySelectorAll('#photo-display img');
+            const photoCaption = document.getElementById('photo-caption');
+            const nextBtn = document.getElementById('next-photo');
+            const prevBtn = document.getElementById('prev-photo');
+            let currentPhotoIndex = 0;
+            let autoRotateInterval;
+            
+            // Captions for each photo
+            const captions = [
+                "Official portrait of Lord Chris Smith of Finsbury",
+                "Lord Chris Smith at Pembroke College where he served as Master",
+                "Lord Chris Smith welcoming UN Secretary-General António Guterres to Pembroke",
+                "Sir Ian McKellen and Lord Chris Smith",
+                "Chris Smith at the historic 'Stop the Clause' demonstration"
+            ];
+            
+            function showPhoto(index) {
+                // Handle wrapping 
+                if (index < 0) index = photos.length - 1;
+                if (index >= photos.length) index = 0;
+                
+                // Update current index
+                currentPhotoIndex = index;
+                
+                // Show only the current photo
+                photos.forEach(photo => photo.classList.remove('visible'));
+                photos[currentPhotoIndex].classList.add('visible');
+                
+                // Update caption
+                photoCaption.textContent = captions[currentPhotoIndex];
+                
+                // Reset auto rotation
+                resetAutoRotate();
+            }
+            
+            function resetAutoRotate() {
+                clearInterval(autoRotateInterval);
+                autoRotateInterval = setInterval(() => {
+                    showPhoto(currentPhotoIndex + 1);
+                }, 4000);
+            }
+            
+            // Setup button event listeners
+            nextBtn.addEventListener('click', () => showPhoto(currentPhotoIndex + 1));
+            prevBtn.addEventListener('click', () => showPhoto(currentPhotoIndex - 1));
+            
+            // Start auto rotation
+            resetAutoRotate();
             
             // Read More functionality
             const readMoreBtn = document.getElementById('read-more-btn');
