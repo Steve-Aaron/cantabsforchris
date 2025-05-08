@@ -1,0 +1,35 @@
+{
+  "news": [
+    {
+      "id": "varsity-20250505",
+      "title": "Pembroke Master announces Chancellorship candidacy",
+      "source": "Varsity",
+      "url": "https://www.varsity.co.uk/news/29584",
+      "date": "2025-05-05",
+      "author": "Elizabeth Bratton",
+      "summary": "Chris Smith, Master of Pembroke and former Cabinet Minister, has announced his candidacy for University Chancellor, emphasizing academic freedom and commitment to Cambridge.",
+      "content": "Chris Smith, the Master of Pembroke and former Cabinet Minister, has announced that he will be running for the position of University Chancellor.\n\nThe House of Lords member was the Secretary of State for Culture, Media, and Sport under Tony Blair, and served as the Chairman of the Environment Agency from 2008-2014. In 2015, he became the Master of Pembroke.\n\nSmith was the first MP in the UK to voluntarily come out as gay, and in 1997 became the first openly gay Cabinet Minister anywhere in the world.\n\nSmith says: \"I have always set great store by openness and transparency in public life; it is important always to stand up for what you believe in.\"",
+      "image": null,
+      "categories": ["announcement", "campaign"]
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2025-05-08",
+    "totalItems": 1,
+    "schema": {
+      "version": "1.0",
+      "fields": {
+        "id": "Unique identifier for the news item",
+        "title": "Headline or title of the news article",
+        "source": "Publication or source name",
+        "url": "Original URL of the article",
+        "date": "Publication date in YYYY-MM-DD format",
+        "author": "Author of the article",
+        "summary": "Brief summary of the article content",
+        "content": "Full text or excerpt of the article",
+        "image": "URL to associated image, null if none",
+        "categories": "Array of category tags"
+      }
+    }
+  }
+}

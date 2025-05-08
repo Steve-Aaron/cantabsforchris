@@ -124,80 +124,234 @@
             left: 0;
         }
         
-        .photo-frame {
+        .photo-area {
             width: 40%;
             position: relative;
-            border: 8px solid white;
-            box-shadow: 
-                0 1px 4px rgba(0,0,0,0.3),
-                0 0 40px rgba(0,0,0,0.1) inset,
-                4px 4px 10px rgba(0,0,0,0.2);
-            background-color: white;
-            padding: 4px;
-            margin-bottom: 40px;
+            margin-bottom: 80px; /* Reduced since photos aren't spread as far */
+            perspective: 1000px;
         }
         
         #photo-display {
             position: relative;
             width: 100%;
             height: 300px;
-            overflow: hidden;
+            overflow: visible;
         }
         
-        #photo-display img {
+        .photo-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .photo-frame img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.05) inset;
+            border-radius: 2px;
+            border: 4px solid white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3) inset;
+        }
+
+        /* Add hover effect to show it's clickable */
+        .photo-frame.visible:hover img {
+            filter: brightness(1.05);
+            transition: all 0.2s ease;
         }
         
-        #photo-display img.visible {
-            opacity: 1;
-            z-index: 1;
+        /* Physical photo effect for each frame */
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -25px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 
+                0 4px 12px rgba(0,0,0,0.4),
+                0 0 20px rgba(0,0,0,0.1) inset;
+            z-index: -1;
+            transform: translateZ(-1px);
+            border: 1px solid #ddd;
         }
         
-        .photo-caption {
-            text-align: center;
-            padding: 8px 4px;
-            font-size: 0.85rem;
+        /* Polaroid-like caption area */
+        .photo-frame::after {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: -45px;
+            left: 0;
+            width: 100%;
+            padding: 6px 10px;
+            background-color: white;
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.8rem;
             font-style: italic;
-            color: var(--cambridge-blue);
-            height: 36px;
+            text-align: center;
+            color: #333;
+            z-index: 1;
+            white-space: nowrap;
             overflow: hidden;
+            text-overflow: ellipsis;
         }
+        
+        /* Stacked photos effect - base styles */
+        .photo-frame:nth-child(1) { z-index: 5; }
+        .photo-frame:nth-child(2) { z-index: 4; }
+        .photo-frame:nth-child(3) { z-index: 3; }
+        .photo-frame:nth-child(4) { z-index: 2; }
+        .photo-frame:nth-child(5) { z-index: 1; }
+        
+        /* Non-visible photos in stack with subtle hand-spread effect */
+        .photo-frame:not(.visible) {
+            opacity: 0.8;
+            transform: 
+                scale(0.95) 
+                translateY(20px) 
+                translateX(var(--random-x, 8px))
+                rotate(var(--random-rotate, 2deg))
+                translateZ(-15px);
+            filter: brightness(0.95);
+        }
+        
+        .photo-frame:not(.visible):nth-child(2) {
+            transform: 
+                scale(0.94) 
+                translateY(30px) 
+                translateX(var(--random-x, 11px))
+                rotate(var(--random-rotate, 3deg))
+                translateZ(-25px);
+            opacity: 0.85;
+        }
+        
+        .photo-frame:not(.visible):nth-child(3) {
+            transform: 
+                scale(0.93) 
+                translateY(40px) 
+                translateX(var(--random-x, 14px))
+                rotate(var(--random-rotate, 4deg))
+                translateZ(-35px);
+            opacity: 0.8;
+        }
+        
+        .photo-frame:not(.visible):nth-child(4) {
+            transform: 
+                scale(0.92) 
+                translateY(50px) 
+                translateX(var(--random-x, 17px))
+                rotate(var(--random-rotate, 5deg))
+                translateZ(-45px);
+            opacity: 0.75;
+        }
+        
+        .photo-frame:not(.visible):nth-child(5) {
+            transform: 
+                scale(0.91) 
+                translateY(60px) 
+                translateX(var(--random-x, 20px))
+                rotate(var(--random-rotate, 6deg))
+                translateZ(-55px);
+            opacity: 0.7;
+        }
+        
+        /* Hide captions for background photos */
+        .photo-frame:not(.visible)::after {
+            opacity: 0;
+        }
+        
+        /* Visible (active) photo */
+        .photo-frame.visible {
+            opacity: 1;
+            z-index: 10;
+            transform: scale(1) translateY(0) rotate(var(--active-rotate, 1deg)) translateZ(5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.05);
+        }
+        
+        /* Animation classes */
+        .photo-frame.animate-out {
+            animation: photo-flip-out 0.6s forwards;
+        }
+        
+        .photo-frame.animate-in {
+            animation: photo-flip-in 0.6s forwards;
+        }
+        
+        @keyframes photo-flip-out {
+            0% {
+                transform: scale(1) translateY(0) rotate(var(--active-rotate, 1deg)) translateZ(5px);
+                opacity: 1;
+                z-index: 10;
+                filter: brightness(1.05);
+            }
+            100% {
+                transform: scale(0.95) translateY(20px) translateX(var(--random-x, 8px)) rotate(var(--random-rotate, 2deg)) translateZ(-15px);
+                opacity: 0.8;
+                z-index: 1;
+                filter: brightness(0.95);
+            }
+        }
+        
+        @keyframes photo-flip-in {
+            0% {
+                transform: scale(0.95) translateY(20px) translateX(var(--random-x, 8px)) rotate(var(--random-rotate, 2deg)) translateZ(-15px);
+                opacity: 0.8;
+                z-index: 1;
+                filter: brightness(0.95);
+            }
+            100% {
+                transform: scale(1) translateY(0) rotate(var(--active-rotate, 1deg)) translateZ(5px);
+                opacity: 1;
+                z-index: 10;
+                filter: brightness(1.05);
+            }
+        }
+        
+        /* Photo caption is now handled via the ::after pseudo-element on each photo-frame */
         
         .photo-controls {
             position: absolute;
-            bottom: -30px;
+            bottom: -60px;
             left: 0;
             right: 0;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 16px;
+            z-index: 15;
         }
         
         .photo-btn {
             border: none;
             background-color: var(--cambridge-blue);
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
         }
         
         .photo-btn:hover {
             background-color: var(--cambridge-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+        
+        .photo-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         
         /* Endorsements section styled more prominently */
@@ -263,10 +417,6 @@
         .carousel-dot:hover {
             opacity: 0.8;
             transform: scale(1.2);
-        }
-        
-        .carousel {
-            position: relative;
         }
         
         .carousel-item {
@@ -438,17 +588,53 @@
                 flex-direction: column;
             }
             
-            .photo-frame {
+            .photo-area {
                 width: 85%;
-                margin: 1rem auto 2.5rem auto;
+                margin: 1rem auto 5rem auto; /* Reduced since the stack is more compact now */
             }
             
             #photo-display {
                 height: 250px;
+                overflow: visible;
             }
             
-            .photo-caption {
-                font-size: 0.75rem;
+            /* Tighten up the stack on mobile */
+            .photo-frame::before {
+                top: -8px;
+                left: -8px;
+                right: -8px;
+                bottom: -16px;
+            }
+            
+            .photo-frame::after {
+                bottom: -38px;
+                font-size: 0.7rem;
+            }
+            
+            /* Adjust stacked photos for mobile - subtle hand-spread effect */
+            .photo-frame:not(.visible) {
+                transform: scale(0.92) translateY(20px) translateX(var(--random-x, 7px)) rotate(var(--random-rotate, 2deg)) translateZ(-10px);
+                opacity: 0.85;
+            }
+            
+            .photo-frame:not(.visible):nth-child(2) {
+                transform: scale(0.9) translateY(30px) translateX(var(--random-x, 10px)) rotate(var(--random-rotate, 3deg)) translateZ(-15px);
+                opacity: 0.8;
+            }
+            
+            .photo-frame:not(.visible):nth-child(3) {
+                transform: scale(0.88) translateY(40px) translateX(var(--random-x, 13px)) rotate(var(--random-rotate, 4deg)) translateZ(-20px);
+                opacity: 0.75;
+            }
+            
+            .photo-frame:not(.visible):nth-child(4),
+            .photo-frame:not(.visible):nth-child(5) {
+                transform: scale(0.86) translateY(50px) translateX(var(--random-x, 16px)) rotate(var(--random-rotate, 5deg)) translateZ(-25px);
+                opacity: 0.7;
+            }
+            
+            .photo-controls {
+                bottom: -50px;
             }
             
             .lead-quote {
@@ -505,19 +691,25 @@
                     "Universities matter more than ever in these difficult times. The Chancellor must be a champion for Cambridge, and for the role the University plays in fostering learning and knowledge."
                 </blockquote>
                 
-                <div class="photo-frame">
+                <div class="photo-area">
                     <div id="photo-display">
-                        <img src="images/Chris Smith.jpg" alt="Lord Chris Smith" class="visible" data-index="0">
-                        <img src="images/CRS19b.jpg" alt="Lord Chris Smith at Pembroke College" data-index="1">
-                        <img src="images/Turner_GuterresPembroke041.jpg" alt="Lord Chris Smith with UN Secretary-General" data-index="2">
-                        <img src="images/20250203 Sir Ian McKellen1.jpg" alt="Lord Chris Smith with Sir Ian McKellen" data-index="3">
-                        <img src="images/Stop the Clause.jpg" alt="Chris Smith at Stop the Clause demonstration" data-index="4">
+                        <div class="photo-frame visible" data-caption="Official portrait of Lord Chris Smith of Finsbury" data-index="0">
+                            <img src="images/Chris Smith.jpg" alt="Lord Chris Smith">
+                        </div>
+                        <div class="photo-frame" data-caption="Lord Chris Smith at Pembroke College where he served as Master" data-index="1">
+                            <img src="images/CRS19b.jpg" alt="Lord Chris Smith at Pembroke College">
+                        </div>
+                        <div class="photo-frame" data-caption="Lord Chris Smith welcoming UN Secretary-General António Guterres" data-index="2">
+                            <img src="images/Turner_GuterresPembroke041.jpg" alt="Lord Chris Smith with UN Secretary-General">
+                        </div>
+                        <div class="photo-frame" data-caption="Sir Ian McKellen and Lord Chris Smith" data-index="3">
+                            <img src="images/20250203 Sir Ian McKellen1.jpg" alt="Lord Chris Smith with Sir Ian McKellen">
+                        </div>
+                        <div class="photo-frame" data-caption="Chris Smith at the historic 'Stop the Clause' demonstration" data-index="4">
+                            <img src="images/Stop the Clause.jpg" alt="Chris Smith at Stop the Clause demonstration">
+                        </div>
                     </div>
-                    <div class="photo-caption" id="photo-caption">Official portrait of Lord Chris Smith of Finsbury</div>
-                    <div class="photo-controls">
-                        <button class="photo-btn" id="prev-photo">←</button>
-                        <button class="photo-btn" id="next-photo">→</button>
-                    </div>
+                    <!-- Photo controls removed as requested -->
                 </div>
             </div>
         </section>
@@ -714,40 +906,106 @@
             // Start auto slide for endorsements
             resetEndorsementAutoSlide();
             
-            // Photo display carousel - ultra simple implementation
-            const photos = document.querySelectorAll('#photo-display img');
-            const photoCaption = document.getElementById('photo-caption');
+            // Photo display carousel with stacked effect
+            const photoFrames = document.querySelectorAll('.photo-frame');
             const nextBtn = document.getElementById('next-photo');
             const prevBtn = document.getElementById('prev-photo');
             let currentPhotoIndex = 0;
             let autoRotateInterval;
+            let isPhotoAnimating = false;
             
-            // Captions for each photo
-            const captions = [
-                "Official portrait of Lord Chris Smith of Finsbury",
-                "Lord Chris Smith at Pembroke College where he served as Master",
-                "Lord Chris Smith welcoming UN Secretary-General António Guterres to Pembroke",
-                "Sir Ian McKellen and Lord Chris Smith",
-                "Chris Smith at the historic 'Stop the Clause' demonstration"
-            ];
+            // Initial setup of the photo stack with random rotations
+            function setupInitialPhotoStack() {
+                // Assign rotation to each photo with hand-spread effect (all to the right)
+                photoFrames.forEach((frame, idx) => {
+                    // Create very subtle hand-spread effect with graduated angles (2-6 degrees)
+                    let randomRotate;
+                    if (idx === 0) {
+                        // Active photo has minimal tilt
+                        randomRotate = (Math.random() * 1 - 0.5).toFixed(1);
+                    } else if (idx === 1) {
+                        // Each subsequent photo has subtle rotation to the right
+                        randomRotate = 1.5 + (Math.random() * 1).toFixed(1);
+                    } else if (idx === 2) {
+                        randomRotate = 2.5 + (Math.random() * 1).toFixed(1);
+                    } else if (idx === 3) {
+                        randomRotate = 3.5 + (Math.random() * 1).toFixed(1);
+                    } else {
+                        randomRotate = 4.5 + (Math.random() * 1.5).toFixed(1);
+                    }
+                    frame.style.setProperty('--random-rotate', `${randomRotate}deg`);
+                    
+                    // Add minimal random rotation for visible photo
+                    if (idx === 0) {
+                        const activeRotate = (Math.random() * 1 - 0.5).toFixed(1);
+                        frame.style.setProperty('--active-rotate', `${activeRotate}deg`);
+                    }
+                    
+                    // Add mild rightward translation for photos in stack
+                    let randomX;
+                    if (idx === 0) {
+                        // Top photo centered
+                        randomX = (Math.random() * 3 - 1.5).toFixed(1);
+                    } else if (idx === 1) {
+                        // Each subsequent photo slightly further to the right
+                        randomX = 6 + (Math.random() * 3).toFixed(1);
+                    } else if (idx === 2) {
+                        randomX = 9 + (Math.random() * 3).toFixed(1);
+                    } else if (idx === 3) {
+                        randomX = 12 + (Math.random() * 3).toFixed(1);
+                    } else {
+                        randomX = 15 + (Math.random() * 3).toFixed(1);
+                    }
+                    
+                    frame.style.setProperty('--random-x', `${randomX}px`);
+                });
+            }
             
             function showPhoto(index) {
+                // Prevent multiple animations at once
+                if (isPhotoAnimating) return;
+                isPhotoAnimating = true;
+                
                 // Handle wrapping 
-                if (index < 0) index = photos.length - 1;
-                if (index >= photos.length) index = 0;
+                if (index < 0) index = photoFrames.length - 1;
+                if (index >= photoFrames.length) index = 0;
+                
+                // If same slide, do nothing
+                if (currentPhotoIndex === index) {
+                    isPhotoAnimating = false;
+                    return;
+                }
+                
+                // Getting old and new elements
+                const oldFrame = photoFrames[currentPhotoIndex];
+                const newFrame = photoFrames[index];
                 
                 // Update current index
                 currentPhotoIndex = index;
                 
-                // Show only the current photo
-                photos.forEach(photo => photo.classList.remove('visible'));
-                photos[currentPhotoIndex].classList.add('visible');
+                // Add a random slight rotation to the new active photo
+                const activeRotate = (Math.random() * 3 - 1.5).toFixed(1);
+                newFrame.style.setProperty('--active-rotate', `${activeRotate}deg`);
                 
-                // Update caption
-                photoCaption.textContent = captions[currentPhotoIndex];
+                // 1. Add animation classes
+                oldFrame.classList.add('animate-out');
+                newFrame.classList.add('animate-in');
                 
-                // Reset auto rotation
-                resetAutoRotate();
+                // 2. Update active states
+                oldFrame.classList.remove('visible');
+                newFrame.classList.add('visible');
+                
+                // 3. After animation completes, clean up
+                setTimeout(() => {
+                    oldFrame.classList.remove('animate-out');
+                    newFrame.classList.remove('animate-in');
+                    
+                    // Reset animation flag
+                    isPhotoAnimating = false;
+                    
+                    // Reset auto rotation
+                    resetAutoRotate();
+                }, 800); // Extended animation duration to match the more dramatic movement
             }
             
             function resetAutoRotate() {
@@ -757,9 +1015,17 @@
                 }, 4000);
             }
             
-            // Setup button event listeners
-            nextBtn.addEventListener('click', () => showPhoto(currentPhotoIndex + 1));
-            prevBtn.addEventListener('click', () => showPhoto(currentPhotoIndex - 1));
+            // Add click event listeners to each photo frame
+            photoFrames.forEach(frame => {
+                frame.style.cursor = 'pointer';
+                frame.addEventListener('click', () => {
+                    const nextIndex = (currentPhotoIndex + 1) % photoFrames.length;
+                    showPhoto(nextIndex);
+                });
+            });
+            
+            // Initialize photo stack
+            setupInitialPhotoStack();
             
             // Start auto rotation
             resetAutoRotate();
