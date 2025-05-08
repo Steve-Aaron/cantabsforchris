@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord Chris Smith for Cambridge Chancellor</title>
+    <style>
+        :root {
+            --primary-color: #003865;
+            --accent-color: #D4AB37;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --card-bg: white;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+        
+        .app {
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Mobile-optimized swipeable sections */
+        .page-container {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            height: 100vh;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .page-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+        
+        .page {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100vh;
+            scroll-snap-align: start;
+            padding: 1rem;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        /* Navigation dots */
+        .nav-dots {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background-color: var(--accent-color);
+            transform: scale(1.2);
+        }
+        
+        /* Header styles */
+        .header-container {
+            height: 40vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            z-index: -1;
+        }
+        
+        .header-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 1rem;
+            position: relative;
+        }
+        
+        .portrait-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            overflow: hidden;
+            border: 3px solid white;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Card styles */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Quote styles */
+        .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            position: relative;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #f5f5f5;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 0 15px 15px 0;
+        }
+        
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(212, 171, 55, 0.3);
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+            width: 100%;
+        }
+        
+        .btn:hover, .btn:active {
+            background-color: #b89225;
+            transform: translateY(-2px);
+        }
+        
+        /* Progress indicator */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--accent-color);
+            width: 0;
+        }
+        
+        /* List styles */
+        ul {
+            padding-left: 1.2rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Page themes */
+        .page.bio {
+            background-color: #f9f9f9;
+        }
+        
+        .page.qualifications {
+            background-color: #f5f8ff;
+        }
+        
+        .page.vision {
+            background-color: #f6fbff;
+        }
+        
+        .page.voting {
+            background-color: #f9f9f9;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="page-container" id="pageContainer">
+            <!-- Welcome Page -->
+            <section class="page bio">
+                <div class="header-container">
+                    <div class="header-bg"></div>
+                    <div class="header-content">
+                        <div class="portrait-container">
+                            <img src="chris-smith-portrait.jpg" alt="Lord Chris Smith" class="portrait">
+                        </div>
+                        <h1>Lord Chris Smith</h1>
+                        <p>for Cambridge Chancellor</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="quote">
+                        "Universities matter more than ever in these difficult times. The Chancellor must be a champion for Cambridge, and for the role the University plays in fostering learning and knowledge."
+                    </div>
+                    
+                    <p>In a world challenged by misinformation, Cambridge needs a Chancellor who will defend the vital importance of knowledge, research, and academic freedom.</p>
+                    
+                    <p>We live in a dangerous world of misinformation and "fake news". Universities are the places where facts are researched and honoured, where information is discovered and tested and debated.</p>
+                </div>
+                
+                <a href="#" class="btn swipe-next">Learn More About My Qualifications</a>
+            </section>
+            
+            <!-- Qualifications Page -->
+            <section class="page qualifications">
+                <h2>My Qualifications</h2>
+                
+                <div class="card">
+                    <h3>Proven Leadership</h3>
+                    <ul>
+                        <li>Secretary of State for Culture with significant accomplishments</li>
+                        <li>Non-partisan approach to governance</li>
+                        <li>Founding Director of the Clore Leadership Programme</li>
+                        <li>Chairman of the Advertising Standards Authority for ten years</li>
+                        <li>Master of Pembroke since 2015</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Commitment to Diversity & Ethics</h3>
+                    <ul>
+                        <li>First MP in the UK to voluntarily come out as gay in 1984</li>
+                        <li>First openly gay Cabinet Minister anywhere in the world in 1997</li>
+                        <li>Strong commitment to openness and transparency in public life</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Successful Fundraising</h3>
+                    <ul>
+                        <li>Expanded Pembroke College's footprint by a third</li>
+                        <li>Successfully raised £82 million for development</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Academic Commitment</h3>
+                    <ul>
+                        <li>Read English at Pembroke (1969-1972)</li>
+                        <li>PhD on Wordsworth and Coleridge (1979)</li>
+                        <li>Kennedy Scholar at Harvard</li>
+                        <li>President of the Wordsworth Trust</li>
+                    </ul>
+                </div>
+                
+                <a href="#" class="btn swipe-next">My Vision for Cambridge</a>
+            </section>
+            
+            <!-- Vision Page -->
+            <section class="page vision">
+                <h2>My Vision for Cambridge</h2>
+                
+                <div class="card">
+                    <div class="quote">
+                        "Cambridge is one of the leading Universities of the world, devoted to teaching, learning and research. We are a genuine centre of excellence, a major national and international asset for Britain."
+                    </div>
+                    
+                    <p>We must channel all our energy into sustaining and developing that excellence. I hope to be given the chance to play my role in that, as Chancellor.</p>
+                    
+                    <p>The Chancellor has above all to be an advocate for the vital importance of knowledge and expertise. It is no accident that the first target of autocrats everywhere is education; tyrants do not want people to have and acquire knowledge.</p>
+                </div>
+                
+                <a href="#" class="btn swipe-next">Voting Information</a>
+            </section>
+            
+            <!-- Voting Page -->
+            <section class="page voting">
+                <h2>How to Vote</h2>
+                
+                <div class="card">
+                    <p>All alumni and current members of the University of Cambridge are eligible to vote in the Chancellor election.</p>
+                    
+                    <h3>Important Dates:</h3>
+                    <ul>
+                        <li><strong>Register by:</strong> 5pm UK time on Friday 2 May 2025</li>
+                        <li><strong>In-person voting:</strong> 12 July or 16 July 2025 (10am-5pm, Senate House)</li>
+                        <li><strong>Online voting:</strong> 9 July (10am) to 18 July 2025 (5pm)</li>
+                    </ul>
+                    
+                    <a href="https://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work/people/chancellor/election-of-the-next-chancellor/how-to-register-for-online-voting" class="btn">Check Eligibility & Register</a>
+                </div>
+                
+                <footer>
+                    <p>© 2025 Campaign for Lord Chris Smith</p>
+                    <p>For questions or support, please contact the campaign team.</p>
+                </footer>
+            </section>
+        </div>
+        
+        <div class="nav-dots" id="navDots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageContainer = document.getElementById('pageContainer');
+            const dots = document.querySelectorAll('.dot');
+            const progressBar = document.getElementById('progressBar');
+            const swipeNextButtons = document.querySelectorAll('.swipe-next');
+            const pages = document.querySelectorAll('.page');
+            
+            // Initialize pages and dots
+            let currentPage = 0;
+            updateDots(currentPage);
+            
+            // Scroll event to update dots and progress
+            pageContainer.addEventListener('scroll', function() {
+                const scrollPosition = pageContainer.scrollLeft;
+                const pageWidth = pageContainer.clientWidth;
+                const scrollPercentage = (scrollPosition / (pageContainer.scrollWidth - pageWidth)) * 100;
+                
+                progressBar.style.width = scrollPercentage + '%';
+                
+                currentPage = Math.round(scrollPosition / pageWidth);
+                updateDots(currentPage);
+            });
+            
+            // Dot navigation
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const pageIndex = parseInt(this.getAttribute('data-index'));
+                    scrollToPage(pageIndex);
+                });
+            });
+            
+            // Next buttons
+            swipeNextButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    scrollToPage(currentPage + 1);
+                });
+            });
+            
+            // Helper functions
+            function updateDots(index) {
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            function scrollToPage(index) {
+                if (index >= 0 && index < pages.length) {
+                    pageContainer.scrollTo({
+                        left: index * pageContainer.clientWidth,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            
+            // Touch swipe detection for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            pageContainer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            pageContainer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const threshold = 50;
+                if (touchEndX < touchStartX - threshold) {
+                    // Swipe left
+                    if (currentPage < pages.length - 1) {
+                        scrollToPage(currentPage + 1);
+                    }
+                } else if (touchEndX > touchStartX + threshold) {
+                    // Swipe right
+                    if (currentPage > 0) {
+                        scrollToPage(currentPage - 1);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

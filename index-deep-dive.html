@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord Chris Smith for Cambridge Chancellor - Deep Dive</title>
+    <style>
+        :root {
+            --main-color: #660000;
+            --secondary-color: #AA8A39;
+            --tertiary-color: #003865;
+            --text-color: #333;
+            --light-text: #F9F6F0;
+            --bg-color: #F9F6F0;
+            --light-bg: #F9F6F0;
+            --paper-color: #F9F6F0;
+            --ink-color: #483C32;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Baskerville', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--ink-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 15px;
+            height: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--paper-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border: 3px solid var(--paper-color);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--tertiary-color);
+        }
+        
+        /* Table of Contents */
+        .toc {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--main-color);
+            color: var(--light-text);
+            padding: 2rem;
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.3s ease;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            color: var(--light-text);
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .toc-link {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            display: block;
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            padding-left: 1rem;
+        }
+        
+        .toc-link:hover, .toc-link.active {
+            color: var(--secondary-color);
+            border-left-color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .toc-subitem {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Content area */
+        .content {
+            margin-left: 300px;
+            padding: 2rem;
+            max-width: 900px;
+        }
+        
+        /* Header */
+        .site-header {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            background-color: var(--main-color);
+            color: var(--light-text);
+        }
+        
+        .site-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Baskerville', 'Garamond', serif;
+            font-weight: normal;
+        }
+        
+        .site-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .portrait-container {
+            width: 200px;
+            height: 230px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 8px solid var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -2rem;
+            width: 4px;
+            height: 100%;
+            background-color: var(--main-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Baskerville', 'Garamond', serif;
+            color: var(--main-color);
+            margin: 2rem 0 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--tertiary-color);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            hyphens: auto;
+        }
+        
+        /* Blockquotes for statements */
+        blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            left: -0.5rem;
+            top: -1.5rem;
+            color: var(--secondary-color);
+            opacity: 0.3;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Decorative elements */
+        .decorative-line {
+            height: 3px;
+            background: linear-gradient(to right, var(--main-color), var(--secondary-color), var(--main-color));
+            margin: 3rem 0;
+        }
+        
+        /* Footnotes */
+        .footnotes {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--main-color);
+            font-size: 0.9rem;
+        }
+        
+        .footnote {
+            display: inline-block;
+            margin-left: 2px;
+            font-size: 0.8rem;
+            vertical-align: super;
+            color: var(--main-color);
+        }
+        
+        /* Animated sidenotes */
+        .sidenote-container {
+            position: relative;
+        }
+        
+        .sidenote-marker {
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .sidenote {
+            position: absolute;
+            right: -250px;
+            width: 230px;
+            padding: 1rem;
+            background-color: var(--light-bg);
+            border-left: 3px solid var(--secondary-color);
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidenote-container:hover .sidenote {
+            opacity: 1;
+        }
+        
+        /* Cambridge imagery */
+        .cambridge-imagery {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 250px;
+            height: 200px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 L90,40 L85,80 L50,90 L15,80 L10,40 Z" fill="none" stroke="%23660000" stroke-width="0.5"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* Voting information card */
+        .voting-card {
+            background-color: var(--light-bg);
+            border: 1px solid var(--main-color);
+            border-radius: 5px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .voting-card h3 {
+            color: var(--main-color);
+            margin-top: 0;
+        }
+        
+        .voting-cta {
+            display: inline-block;
+            background-color: var(--main-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .voting-cta:hover {
+            background-color: var(--tertiary-color);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 1024px) {
+            .toc {
+                transform: translateX(-100%);
+                width: 280px;
+            }
+            
+            .toc.open {
+                transform: translateX(0);
+            }
+            
+            .content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+            
+            .toc-toggle {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                width: 50px;
+                height: 50px;
+                background-color: var(--main-color);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 101;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            }
+            
+            .toc-toggle span {
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+            
+            .toc-toggle span::before,
+            .toc-toggle span::after {
+                content: '';
+                position: absolute;
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                transition: all 0.3s ease;
+            }
+            
+            .toc-toggle span::before {
+                top: -8px;
+            }
+            
+            .toc-toggle span::after {
+                top: 8px;
+            }
+            
+            .toc-toggle.open span {
+                background-color: transparent;
+            }
+            
+            .toc-toggle.open span::before {
+                transform: rotate(45deg);
+                top: 0;
+            }
+            
+            .toc-toggle.open span::after {
+                transform: rotate(-45deg);
+                top: 0;
+            }
+            
+            .sidenote {
+                position: static;
+                width: 100%;
+                margin: 1rem 0;
+                opacity: 1;
+                display: none;
+            }
+            
+            .sidenote-container:hover .sidenote {
+                display: block;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .toc, .toc-toggle, .cambridge-imagery {
+                display: none;
+            }
+            
+            .content {
+                margin-left: 0;
+                max-width: 100%;
+            }
+            
+            body {
+                font-size: 12pt;
+                color: black;
+                background: white;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+            
+            p, blockquote, ul, ol {
+                page-break-inside: avoid;
+            }
+            
+            img {
+                page-break-inside: avoid;
+                max-width: 100% !important;
+            }
+            
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toc" id="toc">
+        <h2>Table of Contents</h2>
+        <ul class="toc-list">
+            <li class="toc-item">
+                <a href="#introduction" class="toc-link">Introduction</a>
+            </li>
+            <li class="toc-item">
+                <a href="#importance" class="toc-link">The Importance of Universities</a>
+            </li>
+            <li class="toc-item">
+                <a href="#qualifications" class="toc-link">Qualifications</a>
+                <ul>
+                    <li class="toc-subitem">
+                        <a href="#leadership" class="toc-link">Proven Leadership</a>
+                    </li>
+                    <li class="toc-subitem">
+                        <a href="#diversity" class="toc-link">Commitment to Diversity</a>
+                    </li>
+                    <li class="toc-subitem">
+                        <a href="#fundraising" class="toc-link">Successful Fundraising</a>
+                    </li>
+                    <li class="toc-subitem">
+                        <a href="#academic" class="toc-link">Academic Commitment</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="toc-item">
+                <a href="#vision" class="toc-link">Vision for Cambridge</a>
+            </li>
+            <li class="toc-item">
+                <a href="#voting" class="toc-link">Voting Information</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="toc-toggle" id="tocToggle">
+        <span></span>
+    </div>
+    
+    <div class="content">
+        <header class="site-header">
+            <div class="portrait-container">
+                <img src="chris-smith-portrait.jpg" alt="Lord Chris Smith" class="portrait">
+            </div>
+            <h1 class="site-title">Lord Chris Smith</h1>
+            <p class="site-subtitle">for Cambridge Chancellor</p>
+        </header>
+        
+        <section class="section" id="introduction">
+            <h2>Introduction</h2>
+            <p>Chris Smith (Rt Hon Lord Smith of Finsbury) presents his candidacy for the esteemed position of Chancellor at the University of Cambridge. With a distinguished career spanning politics, arts, culture, and academia, Lord Smith brings a wealth of experience and a profound commitment to the values that define Cambridge.</p>
+            
+            <blockquote>
+                Universities matter more than ever in these difficult times. The Chancellor must be a champion for Cambridge, and for the role the University plays in fostering learning and knowledge.
+            </blockquote>
+        </section>
+        
+        <div class="decorative-line"></div>
+        
+        <section class="section" id="importance">
+            <h2>The Importance of Universities in Our Time</h2>
+            
+            <p>We live in a dangerous world of misinformation and "fake news". Universities are the places where facts are researched and honoured, where information is discovered and tested and debated. It is why a genuine commitment to freedom of speech is so important.</p>
+            
+            <div class="sidenote-container">
+                <p>It is no accident that the first target of autocrats everywhere is education; <span class="sidenote-marker">tyrants do not want people to have and acquire knowledge</span>. The Chancellor has above all to be an advocate for the vital importance of knowledge and expertise.</p>
+                <div class="sidenote">Throughout history, limiting access to education has been a tool of oppression. The free exchange of ideas is essential to democracy and progress.</div>
+            </div>
+        </section>
+        
+        <div class="decorative-line"></div>
+        
+        <section class="section" id="qualifications">
+            <h2>Qualifications</h2>
+            
+            <p>Lord Chris Smith brings a unique combination of public service, academic experience, and proven leadership that makes him exceptionally qualified for the role of Chancellor at the University of Cambridge.</p>
+            
+            <h3 id="leadership">Proven Leadership</h3>
+            <p>As Secretary of State for Culture, Lord Smith established NESTA, the Foundation for Youth Music, Creative Partnerships for Schools, funding for Olympic athletes, the switchover to digital television, and made all the national museums and galleries free.</p>
+            
+            <p>His approach to governance transcends partisan politics. He was appointed as Chairman of the Environment Agency by a Labour Secretary of State and subsequently reappointed by a Conservative government, demonstrating his ability to work effectively across political divides.</p>
+            
+            <p>After leaving Government, Lord Smith led the parliamentary opposition to the Iraq war, became the Founding Director of the Clore Leadership Programme in the arts and culture, and served as Chairman of the Advertising Standards Authority for ten years. Since 2015, he has been Master of Pembroke College, Cambridge.</p>
+            
+            <h3 id="diversity">Commitment to Diversity, Openness and Ethics</h3>
+            <p>In 1984, Chris Smith made history by becoming the first MP in the United Kingdom to voluntarily come out as gay. His courage continued when, in 1997, he became the first openly gay Cabinet Minister anywhere in the world.</p>
+            
+            <div class="sidenote-container">
+                <p>Throughout his career, Lord Smith has <span class="sidenote-marker">set great store by openness and transparency</span> in public life, maintaining that it is important always to stand up for what you believe in.</p>
+                <div class="sidenote">This principle of ethical leadership and transparency is increasingly important in academic institutions facing complex ethical questions about research, funding, and governance.</div>
+            </div>
+            
+            <h3 id="fundraising">Successful Fundraising</h3>
+            <p>During his Mastership of Pembroke College, the College has expanded its footprint by a third with the Mill Lane development. Under his leadership, Pembroke successfully raised £82 million to complete this significant expansion project, demonstrating his ability to secure financial support for educational institutions.</p>
+            
+            <h3 id="academic">Strong Commitment to Academic and Collegiate Cambridge</h3>
+            <p>Lord Smith's connection to Cambridge is both deep and personal. He read English as an undergraduate at Pembroke from 1969 to 1972 and went on to complete a PhD on Wordsworth and Coleridge, graduating with his doctorate in 1979.</p>
+            
+            <p>His academic experience extends beyond Cambridge, having spent a year at Harvard as a Kennedy Scholar. Currently, he serves as the President of the Wordsworth Trust, maintaining his connection to scholarly pursuits in English literature.</p>
+            
+            <p>Lord Smith believes that someone who has successfully led a College and who understands the fundamental importance of the relationship between the University and the Colleges has the right background to become Chancellor.</p>
+        </section>
+        
+        <div class="decorative-line"></div>
+        
+        <section class="section" id="vision">
+            <h2>Vision for Cambridge</h2>
+            
+            <blockquote>
+                Cambridge is one of the leading Universities of the world, devoted to teaching, learning and research. We are a genuine centre of excellence, a major national and international asset for Britain.
+            </blockquote>
+            
+            <p>As Chancellor, Lord Smith would champion this excellence, advocating for the crucial role Cambridge plays in advancing knowledge, promoting research, and educating future generations of leaders. His vision emphasizes the need to channel all our energy into sustaining and developing that excellence.</p>
+            
+            <p>With his extensive experience in both the public and academic sectors, Lord Smith aims to strengthen Cambridge's position as a global leader in education and research, while ensuring it remains true to its collegiate structure and commitment to academic freedom.</p>
+        </section>
+        
+        <div class="decorative-line"></div>
+        
+        <section class="section" id="voting">
+            <h2>Voting Information</h2>
+            
+            <div class="voting-card">
+                <h3>Eligibility</h3>
+                <p>All alumni and current members of the University of Cambridge are eligible to vote in the Chancellor election.</p>
+                
+                <h3>Key Dates</h3>
+                <ul>
+                    <li><strong>Registration Deadline:</strong> 5pm UK time (UTC+1) on Friday 2 May 2025</li>
+                    <li><strong>In-person Voting:</strong> 10am-5pm UK time (UTC+1) on either Saturday 12 July or Wednesday 16 July at the Senate House in Cambridge</li>
+                    <li><strong>Online Voting Period:</strong> 10am UK time (UTC+1) on Wednesday 9 July until 5pm UK time (UTC+1) on Friday 18 July 2025</li>
+                </ul>
+                
+                <a href="https://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work/people/chancellor/election-of-the-next-chancellor/how-to-register-for-online-voting" class="voting-cta">Check Eligibility & Register to Vote</a>
+            </div>
+        </section>
+        
+        <div class="footnotes">
+            <p>© 2025 Campaign for Lord Chris Smith for Cambridge Chancellor</p>
+        </div>
+    </div>
+    
+    <div class="cambridge-imagery"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocToggle = document.getElementById('tocToggle');
+            const toc = document.getElementById('toc');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            // Toggle TOC on mobile
+            tocToggle.addEventListener('click', function() {
+                toc.classList.toggle('open');
+                tocToggle.classList.toggle('open');
+            });
+            
+            // Highlight current section in TOC
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Smooth scroll to sections
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close the mobile menu after click
+                    if (window.innerWidth <= 1024) {
+                        toc.classList.remove('open');
+                        tocToggle.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
