@@ -17,6 +17,7 @@
             --background-color: #f9f9f9;
             --accent-color: #94262f;
             --gold: #d4af37;
+            --gold-rgb: 212, 175, 55;
             --transition-timing: cubic-bezier(0.19, 1, 0.22, 1);
         }
         
@@ -510,7 +511,7 @@
             justify-content: center;
             gap: 12px;
             z-index: 10;
-            padding: 15px 0;
+            padding: 15px 0 25px 0;
         }
 
         .slider-dot {
@@ -603,6 +604,26 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--cambridge-blue);
+        }
+
+        .learn-more-btn {
+            background-color: transparent;
+            border: 2px solid var(--cambridge-blue);
+            color: var(--cambridge-blue);
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-btn:hover {
+            background-color: var(--cambridge-blue);
+            color: white;
+            transform: translateY(-3px);
         }
 
         .btn {
@@ -703,6 +724,17 @@
 
         .modal-close::after {
             transform: rotate(-45deg);
+        }
+
+        /* Highlight effect for modal sections */
+        .highlight-section {
+            animation: highlight-pulse 1.5s ease;
+        }
+
+        @keyframes highlight-pulse {
+            0% { background-color: transparent; }
+            30% { background-color: rgba(var(--gold-rgb, 212, 175, 55), 0.15); }
+            100% { background-color: transparent; }
         }
 
         /* Gallery section */
@@ -1489,18 +1521,22 @@
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="300">
                     <h3>Leadership that Delivers Change</h3>
                     <p>As Secretary of State for Culture, I established NESTA, the Foundation for Youth Music, Creative Partnerships for Schools, funding for Olympic athletes, the switchover to digital television, and made all the national museums and galleries free.</p>
+                    <button class="learn-more-btn" data-section="leadership">Learn More</button>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="400">
                     <h3>Commitment to Diversity</h3>
-                    <p>In 1984 I became the first MP in the UK voluntarily to come out as gay. When I was appointed to the Cabinet in 1997 I was the first openly gay Cabinet Minister anywhere in the world.</p>
+                    <p>In 1984 I became the first MP in the UK voluntarily to come out as gay. When I was appointed to the Cabinet in 1997 I was the first openly gay Cabinet Minister anywhere in the world. I became the vice-president of the Campaign for Homosexual Equality in 2009.</p>
+                    <button class="learn-more-btn" data-section="diversity">Learn More</button>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="500">
                     <h3>Successful Fundraising</h3>
                     <p>During my Mastership of Pembroke, we have expanded the footprint of the College by a third with our Mill Lane development; and we have successfully raised £82 million to complete it.</p>
+                    <button class="learn-more-btn" data-section="fundraising">Learn More</button>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="600">
                     <h3>Committed to Academic Excellence</h3>
                     <p>I read English as an undergraduate at Pembroke, from 1969 to 1972; I went on to do a PhD on Wordsworth and Coleridge and graduated with my doctorate in 1979. I spent a year at Harvard as a Kennedy Scholar.</p>
+                    <button class="learn-more-btn" data-section="academic">Learn More</button>
                 </div>
             </div>
             <button id="read-full-statement" class="btn btn-center" data-aos="fade-up" data-aos-delay="700">Read Full Statement</button>
@@ -1787,22 +1823,22 @@
             <div class="modal-close"></div>
             <h2 style="color: var(--cambridge-blue); margin-bottom: 1.5rem;">Statement from Chris Smith</h2>
             <p>Universities matter more than ever in these difficult times. The Chancellor must be a champion for Cambridge, and for the role the University plays in fostering learning and knowledge. We live in a dangerous world of misinformation and "fake news". Universities are the places where facts are researched and honoured, where information is discovered and tested and debated. It is why a genuine commitment to freedom of speech is so important. It is no accident that the first target of autocrats everywhere is education; tyrants do not want people to have and acquire knowledge. The Chancellor has above all to be an advocate for the vital importance of knowledge and expertise.</p>
-            
+
             <p>I believe I have much to offer the University as Chancellor:</p>
-            
-            <div style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+
+            <div id="leadership" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
                 <p><strong>Proven leadership:</strong> As Secretary of State for Culture, I established NESTA, the Foundation for Youth Music, Creative Partnerships for Schools, funding for Olympic athletes, the switchover to digital television, and made all the national museums and galleries free. I believe that the best politics and governance are non-partisan; I was appointed as Chairman of the Environment Agency by a Labour Secretary of State, and reappointed by a Conservative. After leaving Government, I led the parliamentary opposition to the Iraq war; I was the Founding Director of the Clore Leadership Programme in the arts and culture; and I became Chairman of the Advertising Standards Authority for ten years. Since 2015 I have been Master of Pembroke.</p>
             </div>
-            
-            <div style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+
+            <div id="diversity" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
                 <p><strong>A commitment to diversity, openness and ethics:</strong> In 1984 I became the first MP in the UK voluntarily to come out as gay. When I was appointed to the Cabinet in 1997 I was the first openly gay Cabinet Minister anywhere in the world. I have always set great store by openness and transparency in public life; it is important always to stand up for what you believe in.</p>
             </div>
-            
-            <div style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+
+            <div id="fundraising" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
                 <p><strong>A record of successful fundraising:</strong> During my Mastership of Pembroke, we have expanded the footprint of the College by a third with our Mill Lane development; and we have successfully raised £82 million to complete it.</p>
             </div>
-            
-            <div style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+
+            <div id="academic" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
                 <p><strong>A strong commitment to Academic and Collegiate Cambridge:</strong> I read English as an undergraduate at Pembroke, from 1969 to 1972; I went on to do a PhD on Wordsworth and Coleridge and graduated with my doctorate in 1979. I spent a year at Harvard as a Kennedy Scholar. I am now the President of the Wordsworth Trust. I believe someone who has a record of successfully leading a College, and who understands the fundamental importance of the relationship between the University and the Colleges, has the right background to become Chancellor.</p>
             </div>
             
@@ -1907,23 +1943,47 @@
             const readFullBtn = document.getElementById('read-full-statement');
             const statementModal = document.getElementById('statement-modal');
             const modalClose = document.querySelector('.modal-close');
-            
+            const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+
             readFullBtn.addEventListener('click', function() {
                 statementModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
-            
+
             modalClose.addEventListener('click', function() {
                 statementModal.classList.remove('active');
                 document.body.style.overflow = '';
             });
-            
+
             // Close modal when clicking outside the content
             statementModal.addEventListener('click', function(e) {
                 if (e.target === statementModal) {
                     statementModal.classList.remove('active');
                     document.body.style.overflow = '';
                 }
+            });
+
+            // Learn More button functionality
+            learnMoreBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    statementModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+
+                    // Scroll to the specific section after a small delay to allow modal to open
+                    setTimeout(() => {
+                        const sectionElement = document.getElementById(sectionId);
+                        if (sectionElement) {
+                            sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                            // Add highlight effect
+                            sectionElement.classList.add('highlight-section');
+                            setTimeout(() => {
+                                sectionElement.classList.remove('highlight-section');
+                            }, 1500);
+                        }
+                    }, 400);
+                });
             });
             
             // Parallax scroll effects
