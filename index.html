@@ -466,9 +466,11 @@
             position: relative;
             max-width: 800px;
             margin: 0 auto;
-            height: 320px;
-            padding-bottom: 80px;
+            height: auto;
+            min-height: 300px;
+            padding-bottom: 50px;
             margin-bottom: 20px;
+            overflow: visible;
         }
 
         .endorsement-slide {
@@ -476,33 +478,45 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: auto;
+            min-height: 150px;
+            max-height: 450px;
             opacity: 0;
-            transition: opacity 0.8s var(--transition-timing);
-            padding: 2rem;
+            visibility: hidden;
+            transition: opacity 0.8s var(--transition-timing), visibility 0.8s var(--transition-timing);
+            padding: 2rem 2rem 3.5rem 2rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             transform: scale(0.9);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background-color: rgba(1, 33, 88, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .endorsement-slide.active {
             opacity: 1;
+            visibility: visible;
             transform: scale(1);
+            position: relative;
         }
 
         .endorsement-text {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             line-height: 1.5;
             text-align: center;
             font-style: italic;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .endorsement-author {
             font-size: 1.2rem;
             text-align: right;
             font-weight: 700;
+            margin-top: auto;
+            padding-top: 1rem;
         }
 
         .endorsement-author span {
@@ -515,32 +529,33 @@
         }
 
         .slider-nav {
-            position: absolute;
-            bottom: -60px;
-            left: 0;
-            right: 0;
+            position: relative;
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 8px;
             z-index: 10;
-            padding: 15px 0 25px 0;
+            padding: 20px 15px 0 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
         }
 
         .slider-dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
             display: block;
             border: 1px solid rgba(255, 255, 255, 0.5);
+            margin: 0 3px;
         }
 
         .slider-dot.active {
             background-color: var(--gold);
             transform: scale(1.2);
             border-color: var(--gold);
+            box-shadow: 0 0 5px rgba(var(--gold-rgb), 0.7);
         }
 
         /* Manifesto section */
@@ -1389,11 +1404,12 @@
             }
 
             .endorsements-carousel {
-                height: 400px;
+                height: 500px;
             }
 
             .endorsement-text {
-                font-size: 1.3rem;
+                font-size: 1.15rem;
+                line-height: 1.4;
             }
 
             .modal-content {
@@ -1417,11 +1433,13 @@
             }
 
             .endorsement-text {
-                font-size: 1.2rem;
+                font-size: 1rem;
+                line-height: 1.4;
             }
 
             .endorsements-carousel {
-                height: 450px;
+                height: 550px;
+                padding-bottom: 60px;
             }
 
             .quote {
@@ -1523,16 +1541,36 @@
                     <p class="endorsement-author">Angus Ivory <span>current undergraduate, President of Pembroke JCR</span></p>
                 </div>
                 <div class="endorsement-slide">
-                    <p class="endorsement-text">I am delighted to support Lord Smith's application to be Chancellor of the University; not only does he have the gravitas, respect and integrity required, he has a wide Cambridge perspective from a decade as Master of Pembroke and earlier time as undergraduate, PhD student and President of the Union.</p>
+                    <p class="endorsement-text">I am delighted to support Lord Smith's application to be Chancellor of the University; not only does he have the gravitas, respect and integrity required, he has a wide Cambridge perspective from a decade as Master of Pembroke and earlier time as undergraduate, PhD student and President of the Union. Chris brings breadth and depth of leadership and sector experience spanning academia, local and central government politics, housing, culture, sport and the environment. He was arguably the most successful ever Secretary of State for Culture, Media and Sport.</p>
                     <p class="endorsement-author">Dame Sue Owen <span>Newnham 1973</span></p>
                 </div>
                 <div class="endorsement-slide">
-                    <p class="endorsement-text">I'm backing Chris Smith because he's the real deal. He is a man of pristine integrity and honesty, with a proud record of distinguished public service and profound commitment to our University.</p>
+                    <p class="endorsement-text">I'm backing Chris Smith because he's the real deal. He is a man of pristine integrity and honesty, with a proud record of distinguished public service and profound commitment to our University. His belief in freedom of expression, which I have spent my career defending, is deep in his bone marrow, and Cambridge – which for centuries has relied upon and championed free speech – could have no more powerful advocate in its defence. Above all, he is a man who knows how to get things done. He has spent a hugely successful career in politics – but he is no tribalist or ideologue, and eschews dogma: as I have witnessed so many times when we have worked together, he understands in a unique way how to reach out to people of all opinions and none, build alliances, bridge differences and achieve consensus. That is a priceless asset in an institution such as ours so rich in its diversity of opinion and thought. He will be a remarkable Chancellor.</p>
                     <p class="endorsement-author">Lord Guy Black <span>Peterhouse 1982</span></p>
                 </div>
                 <div class="endorsement-slide">
-                    <p class="endorsement-text">Chris Smith is a man of integrity, determination, subtlety and courage who has remained faithful to his beliefs and guiding principles over decades of distinguished public service. He was also possibly the most effective and impassioned Culture Secretary since the post was created.</p>
+                    <p class="endorsement-text">Chris Smith is a man of integrity, determination, subtlety and courage who has remained faithful to his beliefs and guiding principles over decades of distinguished public service. He was also possibly the most effective and impassioned Culture Secretary since the post was created. For these reasons – amongst many others – I believe he would be a marvellous choice for Chancellor.</p>
                     <p class="endorsement-author">George Benjamin <span>King's 1978</span></p>
+                </div>
+                <div class="endorsement-slide">
+                    <p class="endorsement-text">The role of Chancellor requires a vast array of skills. With his distinguished career in politics and public service, Lord Smith has all the acumen and expertise that this unique position requires, as well as deep knowledge of a University that he has served so faithfully.</p>
+                    <p class="endorsement-author">Professor Polly Blakesley <span>Master-Elect for Pembroke College</span></p>
+                </div>
+                <div class="endorsement-slide">
+                    <p class="endorsement-text">We should all be proud that Cambridge produces leaders like Chris Smith. The first openly gay Cabinet Minister in the world, and a genuine champion of diversity throughout his life, Chris is a true statesman. He is an inspirational figure among students, academics and alumni, and an influential champion of the University of Cambridge on a national and international level. There are a number of able candidates in this election, making it all the more important for alumni to allocate their first and second preference votes to candidates who stand for common values. Chris will be getting my first preference vote.</p>
+                    <p class="endorsement-author">Steven Friel <span>Jesus 1996, Chair of Cambridge University LGBT+ Alumni Association</span></p>
+                </div>
+                <div class="endorsement-slide">
+                    <p class="endorsement-text">I have known Chris Smith for almost 50 years, going back to the time we were together at Pembroke, and I can say with certainty that there's no one better suited to be Chancellor of the University of Cambridge than Chris. His commitment to the University is well-known and unquestionable. The University would do itself a favour by electing him as its next Chancellor.</p>
+                    <p class="endorsement-author">Karan Thapar <span>Pembroke 1974, distinguished Indian journalist</span></p>
+                </div>
+                <div class="endorsement-slide">
+                    <p class="endorsement-text">For the last ten years, I have had the pleasure of knowing Chris Smith in his role as Master of Pembroke. On being elected Master, he assumed leadership of the project to substantially expand the college by redeveloping the property along Mill Lane and facing the historic Pembroke College. Our family has been delighted to support this project that has so transformed the capacities of the college to educate its students and support its scholars. In very short order, Chris was able to establish relationships with the architects, builders, Cambridge planning authorities and the University to enable the project to progress rapidly and ultimately achieve the magnificent result the College is enjoying today. I always felt that with Chris at the helm, this new campus would become a reality. I have been uniquely impressed with Chris's can-do spirit and ability to inspire others to believe that this massive project was indeed achievable. Chris has the ability to genuinely relate to all he meets, whether students, academics, alumni and certainly regardless of which side of the Atlantic they may be.</p>
+                    <p class="endorsement-author">Dagmar Dolby <span>widow of Ray Dolby, major benefactor of both Pembroke College and the University</span></p>
+                </div>
+                <div class="endorsement-slide">
+                    <p class="endorsement-text">I met Lord Smith, the current Master of Pembroke, in Hollywood, when I was invited to attend a College event. I found him to be generous, kind, patient, thoughtful and utterly dedicated to the College we both love. Under his inspired leadership Pembroke had negotiated to purchase and develop the old Mill Lane site, a highly ambitious project expanding the College by a third. During all that time I have been very impressed by Lord Smith's enthusiasm, his constant encouragement and his quiet generous leadership. I am a rare and highly fortunate survivor of pancreatic cancer and I have learned the value of great people in important positions and I think it would be a ridiculous waste to allow such a brilliant leader to simply leave the University, which is why I am very happy to support him in his current bid. I believe he would make a magnificent Chancellor for our University. I make you all a solemn pledge, that in the event we are successful, I promise not to sing.</p>
+                    <p class="endorsement-author">Eric Idle <span>Pembroke 1962</span></p>
                 </div>
                 <div class="slider-nav">
                     <div class="slider-dot active" data-index="0"></div>
@@ -1541,6 +1579,11 @@
                     <div class="slider-dot" data-index="3"></div>
                     <div class="slider-dot" data-index="4"></div>
                     <div class="slider-dot" data-index="5"></div>
+                    <div class="slider-dot" data-index="6"></div>
+                    <div class="slider-dot" data-index="7"></div>
+                    <div class="slider-dot" data-index="8"></div>
+                    <div class="slider-dot" data-index="9"></div>
+                    <div class="slider-dot" data-index="10"></div>
                 </div>
             </div>
         </div>
@@ -1963,46 +2006,69 @@
             const sliderDots = document.querySelectorAll('.slider-dot');
             let currentSlideIndex = 0;
             let isAnimating = false;
-            
+
             function showSlide(index) {
                 if (isAnimating) return;
                 isAnimating = true;
-                
+
                 endorsementSlides[currentSlideIndex].classList.remove('active');
                 sliderDots[currentSlideIndex].classList.remove('active');
-                
+
                 currentSlideIndex = index;
-                
+
                 if (currentSlideIndex >= endorsementSlides.length) {
                     currentSlideIndex = 0;
                 }
-                
+
                 if (currentSlideIndex < 0) {
                     currentSlideIndex = endorsementSlides.length - 1;
                 }
-                
+
+                // Scroll to top of the endorsement for long ones
+                endorsementSlides[currentSlideIndex].scrollTop = 0;
+
+                // Activate the new slide
                 endorsementSlides[currentSlideIndex].classList.add('active');
                 sliderDots[currentSlideIndex].classList.add('active');
-                
+
+                // Ensure carousel height adjusts to the content
+                const activeSlide = endorsementSlides[currentSlideIndex];
+                const slideContent = activeSlide.querySelector('.endorsement-text').clientHeight +
+                                   activeSlide.querySelector('.endorsement-author').clientHeight + 140;
+
+                // Set a minimum and maximum height
+                const carouselHeight = Math.min(Math.max(slideContent, 250), 450);
+                document.querySelector('.endorsements-carousel').style.minHeight = carouselHeight + 'px';
+
                 setTimeout(() => {
                     isAnimating = false;
                 }, 100);
             }
-            
+
             sliderDots.forEach((dot, index) => {
                 dot.addEventListener('click', function() {
                     showSlide(index);
                     clearInterval(autoSlideInterval);
-                    autoSlideInterval = setInterval(nextSlide, 5000);
+                    autoSlideInterval = setInterval(nextSlide, 7000);
                 });
             });
-            
+
             function nextSlide() {
                 showSlide(currentSlideIndex + 1);
             }
-            
-            // Auto rotate endorsements
-            let autoSlideInterval = setInterval(nextSlide, 5000);
+
+            // Auto rotate endorsements - increased time to 7 seconds to allow for longer quotes
+            let autoSlideInterval = setInterval(nextSlide, 7000);
+
+            // Initialize the first slide's height
+            window.addEventListener('load', function() {
+                const firstSlide = endorsementSlides[0];
+                const firstSlideContent = firstSlide.querySelector('.endorsement-text').clientHeight +
+                                         firstSlide.querySelector('.endorsement-author').clientHeight + 140;
+
+                const initialHeight = Math.min(Math.max(firstSlideContent, 250), 450);
+                document.querySelector('.endorsements-carousel').style.minHeight = initialHeight + 'px';
+            });
             
             // Modal functionality
             const readFullBtn = document.getElementById('read-full-statement');
