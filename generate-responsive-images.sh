@@ -70,7 +70,7 @@ echo "<!DOCTYPE html>
 " > "$HTML_REFERENCE"
 
 # Process all images in the images directory
-for img in images/*.jpg; do
+for img in images/*.png images/*.jpg; do
     convert_to_responsive "$img"
     
     # Add HTML reference for this image

@@ -427,6 +427,7 @@
             background: linear-gradient(135deg, var(--cambridge-blue), var(--cambridge-dark));
             color: white;
             overflow: hidden;
+            padding-bottom: 1.5rem;
         }
 
         .endorsements-title {
@@ -453,6 +454,8 @@
             max-width: 800px;
             margin: 0 auto;
             height: 320px;
+            padding-bottom: 80px;
+            margin-bottom: 20px;
         }
 
         .endorsement-slide {
@@ -506,6 +509,8 @@
             display: flex;
             justify-content: center;
             gap: 12px;
+            z-index: 10;
+            padding: 15px 0;
         }
 
         .slider-dot {
@@ -515,11 +520,14 @@
             background-color: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .slider-dot.active {
             background-color: var(--gold);
             transform: scale(1.2);
+            border-color: var(--gold);
         }
 
         /* Manifesto section */
@@ -1182,6 +1190,17 @@
             position: relative;
         }
 
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
         footer::before {
             content: '';
             position: absolute;
@@ -1353,7 +1372,7 @@
             </div>
             <div class="manifesto-grid">
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="300">
-                    <h3>Proven Leadership</h3>
+                    <h3>Leadership that Delivers Change</h3>
                     <p>As Secretary of State for Culture, I established NESTA, the Foundation for Youth Music, Creative Partnerships for Schools, funding for Olympic athletes, the switchover to digital television, and made all the national museums and galleries free.</p>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="400">
@@ -1365,7 +1384,7 @@
                     <p>During my Mastership of Pembroke, we have expanded the footprint of the College by a third with our Mill Lane development; and we have successfully raised £82 million to complete it.</p>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="600">
-                    <h3>Academic Commitment</h3>
+                    <h3>Committed to Academic Excellence</h3>
                     <p>I read English as an undergraduate at Pembroke, from 1969 to 1972; I went on to do a PhD on Wordsworth and Coleridge and graduated with my doctorate in 1979. I spent a year at Harvard as a Kennedy Scholar.</p>
                 </div>
             </div>
@@ -1385,7 +1404,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Begins undergraduate studies at Pembroke College, Cambridge</h3>
-                            <p class="timeline-description">Started his Cambridge journey as an undergraduate reading English</p>
+                            <p class="timeline-description">Started his Cambridge journey as an undergraduate reading English.</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
                                 <img src="images/CRS6a.jpg" alt="Chris Smith at Pembroke College" style="width: 100%; display: block;">
                             </div>
@@ -1397,7 +1416,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Graduates from Cambridge with First Class Honours</h3>
-                            <p class="timeline-description">Completed his undergraduate degree with the highest academic distinction</p>
+                            <p class="timeline-description">Completed his undergraduate degree with the highest academic distinction, a double first.</p>
                         </div>
                     </div>
                     
@@ -1406,7 +1425,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Earns PhD from Cambridge University</h3>
-                            <p class="timeline-description">Awarded doctorate for his research on Wordsworth and Coleridge</p>
+                            <p class="timeline-description">Spent a year at Harvard as a Kennedy Scholar, and was awarded a doctorate for his research on Wordsworth and Coleridge.</p>
                         </div>
                     </div>
                     
@@ -1437,6 +1456,11 @@
                         <div class="timeline-content">
                             <h3 class="timeline-event">Becomes President of the Ramblers' Association</h3>
                             <p class="timeline-description">Demonstrates his commitment to environmental conservation and public access to the countryside</p>
+                            <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
+                                <a href="https://www.bbc.co.uk/news/uk-politics-26116881" target="_blank">
+                                    <img src="images/chris1986.webp" alt="Chris Smith (source:BBC)" style="width: 100%; display: block;">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
@@ -1458,6 +1482,9 @@
                         <div class="timeline-content">
                             <h3 class="timeline-event">Appointed as Secretary of State for Culture, Media and Sport</h3>
                             <p class="timeline-description">Joins the Cabinet with historic significance as the first openly gay Cabinet Minister in the world</p>
+                            <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
+                                <img src="images/CRS17a.jpg" alt="Chris Smith as Secretary of State for Culture, Media and Sport" style="width: 100%; display: block;">
+                            </div>
                         </div>
                     </div>
                     
@@ -1467,6 +1494,11 @@
                         <div class="timeline-content">
                             <h3 class="timeline-event">Makes national museums and galleries free</h3>
                             <p class="timeline-description">Implements the transformative policy of free entry to Britain's museums and galleries, dramatically increasing public access to cultural institutions</p>
+                            <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
+                                <a href="https://www.bbc.co.uk/news/av/uk-politics-12309160" target="_blank">
+                                    <img src="images/bbc-museums.png" alt="BBC News coverage of free museums policy" style="width: 100%; display: block;">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
@@ -1488,6 +1520,11 @@
                         <div class="timeline-content">
                             <h3 class="timeline-event">Becomes Chairman of the Advertising Standards Authority</h3>
                             <p class="timeline-description">Takes leadership role in regulating advertising in the UK, a position he held for ten years</p>
+                            <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
+                                <a href="https://www.campaignlive.co.uk/article/12-rounds-heavyweight-chris-smith/1292217" target="_blank">
+                                    <img src="images/chris-smith-asa.jpg" alt="Chris Smith as ASA Chairman" style="width: 100%; display: block;">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
@@ -1510,7 +1547,12 @@
                             <h3 class="timeline-event">Appointed Chairman of the Environment Agency</h3>
                             <p class="timeline-description">Takes on leadership of the principal environmental regulator in England</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <img src="images/CRS17a.jpg" alt="Chris Smith at the Environment Agency" style="width: 100%; display: block;">
+                                <a href="https://www.bbc.co.uk/news/uk-politics-26116881" target="_blank">
+                                    <img src="images/bbc-env.webp" alt="BBC coverage of Environment Agency" style="width: 100%; display: block;">
+                                    <div style="position: absolute; bottom: 8px; right: 10px; background-color: rgba(0,0,0,0.6); color: white; padding: 3px 8px; border-radius: 3px; font-size: 0.8rem;">
+                                        Source: BBC
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1530,6 +1572,9 @@
                         <div class="timeline-content">
                             <h3 class="timeline-event">Becomes Master of Pembroke College, Cambridge</h3>
                             <p class="timeline-description">Returns to his alma mater to lead one of Cambridge's oldest colleges</p>
+                            <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
+                                <img src="images/Turner_GuterresPembroke041.jpg" alt="Chris Smith as Master of Pembroke with UN Secretary-General" style="width: 100%; display: block;">
+                            </div>
                         </div>
                     </div>
                     
@@ -1539,6 +1584,9 @@
                         <div class="timeline-content">
                             <h3 class="timeline-event">Completes Mill Lane development at Pembroke</h3>
                             <p class="timeline-description">Successfully raises £82 million and oversees expansion of the College footprint by one-third</p>
+                            <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
+                                <img src="images/CI081.jpg" alt="Mill Lane development at Pembroke College" style="width: 100%; display: block;">
+                            </div>
                         </div>
                     </div>
                     
@@ -1546,8 +1594,8 @@
                         <div class="timeline-year">2025</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Stands for election as Chancellor of Cambridge University</h3>
-                            <p class="timeline-description">Brings his wealth of experience in academia, politics, and leadership to the Chancellorship campaign</p>
+                            <h3 class="timeline-event">Stands for election as Chancellor of the University of Cambridge</h3>
+                            <p class="timeline-description"><a href="#voting">Vote for Chris Smith</a> in July!</p>
                         </div>
                     </div>
                 </div>
@@ -1582,38 +1630,6 @@
         </div>
     </section>
     
-    <!-- Gallery Section -->
-    <section id="gallery" class="section gallery">
-        <div class="section-content">
-            <h2 class="gallery-title" data-aos="fade-up">Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/CRS19b.jpg" alt="Lord Chris Smith at Pembroke College">
-                    <div class="gallery-caption">Lord Chris Smith at Pembroke College where he served as Master</div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/Turner_GuterresPembroke041.jpg" alt="Lord Chris Smith with UN Secretary-General">
-                    <div class="gallery-caption">Lord Chris Smith welcoming UN Secretary-General António Guterres</div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="images/20250203 Sir Ian McKellen1.jpg" alt="Lord Chris Smith with Sir Ian McKellen">
-                    <div class="gallery-caption">Sir Ian McKellen and Lord Chris Smith</div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="images/Stop the Clause.jpg" alt="Chris Smith at Stop the Clause demonstration">
-                    <div class="gallery-caption">Chris Smith at the historic 'Stop the Clause' demonstration</div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
-                    <img src="images/Turner_GuterresPembroke050.jpg" alt="Chris Smith with UN Secretary-General António Guterres">
-                    <div class="gallery-caption">Chris Smith with UN Secretary-General António Guterres at Pembroke College</div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
-                    <img src="images/20250203 Sir Ian McKellen3.jpg" alt="Chris Smith with Sir Ian McKellen">
-                    <div class="gallery-caption">Chris Smith in conversation with Sir Ian McKellen</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Voting Section -->
     <section id="voting" class="section voting">
@@ -1645,7 +1661,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Chris Smith for Cambridge Chancellor</p>
+            <small>
+            <p>&copy; 2025 Chris Smith. This site has no cookies or third-party trackers. Direct technical questions to <a href="https://anil.recoil.org/">Anil Madhavapeddy</a>.</p></small>
         </div>
     </footer>
 
