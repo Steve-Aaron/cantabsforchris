@@ -2048,8 +2048,18 @@
             sliderDots.forEach((dot, index) => {
                 dot.addEventListener('click', function() {
                     showSlide(index);
-                    clearInterval(autoSlideInterval);
-                    autoSlideInterval = setInterval(nextSlide, 7000);
+
+                    // Clear existing interval if it exists
+                    if (autoSlideInterval) {
+                        clearInterval(autoSlideInterval);
+                    }
+
+                    // Only start a new interval if the section is visible
+                    if (isEndorsementSectionVisible) {
+                        autoSlideInterval = setInterval(nextSlide, 7000);
+                    } else {
+                        autoSlideInterval = null;
+                    }
                 });
             });
 
@@ -2059,6 +2069,33 @@
 
             // Auto rotate endorsements - increased time to 7 seconds to allow for longer quotes
             let autoSlideInterval = setInterval(nextSlide, 7000);
+            let isEndorsementSectionVisible = false;
+
+            // Create Intersection Observer to detect when the endorsements section is visible
+            const endorsementObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Update visibility state
+                    isEndorsementSectionVisible = entry.isIntersecting;
+
+                    if (entry.isIntersecting) {
+                        // Section is visible, start the rotation if it was paused
+                        if (!autoSlideInterval) {
+                            autoSlideInterval = setInterval(nextSlide, 7000);
+                        }
+                    } else {
+                        // Section is not visible, pause the rotation
+                        if (autoSlideInterval) {
+                            clearInterval(autoSlideInterval);
+                            autoSlideInterval = null;
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when at least 10% of the section is visible
+            });
+
+            // Observe the endorsements section
+            endorsementObserver.observe(document.querySelector('.endorsements'));
 
             // Initialize the first slide's height
             window.addEventListener('load', function() {
