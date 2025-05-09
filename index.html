@@ -471,6 +471,16 @@
             padding-bottom: 50px;
             margin-bottom: 20px;
             overflow: visible;
+            touch-action: pan-y;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: grab;
+        }
+
+        .endorsements-carousel:active {
+            cursor: grabbing;
         }
 
         .endorsement-slide {
@@ -483,12 +493,12 @@
             max-height: 450px;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.8s var(--transition-timing), visibility 0.8s var(--transition-timing);
+            transition: opacity 0.8s var(--transition-timing), visibility 0.8s var(--transition-timing), transform 0.8s var(--transition-timing);
             padding: 2rem 2rem 3.5rem 2rem;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            transform: scale(0.9);
+            transform: scale(0.9) translateX(30px);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             background-color: rgba(1, 33, 88, 0.95);
@@ -496,10 +506,18 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        .endorsement-slide.next-slide {
+            transform: scale(0.9) translateX(30px);
+        }
+
+        .endorsement-slide.prev-slide {
+            transform: scale(0.9) translateX(-30px);
+        }
+
         .endorsement-slide.active {
             opacity: 1;
             visibility: visible;
-            transform: scale(1);
+            transform: scale(1) translateX(0);
             position: relative;
         }
 
@@ -528,15 +546,137 @@
             margin-top: 0.5rem;
         }
 
+        .carousel-nav-arrows {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none; /* Hide side arrows by default, will be visible on mobile only */
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .carousel-arrow {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(1, 33, 88, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0.7;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .carousel-arrow:hover {
+            background-color: var(--gold);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .carousel-arrow:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.5);
+        }
+
+        .carousel-arrow::before {
+            content: '';
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-top: 2px solid white;
+            border-right: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-arrow.prev {
+            left: -15px;
+            margin-left: 10px;
+        }
+
+        .carousel-arrow.prev::before {
+            transform: rotate(-135deg);
+            margin-left: 4px;
+        }
+
+        .carousel-arrow.next {
+            right: -15px;
+            margin-right: 10px;
+        }
+
+        .carousel-arrow.next::before {
+            transform: rotate(45deg);
+            margin-right: 4px;
+        }
+
+        /* Desktop navigation */
+        .nav-controls {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 15px;
+        }
+
         .slider-nav {
             position: relative;
             display: flex;
             justify-content: center;
             gap: 8px;
             z-index: 10;
-            padding: 20px 15px 0 15px;
+            padding: 10px 0;
             flex-wrap: wrap;
-            margin-top: 10px;
+        }
+
+        .dot-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            width: 32px;
+            height: 32px;
+            background-color: rgba(1, 33, 88, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .nav-btn::before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid white;
+            border-right: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn.prev::before {
+            transform: rotate(-135deg);
+            margin-left: 3px;
+        }
+
+        .nav-btn.next::before {
+            transform: rotate(45deg);
+            margin-right: 3px;
         }
 
         .slider-dot {
@@ -551,11 +691,55 @@
             margin: 0 3px;
         }
 
+        .slider-dot:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.5);
+        }
+
         .slider-dot.active {
             background-color: var(--gold);
             transform: scale(1.2);
             border-color: var(--gold);
             box-shadow: 0 0 5px rgba(var(--gold-rgb), 0.7);
+        }
+
+        .swipe-hint {
+            display: none;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .endorsement-slide {
+                padding: 1.5rem 1.5rem 3rem 1.5rem;
+            }
+
+            .endorsement-text {
+                font-size: 1.1rem;
+            }
+
+            .swipe-hint {
+                display: block;
+            }
+
+            .carousel-nav-arrows {
+                display: flex; /* Show side arrows on mobile */
+            }
+
+            .nav-controls .nav-btn {
+                display: none; /* Hide dot-adjacent buttons on mobile */
+            }
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .endorsement-slide {
+                padding: 1.2rem 1.2rem 2.5rem 1.2rem;
+            }
         }
 
         /* Manifesto section */
@@ -1528,6 +1712,10 @@
         <div class="section-content">
             <h2 class="endorsements-title" data-aos="fade-up">Endorsements</h2>
             <div class="endorsements-carousel" data-aos="fade-up" data-aos-delay="200">
+                <div class="carousel-nav-arrows">
+                    <button class="carousel-arrow prev" aria-label="Previous endorsement" tabindex="0" role="button"></button>
+                    <button class="carousel-arrow next" aria-label="Next endorsement" tabindex="0" role="button"></button>
+                </div>
                 <div class="endorsement-slide active">
                     <p class="endorsement-text">Chris Smith has been devoted to Cambridge since his undergraduate days, which is when we first met. He's a passionate academic, a seasoned politician, a man with a cross party set of friendships and allies, and someone who always gives of his all. He is ideally suited for the Chancellorship, and will bring great charm, energy, skill, diplomacy and humour to the role.</p>
                     <p class="endorsement-author">Baroness Julia Neuberger <span>Newnham 1969</span></p>
@@ -1572,19 +1760,24 @@
                     <p class="endorsement-text">I met Lord Smith, the current Master of Pembroke, in Hollywood, when I was invited to attend a College event. I found him to be generous, kind, patient, thoughtful and utterly dedicated to the College we both love. Under his inspired leadership Pembroke had negotiated to purchase and develop the old Mill Lane site, a highly ambitious project expanding the College by a third. During all that time I have been very impressed by Lord Smith's enthusiasm, his constant encouragement and his quiet generous leadership. I am a rare and highly fortunate survivor of pancreatic cancer and I have learned the value of great people in important positions and I think it would be a ridiculous waste to allow such a brilliant leader to simply leave the University, which is why I am very happy to support him in his current bid. I believe he would make a magnificent Chancellor for our University. I make you all a solemn pledge, that in the event we are successful, I promise not to sing.</p>
                     <p class="endorsement-author">Eric Idle <span>Pembroke 1962</span></p>
                 </div>
-                <div class="slider-nav">
-                    <div class="slider-dot active" data-index="0"></div>
-                    <div class="slider-dot" data-index="1"></div>
-                    <div class="slider-dot" data-index="2"></div>
-                    <div class="slider-dot" data-index="3"></div>
-                    <div class="slider-dot" data-index="4"></div>
-                    <div class="slider-dot" data-index="5"></div>
-                    <div class="slider-dot" data-index="6"></div>
-                    <div class="slider-dot" data-index="7"></div>
-                    <div class="slider-dot" data-index="8"></div>
-                    <div class="slider-dot" data-index="9"></div>
-                    <div class="slider-dot" data-index="10"></div>
+                <div class="nav-controls">
+                    <button class="nav-btn prev" aria-label="Previous endorsement" tabindex="0" role="button"></button>
+                    <div class="slider-nav">
+                        <div class="slider-dot active" data-index="0"></div>
+                        <div class="slider-dot" data-index="1"></div>
+                        <div class="slider-dot" data-index="2"></div>
+                        <div class="slider-dot" data-index="3"></div>
+                        <div class="slider-dot" data-index="4"></div>
+                        <div class="slider-dot" data-index="5"></div>
+                        <div class="slider-dot" data-index="6"></div>
+                        <div class="slider-dot" data-index="7"></div>
+                        <div class="slider-dot" data-index="8"></div>
+                        <div class="slider-dot" data-index="9"></div>
+                        <div class="slider-dot" data-index="10"></div>
+                    </div>
+                    <button class="nav-btn next" aria-label="Next endorsement" tabindex="0" role="button"></button>
                 </div>
+                <div class="swipe-hint">← Swipe left or right to see more endorsements →</div>
             </div>
         </div>
     </section>
@@ -2004,32 +2197,64 @@
             // Endorsements carousel
             const endorsementSlides = document.querySelectorAll('.endorsement-slide');
             const sliderDots = document.querySelectorAll('.slider-dot');
+            const carousel = document.querySelector('.endorsements-carousel');
+            const prevArrow = document.querySelector('.carousel-arrow.prev');
+            const nextArrow = document.querySelector('.carousel-arrow.next');
             let currentSlideIndex = 0;
             let isAnimating = false;
 
-            function showSlide(index) {
+            // Touch swipe variables
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let touchStartY = 0;
+            let touchEndY = 0;
+            const minSwipeDistance = 50; // Minimum distance for a swipe to count
+
+            function showSlide(index, direction = null) {
                 if (isAnimating) return;
                 isAnimating = true;
 
-                endorsementSlides[currentSlideIndex].classList.remove('active');
+                // Remove active class from current slide
+                endorsementSlides[currentSlideIndex].classList.remove('active', 'next-slide', 'prev-slide');
                 sliderDots[currentSlideIndex].classList.remove('active');
 
+                // Determine the direction of transition if not specified
+                if (direction === null) {
+                    direction = index > currentSlideIndex ? 'next' : 'prev';
+
+                    // Handle wrap-around cases
+                    if (index === 0 && currentSlideIndex === endorsementSlides.length - 1) {
+                        direction = 'next';
+                    } else if (index === endorsementSlides.length - 1 && currentSlideIndex === 0) {
+                        direction = 'prev';
+                    }
+                }
+
+                // Store old index before updating
+                const oldIndex = currentSlideIndex;
+
+                // Update current index
                 currentSlideIndex = index;
 
+                // Handle wrap-around
                 if (currentSlideIndex >= endorsementSlides.length) {
                     currentSlideIndex = 0;
                 }
-
                 if (currentSlideIndex < 0) {
                     currentSlideIndex = endorsementSlides.length - 1;
                 }
 
+                // Apply appropriate positioning classes based on direction
+                if (direction === 'next') {
+                    endorsementSlides[oldIndex].classList.add('prev-slide');
+                    endorsementSlides[currentSlideIndex].classList.add('next-slide');
+                } else {
+                    endorsementSlides[oldIndex].classList.add('next-slide');
+                    endorsementSlides[currentSlideIndex].classList.add('prev-slide');
+                }
+
                 // Scroll to top of the endorsement for long ones
                 endorsementSlides[currentSlideIndex].scrollTop = 0;
-
-                // Activate the new slide
-                endorsementSlides[currentSlideIndex].classList.add('active');
-                sliderDots[currentSlideIndex].classList.add('active');
 
                 // Ensure carousel height adjusts to the content
                 const activeSlide = endorsementSlides[currentSlideIndex];
@@ -2038,33 +2263,111 @@
 
                 // Set a minimum and maximum height
                 const carouselHeight = Math.min(Math.max(slideContent, 250), 450);
-                document.querySelector('.endorsements-carousel').style.minHeight = carouselHeight + 'px';
+                carousel.style.minHeight = carouselHeight + 'px';
 
-                setTimeout(() => {
-                    isAnimating = false;
-                }, 100);
+                // Use requestAnimationFrame to force a reflow before applying active class
+                requestAnimationFrame(() => {
+                    // Remove transition classes and add active
+                    endorsementSlides[currentSlideIndex].classList.remove('next-slide', 'prev-slide');
+                    endorsementSlides[currentSlideIndex].classList.add('active');
+                    sliderDots[currentSlideIndex].classList.add('active');
+
+                    setTimeout(() => {
+                        isAnimating = false;
+                    }, 300); // Allow time for transitions to complete
+                });
             }
 
+            function nextSlide() {
+                showSlide(currentSlideIndex + 1, 'next');
+                resetAutoSlideTimer();
+            }
+
+            function prevSlide() {
+                showSlide(currentSlideIndex - 1, 'prev');
+                resetAutoSlideTimer();
+            }
+
+            function resetAutoSlideTimer() {
+                // Clear existing interval if it exists
+                if (autoSlideInterval) {
+                    clearInterval(autoSlideInterval);
+                }
+
+                // Only start a new interval if the section is visible
+                if (isEndorsementSectionVisible) {
+                    autoSlideInterval = setInterval(nextSlide, 7000);
+                } else {
+                    autoSlideInterval = null;
+                }
+            }
+
+            // Set up dot navigation
             sliderDots.forEach((dot, index) => {
                 dot.addEventListener('click', function() {
                     showSlide(index);
-
-                    // Clear existing interval if it exists
-                    if (autoSlideInterval) {
-                        clearInterval(autoSlideInterval);
-                    }
-
-                    // Only start a new interval if the section is visible
-                    if (isEndorsementSectionVisible) {
-                        autoSlideInterval = setInterval(nextSlide, 7000);
-                    } else {
-                        autoSlideInterval = null;
-                    }
+                    resetAutoSlideTimer();
                 });
             });
 
-            function nextSlide() {
-                showSlide(currentSlideIndex + 1);
+            // Set up arrow navigation for mobile
+            if (prevArrow) {
+                prevArrow.addEventListener('click', prevSlide);
+            }
+
+            if (nextArrow) {
+                nextArrow.addEventListener('click', nextSlide);
+            }
+
+            // Set up navigation buttons for desktop (next to dots)
+            const prevNavBtn = document.querySelector('.nav-btn.prev');
+            const nextNavBtn = document.querySelector('.nav-btn.next');
+
+            if (prevNavBtn) {
+                prevNavBtn.addEventListener('click', prevSlide);
+            }
+
+            if (nextNavBtn) {
+                nextNavBtn.addEventListener('click', nextSlide);
+            }
+
+            // Touch swipe handling for mobile devices
+            carousel.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                // Calculate horizontal and vertical distance moved
+                const horizontalDist = touchEndX - touchStartX;
+                const verticalDist = Math.abs(touchEndY - touchStartY);
+
+                // Only register as a horizontal swipe if the vertical movement is less than half the horizontal
+                // This prevents accidental swipes when scrolling vertically
+                if (Math.abs(horizontalDist) > minSwipeDistance && verticalDist < Math.abs(horizontalDist)) {
+                    // Check if the touch event is on a slide element that's scrollable and currently scrolled
+                    const activeSlide = endorsementSlides[currentSlideIndex];
+                    const isScrolledToSide = (horizontalDist < 0 && activeSlide.scrollLeft > 0) ||
+                                            (horizontalDist > 0 && activeSlide.scrollLeft < activeSlide.scrollWidth - activeSlide.clientWidth);
+
+                    if (!isScrolledToSide) {
+                        if (horizontalDist > 0) {
+                            // Swiped right, show previous slide
+                            showSlide(currentSlideIndex - 1, 'prev');
+                            resetAutoSlideTimer();
+                        } else {
+                            // Swiped left, show next slide
+                            showSlide(currentSlideIndex + 1, 'next');
+                            resetAutoSlideTimer();
+                        }
+                    }
+                }
             }
 
             // Auto rotate endorsements - increased time to 7 seconds to allow for longer quotes
@@ -2104,7 +2407,18 @@
                                          firstSlide.querySelector('.endorsement-author').clientHeight + 140;
 
                 const initialHeight = Math.min(Math.max(firstSlideContent, 250), 450);
-                document.querySelector('.endorsements-carousel').style.minHeight = initialHeight + 'px';
+                carousel.style.minHeight = initialHeight + 'px';
+            });
+
+            // Add keyboard accessibility
+            document.addEventListener('keydown', function(e) {
+                if (isEndorsementSectionVisible) {
+                    if (e.key === 'ArrowLeft') {
+                        prevSlide();
+                    } else if (e.key === 'ArrowRight') {
+                        nextSlide();
+                    }
+                }
             });
             
             // Modal functionality
