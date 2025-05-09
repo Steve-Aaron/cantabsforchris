@@ -1018,7 +1018,7 @@
 
         .timeline-title {
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-align: center;
             position: relative;
             color: var(--cambridge-blue);
@@ -1027,7 +1027,7 @@
         .timeline-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
@@ -1039,7 +1039,7 @@
             position: relative;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
         }
 
         .timeline-line {
@@ -1059,12 +1059,12 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.8rem;
             width: 46%;
             box-sizing: border-box;
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.5s var(--transition-timing);
+            transition: all 0.3s var(--transition-timing);
         }
 
         .timeline-item.visible {
@@ -1129,7 +1129,7 @@
         .timeline-content {
             background-color: white;
             border-radius: 8px;
-            padding: 1.2rem;
+            padding: 1rem;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border-top: 3px solid transparent;
@@ -1144,7 +1144,7 @@
         .timeline-event {
             font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             color: var(--cambridge-blue);
         }
 
@@ -1152,6 +1152,22 @@
             font-size: 1rem;
             line-height: 1.5;
             color: var(--text-color);
+        }
+        
+        /* Hide descriptions for entries without images by default */
+        .timeline-item:not(:has(.timeline-image)) .timeline-description {
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            opacity: 0;
+            transition: all 0.2s ease;
+        }
+        
+        /* Show descriptions on hover for entries without images */
+        .timeline-item:not(:has(.timeline-image)):hover .timeline-description {
+            height: auto;
+            opacity: 1;
+            margin-top: 0.5rem;
         }
 
         @media (max-width: 768px) {
@@ -1396,10 +1412,10 @@
     <section id="timeline" class="section timeline">
         <div class="section-content">
             <h2 class="timeline-title" data-aos="fade-up">Career Timeline</h2>
-            <div class="timeline-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="timeline-container" data-aos="fade-up" data-aos-delay="50">
                 <div class="timeline-line"></div>
                 <div class="timeline-items">
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">1969</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1411,7 +1427,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="150">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">1972</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1420,7 +1436,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">1979</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1429,7 +1445,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="250">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">1983</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1438,7 +1454,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">1984</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1450,7 +1466,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="350">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">1987</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1464,7 +1480,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">1992</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1476,7 +1492,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="450">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">1997</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1488,7 +1504,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2001</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1502,7 +1518,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="550">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">2005</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1514,7 +1530,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="600">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2006</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1528,7 +1544,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="650">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">2007</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1540,7 +1556,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="700">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2008</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1557,7 +1573,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="750">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">2014</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1566,7 +1582,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="800">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2015</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1578,7 +1594,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="850">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">2023</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1590,7 +1606,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="900">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2025</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -1701,9 +1717,9 @@
     <!-- Main script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS
+            // Initialize AOS with reduced duration for faster animations
             AOS.init({
-                duration: 800,
+                duration: 350,
                 easing: 'ease',
                 once: true
             });
@@ -1770,7 +1786,7 @@
                 
                 setTimeout(() => {
                     isAnimating = false;
-                }, 800);
+                }, 100);
             }
             
             sliderDots.forEach((dot, index) => {
@@ -1872,13 +1888,16 @@
             const timelineObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        // Add a much shorter delay before visibility
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 100); // Reduced delay
                         timelineObserver.unobserve(entry.target);
                     }
                 });
             }, {
                 threshold: 0.1,
-                rootMargin: '-50px'
+                rootMargin: '-30px' // Trigger slightly earlier
             });
             
             // Observe all timeline items for animation on scroll
