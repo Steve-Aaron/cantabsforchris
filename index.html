@@ -366,6 +366,35 @@
             border-color: var(--gold);
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        #voting-countdown {
+            background: linear-gradient(to right, var(--gold), var(--cambridge-blue));
+            animation: pulse 2s infinite;
+        }
+
+        #voting-countdown #days-remaining {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(var(--gold-rgb), 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(var(--gold-rgb), 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(var(--gold-rgb), 0);
+            }
+        }
+
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -861,6 +890,11 @@
         }
 
         .voting-card p {
+            margin-bottom: 1rem;
+        }
+
+        .voting-card ul {
+            padding-left: 1.5rem;
             margin-bottom: 1rem;
         }
 
@@ -1435,7 +1469,12 @@
                         <a href="#news" class="quicklink">News</a>
                         <a href="#voting" class="quicklink">How to Vote</a>
                     </div>
-                    <a href="#endorsements" class="btn">Learn More</a>
+                    <div class="hero-buttons">
+                        <a href="#endorsements" class="btn">Learn More</a>
+                        <a href="#voting" id="voting-countdown" class="btn">
+                            <span id="days-remaining">--</span> days until voting
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1768,7 +1807,7 @@
     <!-- Voting Section -->
     <section id="voting" class="section voting">
         <div class="section-content">
-            <h2 class="voting-title" data-aos="fade-up">How to Vote</h2>
+            <h2 class="voting-title" data-aos="fade-up">How to Vote <span style="font-size: 0.8em; font-weight: normal; display: block; margin-top: 0.5rem;">All alumni can vote in person!</span></h2>
             <div class="voting-grid">
                 <div class="voting-card" data-aos="fade-right" data-aos-delay="200">
                     <h3>In-Person Voting</h3>
@@ -1777,16 +1816,17 @@
                         <li>Saturday 12 July 2025</li>
                         <li>Wednesday 16 July 2025</li>
                     </ul>
-                    <p><strong>Important:</strong> If you have missed the registration deadline, you are still eligible to vote in person!</p>
+                    <p><strong>Important:</strong> All alumni can vote in person, even if you missed the online registration deadline! We would be delighted to welcome you back to Cambridge.</p>
+                    <p>You will be expected to wear a gown in the Senate House if able to do so, and one will be provided if you do not have one.</p>
+                    <div class="voting-links">
+                        <a href="https://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work/people/chancellor/election-of-the-next-chancellor/how-to-register-for-online-voting" target="_blank">Check Eligibility</a>
+                    </div>
                 </div>
                 <div class="voting-card" data-aos="fade-left" data-aos-delay="300">
                     <h3>Online Voting</h3>
                     <p>Online voting will be open from 10am UK time (UTC+1) on Wednesday 9 July until 5pm UK time (UTC+1) on Friday 18 July 2025.</p>
-                    <p>You must register by 5pm UK time (UTC+1) on Friday 2 May 2025 to be eligible for online voting.</p>
-                    <div class="voting-links">
-                        <a href="https://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work/people/chancellor/election-of-the-next-chancellor/how-to-register-for-online-voting" target="_blank">Check Eligibility</a>
-                        <a href="https://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work/people/chancellor/election-of-the-next-chancellor/how-to-register-for-online-voting" target="_blank">Register for Online Voting</a>
-                    </div>
+                    <p>The registration deadline for online voting has now passed. If you have already registered, you will be able to cast your vote online during the above dates.</p>
+                    <p><strong>Important:</strong> Even if you missed the online registration deadline, you can still vote in person! We would be delighted to welcome you back to Cambridge.</p>
                 </div>
             </div>
         </div>
@@ -1841,6 +1881,35 @@
                 easing: 'ease',
                 once: true
             });
+
+            // Calculate days until voting begins (July 9, 2025)
+            function updateCountdown() {
+                const votingDate = new Date('July 9, 2025 10:00:00 UTC+0100');
+                const today = new Date();
+
+                // Calculate the difference in days
+                const timeDiff = votingDate.getTime() - today.getTime();
+                let daysRemaining = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                // Ensure we don't show negative days
+                daysRemaining = Math.max(0, daysRemaining);
+
+                // Update the countdown text
+                document.getElementById('days-remaining').textContent = daysRemaining;
+
+                // If voting has started, change the text
+                if (daysRemaining === 0 && today < new Date('July 18, 2025 17:00:00 UTC+0100')) {
+                    document.getElementById('voting-countdown').textContent = 'Voting is open now!';
+                } else if (daysRemaining === 0) {
+                    document.getElementById('voting-countdown').textContent = 'Voting has ended';
+                } else {
+                    document.getElementById('voting-countdown').innerHTML =
+                        '<span id="days-remaining">' + daysRemaining + '</span> days until voting';
+                }
+            }
+
+            // Initialize countdown
+            updateCountdown();
             
             // Navigation toggle
             const navToggle = document.querySelector('.nav-toggle');
