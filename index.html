@@ -1172,28 +1172,35 @@
 
         @media (max-width: 768px) {
             .timeline-line {
-                left: 30px;
+                left: 20px;
             }
-            
+
             .timeline-item {
                 width: auto;
-                margin-left: 60px !important;
+                margin-left: 70px !important;
                 margin-right: 20px !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
                 text-align: left !important;
+                margin-bottom: 2.5rem;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-year,
             .timeline-item:nth-child(even) .timeline-year {
-                left: -60px;
+                left: -70px;
                 right: auto;
+                width: 65px;
+                font-size: 0.9rem;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-dot,
             .timeline-item:nth-child(even) .timeline-dot {
-                left: -23px;
+                left: -13px;
                 right: auto;
+            }
+
+            .timeline-content {
+                padding-top: 1.5rem;
             }
         }
 
@@ -1229,6 +1236,10 @@
 
         /* Media queries */
         @media (max-width: 992px) {
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
             .portrait-container {
                 flex-direction: column;
                 gap: 2rem;
@@ -1240,6 +1251,7 @@
 
             .manifesto-grid, .voting-grid {
                 grid-template-columns: 1fr;
+                gap: 1.25rem;
             }
 
             .quote {
@@ -1251,11 +1263,46 @@
                 font-size: 6rem;
                 top: -2rem;
             }
+
+            .voting-card {
+                padding: 1.25rem;
+            }
+
+            .section-content {
+                padding: 0 0.5rem;
+            }
+
+            .btn {
+                white-space: normal;
+                max-width: 100%;
+                padding: 0.8rem 1.5rem;
+            }
         }
 
         @media (max-width: 768px) {
             html {
                 font-size: 14px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero-portrait {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .hero-text {
+                flex: 0 0 100%;
+                text-align: center;
+            }
+
+            .hero-quicklinks {
+                justify-content: center;
             }
 
             .hero-title {
@@ -1267,7 +1314,7 @@
             }
 
             .section {
-                padding: 4rem 1rem;
+                padding: 3rem 1rem;
             }
 
             .nav-list a {
@@ -1276,6 +1323,58 @@
 
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .endorsements-carousel {
+                height: 400px;
+            }
+
+            .endorsement-text {
+                font-size: 1.3rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .manifesto-title, .timeline-title,
+            .voting-title, .news-title, .gallery-title, .endorsements-title {
+                font-size: 2rem;
+            }
+
+            .endorsement-text {
+                font-size: 1.2rem;
+            }
+
+            .endorsements-carousel {
+                height: 450px;
+            }
+
+            .quote {
+                font-size: 1.6rem;
+                padding-left: 1.5rem;
+            }
+
+            .quote::before {
+                font-size: 5rem;
+                top: -2rem;
+                left: -1rem;
+            }
+
+            .nav-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
     </style>
