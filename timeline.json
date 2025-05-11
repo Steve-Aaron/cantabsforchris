@@ -3,12 +3,7 @@
     {
       "year": 1969,
       "event": "Begins undergraduate studies at Pembroke College, Cambridge",
-      "description": "Started his Cambridge journey as an undergraduate reading English"
-    },
-    {
-      "year": 1972,
-      "event": "Graduates from Cambridge with First Class Honours",
-      "description": "Completed his undergraduate degree with the highest academic distinction"
+      "description": "Started his Cambridge journey as an undergraduate reading English. Graduated in 1972 with First Class Honours and became President of the Cambridge Union debating society"
     },
     {
       "year": 1979,
@@ -18,7 +13,9 @@
     {
       "year": 1983,
       "event": "Elected as Member of Parliament",
-      "description": "First elected as MP for Islington South and Finsbury"
+      "description": "First elected as MP for Islington South and Finsbury",
+      "image": "images/chris_smith_parliment.jpg",
+      "link": "https://www.bbc.co.uk/news/uk-politics-56116131"
     },
     {
       "year": 1984,
@@ -26,9 +23,9 @@
       "description": "Becomes the first MP in the UK to voluntarily come out as gay, a pioneering moment for LGBTQ+ representation in British politics"
     },
     {
-      "year": 1987,
-      "event": "Becomes President of the Ramblers' Association",
-      "description": "Demonstrates his commitment to environmental conservation and public access to the countryside"
+      "year": 1989,
+      "event": "Completes climbing all 284 Munros in Scotland",
+      "description": "Accomplishes the impressive feat of climbing all mountains in Scotland over 3,000 feet high"
     },
     {
       "year": 1992,
@@ -86,11 +83,6 @@
       "description": "Takes leadership role in regulating advertising in the UK, a position he held for ten years"
     },
     {
-      "year": 2007,
-      "event": "Completes climbing all 284 Munros in Scotland",
-      "description": "Accomplishes the impressive feat of climbing all mountains in Scotland over 3,000 feet high"
-    },
-    {
       "year": 2008,
       "event": "Appointed Chairman of the Environment Agency",
       "description": "Takes on leadership of the principal environmental regulator in England"
@@ -108,12 +100,12 @@
     {
       "year": 2015,
       "event": "Becomes Master of Pembroke College, Cambridge",
-      "description": "Returns to his alma mater to lead one of Cambridge's oldest colleges"
+      "description": "Returns to his alma mater to lead one of Cambridge's oldest colleges. The photo shows Chris with Rowan Williams, Antonio Guterres (UN Secretary-General), and a Pembroke student at the College"
     },
     {
       "year": 2023,
       "event": "Completes Mill Lane development at Pembroke",
-      "description": "Successfully raises £82 million and oversees expansion of the College footprint by one-third"
+      "description": "Successfully raises £82 million and oversees expansion of the College footprint by one-third. The photo shows Chris with Julia Gillard and Polly Blakesley in the new Mill Lane development"
     },
     {
       "year": 2025,
