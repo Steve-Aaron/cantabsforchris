@@ -399,12 +399,12 @@
             background: linear-gradient(135deg, var(--cambridge-blue), var(--cambridge-dark));
             color: white;
             overflow: hidden;
-            padding-bottom: 1.5rem;
+            padding: 4rem 2rem;
         }
 
         .endorsements-title {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
             position: relative;
             color: white;
@@ -419,6 +419,209 @@
             width: 80px;
             height: 3px;
             background-color: var(--gold);
+        }
+
+        /* Responsive Grid Layout */
+        .endorsements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Endorsement Card */
+        .endorsement-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s var(--transition-timing);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Introduction Card Styling */
+        .introduction-card {
+            background: linear-gradient(135deg, rgba(0, 33, 88, 0.4), rgba(0, 21, 52, 0.6));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .intro-content {
+            text-align: center;
+        }
+
+        .intro-image {
+            width: 100%;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            max-height: 150px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(1.05) contrast(0.95);
+        }
+
+        .introduction-card {
+            padding: 0;
+        }
+
+        .introduction-card .intro-content {
+            padding: 1rem 2rem 2rem;
+        }
+
+        .intro-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .endorsement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: var(--gold);
+        }
+
+        /* Endorsement Author Section */
+        .endorsement-card .endorsement-author {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            float: none;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .endorsement-card .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .endorsement-card .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .endorsement-card:hover .author-image {
+            border-width: 3px;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .endorsement-card .author-info {
+            flex: 1;
+        }
+
+        .endorsement-card .author-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: white;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .endorsement-card:hover .author-info h3 {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .endorsement-card .author-info span {
+            color: var(--gold);
+            font-weight: 400;
+            font-style: italic;
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .endorsement-card:hover .author-info span {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        /* Endorsement Content */
+        .endorsement-card .endorsement-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .endorsement-card .endorsement-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            flex: 1;
+        }
+
+        /* Responsive adjustments for endorsement grid */
+        @media (max-width: 768px) {
+            .endorsements-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .endorsement-card {
+                max-width: 100%;
+            }
+
+            .endorsements {
+                padding: 3rem 1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1100px) {
+            .endorsements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Custom scrollbar for WebKit browsers */
+        .endorsement-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .endorsement-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .endorsement-content::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .endorsement-content::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.5);
         }
 
         .endorsements-carousel {
@@ -1813,195 +2016,193 @@
     <section id="endorsements" class="section endorsements">
         <div class="section-content">
             <h2 class="endorsements-title" data-aos="fade-up">Endorsements</h2>
-            <div class="endorsements-carousel" data-aos="fade-up" data-aos-delay="200">
-                <div class="carousel-nav-arrows">
-                    <button class="carousel-arrow prev" aria-label="Previous endorsement" tabindex="0" role="button"></button>
-                    <button class="carousel-arrow next" aria-label="Next endorsement" tabindex="0" role="button"></button>
+            <div class="endorsements-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- Introduction Box -->
+                <div class="endorsement-card introduction-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="intro-content">
+                        <div class="intro-image">
+                            <img src="images/endorsements_header.jpg" alt="Endorsements Header" />
+                        </div>
+                        <p>Chris Smith's candidacy is supported by a diverse range of individuals spanning multiple decades of Cambridge life, from current students to distinguished alumni.</p>
+                        <p>These endorsements come from academics, politicians, artists, journalists, and benefactors who have witnessed his leadership and commitment to Cambridge.</p>
+                    </div>
                 </div>
-                <div class="endorsement-slide active">
+
+                <!-- Baroness Julia Neuberger -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/julia_neuberger.jpg" alt="Baroness Julia Neuberger">
                         </div>
                         <div class="author-info">
-                            Baroness Julia Neuberger
+                            <h3>Baroness Julia Neuberger</h3>
                             <span>Newnham 1969</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">Chris Smith has been devoted to Cambridge since his undergraduate days, which is when we first met. He's a passionate academic, a seasoned politician, a man with a cross party set of friendships and allies, and someone who always gives of his all. He is ideally suited for the Chancellorship, and will bring great charm, energy, skill, diplomacy and humour to the role.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">Chris Smith has been devoted to Cambridge since his undergraduate days, which is when we first met. He's a passionate academic, a seasoned politician, a man with a cross party set of friendships and allies, and someone who always gives of his all. He is ideally suited for the Chancellorship, and will bring great charm, energy, skill, diplomacy and humour to the role.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
+
+                <!-- Andy Burnham -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/andy_burnham.jpg" alt="Andy Burnham">
                         </div>
                         <div class="author-info">
-                            Andy Burnham
+                            <h3>Andy Burnham</h3>
                             <span>Fitzwilliam 1988</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">Chris Smith's far-sighted decision to introduce free entry to Britain's museums and galleries remains the most inspirational example of cultural leadership this country has ever seen. His lifelong approach of promoting academic and cultural excellence, whilst opening up the widest possible access to it, marks him out as the right leader for our university in its next phase.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">Chris Smith's far-sighted decision to introduce free entry to Britain's museums and galleries remains the most inspirational example of cultural leadership this country has ever seen. His lifelong approach of promoting academic and cultural excellence, whilst opening up the widest possible access to it, marks him out as the right leader for our university in its next phase.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
+
+                <!-- Angus Ivory -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/angus_ivory.jpg" alt="Angus Ivory">
                         </div>
                         <div class="author-info">
-                            Angus Ivory
+                            <h3>Angus Ivory</h3>
                             <span>current undergraduate, President of Pembroke JCR</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">As an undergraduate, I have really appreciated Lord Smith's engagements with students – he is generous in the time he spends hosting student events and in the daily conversations he has with us. He genuinely listens and takes our perspective seriously. As JPC President, I have been able to count on Chris to lend his full support to our work and champion the student point of view.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">As an undergraduate, I have really appreciated Lord Smith's engagements with students – he is generous in the time he spends hosting student events and in the daily conversations he has with us. He genuinely listens and takes our perspective seriously. As JPC President, I have been able to count on Chris to lend his full support to our work and champion the student point of view.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
+
+                <!-- Dame Sue Owen -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/sue_owen.jpg" alt="Dame Sue Owen">
                         </div>
                         <div class="author-info">
-                            Dame Sue Owen
+                            <h3>Dame Sue Owen</h3>
                             <span>Newnham 1973</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">I am delighted to support Lord Smith's application to be Chancellor of the University; not only does he have the gravitas, respect and integrity required, he has a wide Cambridge perspective from a decade as Master of Pembroke and earlier time as undergraduate, PhD student and President of the Union. Chris brings breadth and depth of leadership and sector experience spanning academia, local and central government politics, housing, culture, sport and the environment. He was arguably the most successful ever Secretary of State for Culture, Media and Sport.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">I am delighted to support Lord Smith's application to be Chancellor of the University; not only does he have the gravitas, respect and integrity required, he has a wide Cambridge perspective from a decade as Master of Pembroke and earlier time as undergraduate, PhD student and President of the Union. Chris brings breadth and depth of leadership and sector experience spanning academia, local and central government politics, housing, culture, sport and the environment. He was arguably the most successful ever Secretary of State for Culture, Media and Sport.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/guy_black.jpg" alt="Lord Guy Black">
-                        </div>
-                        <div class="author-info">
-                            Lord Guy Black
-                            <span>Peterhouse 1982</span>
-                        </div>
-                    </div>
-                    <p class="endorsement-text">I'm backing Chris Smith because he's the real deal. He is a man of pristine integrity and honesty, with a proud record of distinguished public service and profound commitment to our University. His belief in freedom of expression, which I have spent my career defending, is deep in his bone marrow, and Cambridge – which for centuries has relied upon and championed free speech – could have no more powerful advocate in its defence. Above all, he is a man who knows how to get things done. He has spent a hugely successful career in politics – but he is no tribalist or ideologue, and eschews dogma: as I have witnessed so many times when we have worked together, he understands in a unique way how to reach out to people of all opinions and none, build alliances, bridge differences and achieve consensus. That is a priceless asset in an institution such as ours so rich in its diversity of opinion and thought. He will be a remarkable Chancellor.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
-                    </div>
-                </div>
-                <div class="endorsement-slide">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/george_benjamin.jpg" alt="George Benjamin">
-                        </div>
-                        <div class="author-info">
-                            George Benjamin
-                            <span>King's 1978</span>
-                        </div>
-                    </div>
-                    <p class="endorsement-text">Chris Smith is a man of integrity, determination, subtlety and courage who has remained faithful to his beliefs and guiding principles over decades of distinguished public service. He was also possibly the most effective and impassioned Culture Secretary since the post was created. For these reasons – amongst many others – I believe he would be a marvellous choice for Chancellor.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
-                    </div>
-                </div>
-                <div class="endorsement-slide">
+
+                <!-- Professor Polly Blakesley -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/polly_blakesley.jpg" alt="Professor Polly Blakesley">
                         </div>
                         <div class="author-info">
-                            Professor Polly Blakesley
+                            <h3>Professor Polly Blakesley</h3>
                             <span>Master-Elect for Pembroke College</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">The role of Chancellor requires a vast array of skills. With his distinguished career in politics and public service, Lord Smith has all the acumen and expertise that this unique position requires, as well as deep knowledge of a University that he has served so faithfully.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">The role of Chancellor requires a vast array of skills. With his distinguished career in politics and public service, Lord Smith has all the acumen and expertise that this unique position requires, as well as deep knowledge of a University that he has served so faithfully.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
+
+                <!-- George Benjamin -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="endorsement-author">
+                        <div class="author-image">
+                            <img src="images/george_benjamin.jpg" alt="George Benjamin">
+                        </div>
+                        <div class="author-info">
+                            <h3>George Benjamin</h3>
+                            <span>King's 1978</span>
+                        </div>
+                    </div>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">Chris Smith is a man of integrity, determination, subtlety and courage who has remained faithful to his beliefs and guiding principles over decades of distinguished public service. He was also possibly the most effective and impassioned Culture Secretary since the post was created. For these reasons – amongst many others – I believe he would be a marvellous choice for Chancellor.</p>
+                    </div>
+                </div>
+
+                <!-- Steven Friel -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/steven_friel.jpg" alt="Steven Friel">
                         </div>
                         <div class="author-info">
-                            Steven Friel
+                            <h3>Steven Friel</h3>
                             <span>Jesus 1996, Chair of Cambridge University LGBT+ Alumni Association</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">We should all be proud that Cambridge produces leaders like Chris Smith. The first openly gay Cabinet Minister in the world, and a genuine champion of diversity throughout his life, Chris is a true statesman. He is an inspirational figure among students, academics and alumni, and an influential champion of the University of Cambridge on a national and international level. There are a number of able candidates in this election, making it all the more important for alumni to allocate their first and second preference votes to candidates who stand for common values. Chris will be getting my first preference vote.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">We should all be proud that Cambridge produces leaders like Chris Smith. The first openly gay Cabinet Minister in the world, and a genuine champion of diversity throughout his life, Chris is a true statesman. He is an inspirational figure among students, academics and alumni, and an influential champion of the University of Cambridge on a national and international level. There are a number of able candidates in this election, making it all the more important for alumni to allocate their first and second preference votes to candidates who stand for common values. Chris will be getting my first preference vote.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
+
+                <!-- Karan Thapar -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/karan_thapar.jpg" alt="Karan Thapar">
                         </div>
                         <div class="author-info">
-                            Karan Thapar
+                            <h3>Karan Thapar</h3>
                             <span>Pembroke 1974, distinguished Indian journalist</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">I have known Chris Smith for almost 50 years, going back to the time we were together at Pembroke, and I can say with certainty that there's no one better suited to be Chancellor of the University of Cambridge than Chris. His commitment to the University is well-known and unquestionable. The University would do itself a favour by electing him as its next Chancellor.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">I have known Chris Smith for almost 50 years, going back to the time we were together at Pembroke, and I can say with certainty that there's no one better suited to be Chancellor of the University of Cambridge than Chris. His commitment to the University is well-known and unquestionable. The University would do itself a favour by electing him as its next Chancellor.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
+
+                <!-- Dagmar Dolby -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="550">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/dagmar_dolby.jpg" alt="Dagmar Dolby">
                         </div>
                         <div class="author-info">
-                            Dagmar Dolby
+                            <h3>Dagmar Dolby</h3>
                             <span>widow of Ray Dolby, major benefactor of both Pembroke College and the University</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">For the last ten years, I have had the pleasure of knowing Chris Smith in his role as Master of Pembroke. On being elected Master, he assumed leadership of the project to substantially expand the college by redeveloping the property along Mill Lane and facing the historic Pembroke College. Our family has been delighted to support this project that has so transformed the capacities of the college to educate its students and support its scholars. In very short order, Chris was able to establish relationships with the architects, builders, Cambridge planning authorities and the University to enable the project to progress rapidly and ultimately achieve the magnificent result the College is enjoying today. I always felt that with Chris at the helm, this new campus would become a reality. I have been uniquely impressed with Chris's can-do spirit and ability to inspire others to believe that this massive project was indeed achievable. Chris has the ability to genuinely relate to all he meets, whether students, academics, alumni and certainly regardless of which side of the Atlantic they may be.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">For the last ten years, I have had the pleasure of knowing Chris Smith in his role as Master of Pembroke. On being elected Master, he assumed leadership of the project to substantially expand the college by redeveloping the property along Mill Lane and facing the historic Pembroke College. Our family has been delighted to support this project that has so transformed the capacities of the college to educate its students and support its scholars. In very short order, Chris was able to establish relationships with the architects, builders, Cambridge planning authorities and the University to enable the project to progress rapidly and ultimately achieve the magnificent result the College is enjoying today. I always felt that with Chris at the helm, this new campus would become a reality. I have been uniquely impressed with Chris's can-do spirit and ability to inspire others to believe that this massive project was indeed achievable. Chris has the ability to genuinely relate to all he meets, whether students, academics, alumni and certainly regardless of which side of the Atlantic they may be.</p>
                     </div>
                 </div>
-                <div class="endorsement-slide">
+
+                <!-- Eric Idle -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="endorsement-author">
                         <div class="author-image">
                             <img src="images/eric_idle.png" alt="Eric Idle">
                         </div>
                         <div class="author-info">
-                            Eric Idle
+                            <h3>Eric Idle</h3>
                             <span>Pembroke 1962</span>
                         </div>
                     </div>
-                    <p class="endorsement-text">I met Lord Smith, the current Master of Pembroke, in Hollywood, when I was invited to attend a College event. I found him to be generous, kind, patient, thoughtful and utterly dedicated to the College we both love. Under his inspired leadership Pembroke had negotiated to purchase and develop the old Mill Lane site, a highly ambitious project expanding the College by a third. During all that time I have been very impressed by Lord Smith's enthusiasm, his constant encouragement and his quiet generous leadership. I am a rare and highly fortunate survivor of pancreatic cancer and I have learned the value of great people in important positions and I think it would be a ridiculous waste to allow such a brilliant leader to simply leave the University, which is why I am very happy to support him in his current bid. I believe he would make a magnificent Chancellor for our University. I make you all a solemn pledge, that in the event we are successful, I promise not to sing.</p>
-                    <div class="scroll-indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">I met Lord Smith, the current Master of Pembroke, in Hollywood, when I was invited to attend a College event. I found him to be generous, kind, patient, thoughtful and utterly dedicated to the College we both love. Under his inspired leadership Pembroke had negotiated to purchase and develop the old Mill Lane site, a highly ambitious project expanding the College by a third. During all that time I have been very impressed by Lord Smith's enthusiasm, his constant encouragement and his quiet generous leadership. I am a rare and highly fortunate survivor of pancreatic cancer and I have learned the value of great people in important positions and I think it would be a ridiculous waste to allow such a brilliant leader to simply leave the University, which is why I am very happy to support him in his current bid. I believe he would make a magnificent Chancellor for our University. I make you all a solemn pledge, that in the event we are successful, I promise not to sing.</p>
                     </div>
                 </div>
-                </div>
-                <div class="nav-controls">
-                    <button class="nav-btn prev" aria-label="Previous endorsement" tabindex="0" role="button"></button>
-                    <div class="slider-nav">
-                        <div class="slider-dot active" data-index="0"></div>
-                        <div class="slider-dot" data-index="1"></div>
-                        <div class="slider-dot" data-index="2"></div>
-                        <div class="slider-dot" data-index="3"></div>
-                        <div class="slider-dot" data-index="4"></div>
-                        <div class="slider-dot" data-index="5"></div>
-                        <div class="slider-dot" data-index="6"></div>
-                        <div class="slider-dot" data-index="7"></div>
-                        <div class="slider-dot" data-index="8"></div>
-                        <div class="slider-dot" data-index="9"></div>
-                        <div class="slider-dot" data-index="10"></div>
+
+                <!-- Lord Guy Black -->
+                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="650">
+                    <div class="endorsement-author">
+                        <div class="author-image">
+                            <img src="images/guy_black.jpg" alt="Lord Guy Black">
+                        </div>
+                        <div class="author-info">
+                            <h3>Lord Guy Black</h3>
+                            <span>Peterhouse 1982</span>
+                        </div>
                     </div>
-                    <button class="nav-btn next" aria-label="Next endorsement" tabindex="0" role="button"></button>
+                    <div class="endorsement-content">
+                        <p class="endorsement-text">I'm backing Chris Smith because he's the real deal. He is a man of pristine integrity and honesty, with a proud record of distinguished public service and profound commitment to our University. His belief in freedom of expression, which I have spent my career defending, is deep in his bone marrow, and Cambridge – which for centuries has relied upon and championed free speech – could have no more powerful advocate in its defence. Above all, he is a man who knows how to get things done. He has spent a hugely successful career in politics – but he is no tribalist or ideologue, and eschews dogma: as I have witnessed so many times when we have worked together, he understands in a unique way how to reach out to people of all opinions and none, build alliances, bridge differences and achieve consensus. That is a priceless asset in an institution such as ours so rich in its diversity of opinion and thought. He will be a remarkable Chancellor.</p>
+                    </div>
                 </div>
-                <div class="swipe-hint">← Swipe left or right to see more endorsements →</div>
             </div>
         </div>
     </section>
@@ -2344,7 +2545,21 @@
 
     <!-- Script for AOS library -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
+
+    <!-- Add CSS class for card animation -->
+    <style>
+        .endorsement-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .endorsement-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
     <!-- Main script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -2354,6 +2569,35 @@
                 easing: 'ease',
                 once: true
             });
+
+            // Endorsements animation effects
+            // Add animation effects to endorsement cards when they come into view
+            const endorsementCards = document.querySelectorAll('.endorsement-card');
+
+            // Add intersection observer for animation on scroll
+            if ('IntersectionObserver' in window) {
+                const endorsementObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            // Unobserve after animation is triggered
+                            endorsementObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -10% 0px'
+                });
+
+                endorsementCards.forEach(card => {
+                    endorsementObserver.observe(card);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                endorsementCards.forEach(card => {
+                    card.classList.add('in-view');
+                });
+            }
 
             // Calculate days until voting begins (July 9, 2025)
             function updateCountdown() {
