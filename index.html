@@ -197,48 +197,7 @@
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 40px;
-            border: 2px solid var(--cambridge-blue);
-            border-radius: 12px;
-            z-index: 10;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        .scroll-indicator.hidden {
-            opacity: 0;
-        }
-
-        .scroll-indicator::before {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 8px;
-            background-color: var(--cambridge-blue);
-            border-radius: 2px;
-            animation: scrollDown 2s infinite;
-        }
-
-        @keyframes scrollDown {
-            0% {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(-50%) translateY(15px);
-                opacity: 0;
-            }
-        }
+        /* Scroll indicator removed */
 
         /* Sections */
         .section {
@@ -466,8 +425,7 @@
             position: relative;
             max-width: 800px;
             margin: 0 auto;
-            height: auto;
-            min-height: 300px;
+            height: 450px; /* Fixed height */
             padding-bottom: 50px;
             margin-bottom: 20px;
             overflow: visible;
@@ -477,6 +435,7 @@
             -ms-user-select: none;
             user-select: none;
             cursor: grab;
+            transform: translateZ(0); /* Force GPU acceleration to prevent jumps */
         }
 
         .endorsements-carousel:active {
@@ -488,13 +447,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: auto;
-            min-height: 150px;
-            max-height: 450px;
+            height: 400px; /* Fixed height */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.8s var(--transition-timing), visibility 0.8s var(--transition-timing), transform 0.8s var(--transition-timing);
-            padding: 2rem 2rem 3.5rem 2rem;
+            padding: 1.5rem 2rem 2rem 2rem; /* Less padding on top for author */
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -504,6 +461,98 @@
             background-color: rgba(1, 33, 88, 0.95);
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+            transform-origin: center center; /* Set transform origin to center */
+            will-change: transform, opacity; /* Hint for browser optimization */
+            backface-visibility: hidden; /* Prevent flickering */
+            -webkit-font-smoothing: subpixel-antialiased; /* Improve text rendering */
+        }
+
+        /* Scroll indicator for endorsement slides - always visible now */
+        .endorsement-slide::after {
+            content: '';
+            position: absolute;
+            bottom: 0; /* At the bottom */
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to top, rgba(1, 33, 88, 1), rgba(1, 33, 88, 0.9) 50%, rgba(1, 33, 88, 0.6) 80%, transparent);
+            pointer-events: none;
+            opacity: 1; /* Always visible */
+            transition: opacity 0.3s ease;
+            z-index: 2; /* Ensure it's above the content */
+        }
+
+        /* Custom scrollbar for WebKit browsers */
+        .endorsement-slide::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .endorsement-slide::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .endorsement-slide::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .endorsement-slide::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Scroll indicator icon */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 15px; /* Position closer to the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            color: var(--gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            display: none;
+            z-index: 3; /* Make sure it's above the gradient */
+            background-color: rgba(1, 33, 88, 0.6);
+            border-radius: 50%;
+            padding: 3px;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .scroll-indicator svg {
+            fill: currentColor;
+            animation: bounce 1.5s infinite;
+        }
+
+        /* Always show the scroll indicator for scrollable content */
+        .endorsement-slide.has-overflow .scroll-indicator {
+            opacity: 0.9;
+            display: block;
+        }
+
+        /* Keep the scroll indicator visible */
+        .endorsement-slide .scroll-indicator {
+            transition: opacity 0.5s ease;
+        }
+
+        /* Ensure the flow around the author works well */
+        .endorsement-slide p:first-of-type {
+            margin-top: 0;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-5px);
+            }
+            60% {
+                transform: translateY(-2px);
+            }
         }
 
         .endorsement-slide.next-slide {
@@ -524,17 +573,46 @@
         .endorsement-text {
             font-size: 1.3rem;
             line-height: 1.5;
-            text-align: center;
+            text-align: left;
             font-style: italic;
             margin-bottom: 1.5rem;
+            overflow: visible;
+            display: block;
+            clear: right; /* Ensure text flows around the floated author section */
         }
 
         .endorsement-author {
             font-size: 1.2rem;
-            text-align: right;
+            display: flex;
+            align-items: flex-start;
             font-weight: 700;
-            margin-top: auto;
-            padding-top: 1rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0;
+            float: left;
+            margin-right: 1.2rem;
+            margin-bottom: 1rem;
+            max-width: 50%;
+        }
+
+        .endorsement-author .author-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .endorsement-author .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .endorsement-author .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .endorsement-author span {
@@ -543,7 +621,7 @@
             font-style: italic;
             display: block;
             font-size: 1rem;
-            margin-top: 0.5rem;
+            margin-top: 0.2rem;
         }
 
         .carousel-nav-arrows {
@@ -715,11 +793,20 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .endorsement-slide {
-                padding: 1.5rem 1.5rem 3rem 1.5rem;
+                padding: 1.5rem 1.8rem 1.5rem 1.8rem;
+            }
+
+            .endorsement-author {
+                max-width: 55%;
+            }
+
+            .endorsement-author .author-image {
+                width: 60px;
+                height: 60px;
             }
 
             .endorsement-text {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
 
             .swipe-hint {
@@ -727,7 +814,7 @@
             }
 
             .carousel-nav-arrows {
-                display: flex; /* Show side arrows on mobile */
+                display: none; /* Hide side arrows on mobile */
             }
 
             .nav-controls .nav-btn {
@@ -738,7 +825,23 @@
         /* Adjustments for smaller screens */
         @media (max-width: 600px) {
             .endorsement-slide {
-                padding: 1.2rem 1.2rem 2.5rem 1.2rem;
+                padding: 1.2rem 1.4rem 1.2rem 1.4rem;
+            }
+
+            .endorsement-author {
+                max-width: 100%;
+                float: none;
+                margin-right: 0;
+                margin-bottom: 1.2rem;
+            }
+
+            .endorsement-author .author-image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .endorsement-text {
+                clear: both;
             }
         }
 
@@ -1617,13 +1720,15 @@
             }
 
             .endorsement-text {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 line-height: 1.4;
             }
 
             .endorsements-carousel {
-                height: 550px;
+                height: 500px;
                 padding-bottom: 60px;
+                transform: translateZ(0); /* Force GPU acceleration */
+                will-change: transform; /* Hint for browser optimization */
             }
 
             .quote {
@@ -1664,9 +1769,6 @@
         <span></span>
         <span></span>
     </div>
-
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator"></div>
 
     <!-- Hero Section -->
     <section id="hero" class="section hero">
@@ -1717,48 +1819,170 @@
                     <button class="carousel-arrow next" aria-label="Next endorsement" tabindex="0" role="button"></button>
                 </div>
                 <div class="endorsement-slide active">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Baroness Julia Neuberger
+                            <span>Newnham 1969</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">Chris Smith has been devoted to Cambridge since his undergraduate days, which is when we first met. He's a passionate academic, a seasoned politician, a man with a cross party set of friendships and allies, and someone who always gives of his all. He is ideally suited for the Chancellorship, and will bring great charm, energy, skill, diplomacy and humour to the role.</p>
-                    <p class="endorsement-author">Baroness Julia Neuberger <span>Newnham 1969</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Andy Burnham
+                            <span>Fitzwilliam 1988</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">Chris Smith's far-sighted decision to introduce free entry to Britain's museums and galleries remains the most inspirational example of cultural leadership this country has ever seen. His lifelong approach of promoting academic and cultural excellence, whilst opening up the widest possible access to it, marks him out as the right leader for our university in its next phase.</p>
-                    <p class="endorsement-author">Andy Burnham <span>Fitzwilliam 1988</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Angus Ivory
+                            <span>current undergraduate, President of Pembroke JCR</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">As an undergraduate, I have really appreciated Lord Smith's engagements with students – he is generous in the time he spends hosting student events and in the daily conversations he has with us. He genuinely listens and takes our perspective seriously. As JPC President, I have been able to count on Chris to lend his full support to our work and champion the student point of view.</p>
-                    <p class="endorsement-author">Angus Ivory <span>current undergraduate, President of Pembroke JCR</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Dame Sue Owen
+                            <span>Newnham 1973</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">I am delighted to support Lord Smith's application to be Chancellor of the University; not only does he have the gravitas, respect and integrity required, he has a wide Cambridge perspective from a decade as Master of Pembroke and earlier time as undergraduate, PhD student and President of the Union. Chris brings breadth and depth of leadership and sector experience spanning academia, local and central government politics, housing, culture, sport and the environment. He was arguably the most successful ever Secretary of State for Culture, Media and Sport.</p>
-                    <p class="endorsement-author">Dame Sue Owen <span>Newnham 1973</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Lord Guy Black
+                            <span>Peterhouse 1982</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">I'm backing Chris Smith because he's the real deal. He is a man of pristine integrity and honesty, with a proud record of distinguished public service and profound commitment to our University. His belief in freedom of expression, which I have spent my career defending, is deep in his bone marrow, and Cambridge – which for centuries has relied upon and championed free speech – could have no more powerful advocate in its defence. Above all, he is a man who knows how to get things done. He has spent a hugely successful career in politics – but he is no tribalist or ideologue, and eschews dogma: as I have witnessed so many times when we have worked together, he understands in a unique way how to reach out to people of all opinions and none, build alliances, bridge differences and achieve consensus. That is a priceless asset in an institution such as ours so rich in its diversity of opinion and thought. He will be a remarkable Chancellor.</p>
-                    <p class="endorsement-author">Lord Guy Black <span>Peterhouse 1982</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            George Benjamin
+                            <span>King's 1978</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">Chris Smith is a man of integrity, determination, subtlety and courage who has remained faithful to his beliefs and guiding principles over decades of distinguished public service. He was also possibly the most effective and impassioned Culture Secretary since the post was created. For these reasons – amongst many others – I believe he would be a marvellous choice for Chancellor.</p>
-                    <p class="endorsement-author">George Benjamin <span>King's 1978</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Professor Polly Blakesley
+                            <span>Master-Elect for Pembroke College</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">The role of Chancellor requires a vast array of skills. With his distinguished career in politics and public service, Lord Smith has all the acumen and expertise that this unique position requires, as well as deep knowledge of a University that he has served so faithfully.</p>
-                    <p class="endorsement-author">Professor Polly Blakesley <span>Master-Elect for Pembroke College</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Steven Friel
+                            <span>Jesus 1996, Chair of Cambridge University LGBT+ Alumni Association</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">We should all be proud that Cambridge produces leaders like Chris Smith. The first openly gay Cabinet Minister in the world, and a genuine champion of diversity throughout his life, Chris is a true statesman. He is an inspirational figure among students, academics and alumni, and an influential champion of the University of Cambridge on a national and international level. There are a number of able candidates in this election, making it all the more important for alumni to allocate their first and second preference votes to candidates who stand for common values. Chris will be getting my first preference vote.</p>
-                    <p class="endorsement-author">Steven Friel <span>Jesus 1996, Chair of Cambridge University LGBT+ Alumni Association</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Karan Thapar
+                            <span>Pembroke 1974, distinguished Indian journalist</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">I have known Chris Smith for almost 50 years, going back to the time we were together at Pembroke, and I can say with certainty that there's no one better suited to be Chancellor of the University of Cambridge than Chris. His commitment to the University is well-known and unquestionable. The University would do itself a favour by electing him as its next Chancellor.</p>
-                    <p class="endorsement-author">Karan Thapar <span>Pembroke 1974, distinguished Indian journalist</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image" style="display: none;">
+                            <!-- No image available -->
+                        </div>
+                        <div class="author-info">
+                            Dagmar Dolby
+                            <span>widow of Ray Dolby, major benefactor of both Pembroke College and the University</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">For the last ten years, I have had the pleasure of knowing Chris Smith in his role as Master of Pembroke. On being elected Master, he assumed leadership of the project to substantially expand the college by redeveloping the property along Mill Lane and facing the historic Pembroke College. Our family has been delighted to support this project that has so transformed the capacities of the college to educate its students and support its scholars. In very short order, Chris was able to establish relationships with the architects, builders, Cambridge planning authorities and the University to enable the project to progress rapidly and ultimately achieve the magnificent result the College is enjoying today. I always felt that with Chris at the helm, this new campus would become a reality. I have been uniquely impressed with Chris's can-do spirit and ability to inspire others to believe that this massive project was indeed achievable. Chris has the ability to genuinely relate to all he meets, whether students, academics, alumni and certainly regardless of which side of the Atlantic they may be.</p>
-                    <p class="endorsement-author">Dagmar Dolby <span>widow of Ray Dolby, major benefactor of both Pembroke College and the University</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
                 </div>
                 <div class="endorsement-slide">
+                    <div class="endorsement-author">
+                        <div class="author-image">
+                            <img src="images/eric_idle.png" alt="Eric Idle">
+                        </div>
+                        <div class="author-info">
+                            Eric Idle
+                            <span>Pembroke 1962</span>
+                        </div>
+                    </div>
                     <p class="endorsement-text">I met Lord Smith, the current Master of Pembroke, in Hollywood, when I was invited to attend a College event. I found him to be generous, kind, patient, thoughtful and utterly dedicated to the College we both love. Under his inspired leadership Pembroke had negotiated to purchase and develop the old Mill Lane site, a highly ambitious project expanding the College by a third. During all that time I have been very impressed by Lord Smith's enthusiasm, his constant encouragement and his quiet generous leadership. I am a rare and highly fortunate survivor of pancreatic cancer and I have learned the value of great people in important positions and I think it would be a ridiculous waste to allow such a brilliant leader to simply leave the University, which is why I am very happy to support him in his current bid. I believe he would make a magnificent Chancellor for our University. I make you all a solemn pledge, that in the event we are successful, I promise not to sing.</p>
-                    <p class="endorsement-author">Eric Idle <span>Pembroke 1962</span></p>
+                    <div class="scroll-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16l-6-6h12l-6 6z"/></svg>
+                    </div>
+                </div>
                 </div>
                 <div class="nav-controls">
                     <button class="nav-btn prev" aria-label="Previous endorsement" tabindex="0" role="button"></button>
@@ -2183,16 +2407,7 @@
                 });
             });
             
-            // Scroll indicator
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 200) {
-                    scrollIndicator.classList.add('hidden');
-                } else {
-                    scrollIndicator.classList.remove('hidden');
-                }
-            });
+            // Scroll indicator removed
             
             // Endorsements carousel
             const endorsementSlides = document.querySelectorAll('.endorsement-slide');
@@ -2256,14 +2471,29 @@
                 // Scroll to top of the endorsement for long ones
                 endorsementSlides[currentSlideIndex].scrollTop = 0;
 
-                // Ensure carousel height adjusts to the content
+                // Get the active slide
                 const activeSlide = endorsementSlides[currentSlideIndex];
-                const slideContent = activeSlide.querySelector('.endorsement-text').clientHeight +
-                                   activeSlide.querySelector('.endorsement-author').clientHeight + 140;
 
-                // Set a minimum and maximum height
-                const carouselHeight = Math.min(Math.max(slideContent, 250), 450);
-                carousel.style.minHeight = carouselHeight + 'px';
+                // Reset scroll indicator on slide change
+                const scrollIndicator = activeSlide.querySelector('.scroll-indicator');
+                if (scrollIndicator) {
+                    // Check if this slide actually needs scrolling
+                    const needsScrolling = activeSlide.scrollHeight > activeSlide.clientHeight + 20;
+
+                    // Set appropriate opacity based on scrollability
+                    scrollIndicator.style.opacity = needsScrolling ? '0.9' : '0';
+                }
+
+                // Check if content is scrollable and add/remove has-overflow class - do this before animations
+                // Add a buffer to prevent showing scroll indicators for very small overflows
+                const isScrollable = activeSlide.scrollHeight > activeSlide.clientHeight + 20;
+
+                // Add or remove the class based on scrollability
+                if (isScrollable) {
+                    activeSlide.classList.add('has-overflow');
+                } else {
+                    activeSlide.classList.remove('has-overflow');
+                }
 
                 // Use requestAnimationFrame to force a reflow before applying active class
                 requestAnimationFrame(() => {
@@ -2341,6 +2571,8 @@
                 touchEndX = e.changedTouches[0].screenX;
                 touchEndY = e.changedTouches[0].screenY;
                 handleSwipe();
+                // Always reset the timer on any touch interaction
+                resetAutoSlideTimer();
             }, { passive: true });
 
             function handleSwipe() {
@@ -2367,6 +2599,9 @@
                             resetAutoSlideTimer();
                         }
                     }
+                } else {
+                    // Even if it wasn't a swipe, we reset the timer on any touch interaction
+                    resetAutoSlideTimer();
                 }
             }
 
@@ -2400,14 +2635,51 @@
             // Observe the endorsements section
             endorsementObserver.observe(document.querySelector('.endorsements'));
 
-            // Initialize the first slide's height
+            // Initialize the carousel and check for scrollable content
             window.addEventListener('load', function() {
-                const firstSlide = endorsementSlides[0];
-                const firstSlideContent = firstSlide.querySelector('.endorsement-text').clientHeight +
-                                         firstSlide.querySelector('.endorsement-author').clientHeight + 140;
+                // Check all slides for scrollable content
+                endorsementSlides.forEach(slide => {
+                    // Check if the slide has scrollable content
+                    // Add a buffer to prevent showing scroll indicators for very small overflows
+                    const isScrollable = slide.scrollHeight > slide.clientHeight + 20;
 
-                const initialHeight = Math.min(Math.max(firstSlideContent, 250), 450);
-                carousel.style.minHeight = initialHeight + 'px';
+                    // Add or remove the class based on scrollability
+                    if (isScrollable) {
+                        slide.classList.add('has-overflow');
+                    } else {
+                        slide.classList.remove('has-overflow');
+                    }
+
+                    // Add scroll event listener to each slide
+                    slide.addEventListener('scroll', function() {
+                        // Get scroll indicator for this slide
+                        const scrollIndicator = slide.querySelector('.scroll-indicator');
+                        if (!scrollIndicator) return;
+
+                        // Check if we've scrolled to near the bottom
+                        const isNearBottom = slide.scrollHeight - slide.scrollTop - slide.clientHeight < 30;
+
+                        // Check if overflow is actually needed
+                        const needsScrolling = slide.scrollHeight > slide.clientHeight + 20;
+
+                        if (!needsScrolling) {
+                            // No overflow, no need for indicator
+                            scrollIndicator.style.opacity = '0';
+                            return;
+                        }
+
+                        // Hide scroll indicator if we're near the bottom
+                        if (isNearBottom) {
+                            scrollIndicator.style.opacity = '0';
+                        } else if (slide.scrollTop > 20) {
+                            // Show scroll indicator with reduced opacity when scrolled down a bit
+                            scrollIndicator.style.opacity = '0.6';
+                        } else {
+                            // Full opacity at the top
+                            scrollIndicator.style.opacity = '0.9';
+                        }
+                    });
+                });
             });
 
             // Add keyboard accessibility
