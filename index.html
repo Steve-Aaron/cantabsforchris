@@ -261,7 +261,30 @@
             transition: all 0.5s var(--transition-timing);
         }
 
-        /* Removed the thin golden border */
+        /* Video container styling */
+        .video-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            border: 4px solid var(--gold);
+            transition: all 0.5s var(--transition-timing);
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        .hero-portrait:hover .video-container {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
 
         .hero-portrait:hover img {
             transform: translateY(-5px);
@@ -1863,6 +1886,16 @@
                 margin: 0 auto;
             }
 
+            .video-container {
+                border-radius: 10px;
+                border-width: 3px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            }
+
+            .video-container iframe {
+                border-radius: 6px;
+            }
+
             .hero-text {
                 flex: 0 0 100%;
                 text-align: center;
@@ -1914,6 +1947,19 @@
 
             .hero-subtitle {
                 font-size: 1.3rem;
+            }
+
+            .hero-portrait {
+                max-width: 100%;
+            }
+
+            .video-container {
+                border-radius: 8px;
+                border-width: 2px;
+            }
+
+            .video-container iframe {
+                border-radius: 5px;
             }
 
             .manifesto-title, .timeline-title,
@@ -2009,7 +2055,7 @@
                 <blockquote class="quote">
                     "Universities matter more than ever in these difficult times. The Chancellor must be a champion for Cambridge, and for the role the University plays in fostering learning and knowledge."
 <br><br>
-                    I stand for freedom of thought and expression, and for championing the educational, cultural and economic importance of Cambridge both nationally and globally, waking the UK government up to the major international asset they have here.    
+                    "I stand for freedom of thought and expression, and for championing the educational, cultural and economic importance of Cambridge both nationally and globally, waking the UK government up to the major international asset they have here."
                 </blockquote>
             </div>
         </div>
