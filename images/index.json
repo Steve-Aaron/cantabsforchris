@@ -1,770 +1,5 @@
 [
   {
-    "name": "tony-and-chris.webp",
-    "slug": "tony-and-chris",
-    "origin": "tony-and-chris.png",
-    "variants": {
-      "tony-and-chris.320.webp": [
-        320,
-        235
-      ],
-      "tony-and-chris.480.webp": [
-        480,
-        353
-      ],
-      "tony-and-chris.640.webp": [
-        640,
-        471
-      ],
-      "tony-and-chris.768.webp": [
-        768,
-        565
-      ]
-    },
-    "dims": [
-      976,
-      718
-    ]
-  },
-  {
-    "name": "turner-guterres.webp",
-    "slug": "turner-guterres",
-    "origin": "turner-guterres.jpg",
-    "variants": {
-      "turner-guterres.1024.webp": [
-        1024,
-        303
-      ],
-      "turner-guterres.1280.webp": [
-        1280,
-        378
-      ],
-      "turner-guterres.320.webp": [
-        320,
-        95
-      ],
-      "turner-guterres.480.webp": [
-        480,
-        142
-      ],
-      "turner-guterres.640.webp": [
-        640,
-        189
-      ],
-      "turner-guterres.768.webp": [
-        768,
-        227
-      ]
-    },
-    "dims": [
-      1310,
-      387
-    ]
-  },
-  {
-    "name": "polly_blakesley.webp",
-    "slug": "polly_blakesley",
-    "origin": "polly_blakesley.jpg",
-    "variants": {
-      "polly_blakesley.320.webp": [
-        320,
-        346
-      ]
-    },
-    "dims": [
-      336,
-      363
-    ]
-  },
-  {
-    "name": "sue_owen.webp",
-    "slug": "sue_owen",
-    "origin": "sue_owen.jpg",
-    "variants": {
-      "sue_owen.320.webp": [
-        320,
-        367
-      ]
-    },
-    "dims": [
-      344,
-      394
-    ]
-  },
-  {
-    "name": "steven_friel.webp",
-    "slug": "steven_friel",
-    "origin": "steven_friel.jpg",
-    "variants": {
-      "steven_friel.320.webp": [
-        320,
-        318
-      ],
-      "steven_friel.480.webp": [
-        480,
-        477
-      ]
-    },
-    "dims": [
-      571,
-      568
-    ]
-  },
-  {
-    "name": "karan_thapar.webp",
-    "slug": "karan_thapar",
-    "origin": "karan_thapar.jpg",
-    "variants": {
-      "karan_thapar.320.webp": [
-        320,
-        378
-      ],
-      "karan_thapar.480.webp": [
-        480,
-        568
-      ]
-    },
-    "dims": [
-      580,
-      686
-    ]
-  },
-  {
-    "name": "dagmar_dolby.webp",
-    "slug": "dagmar_dolby",
-    "origin": "dagmar_dolby.jpg",
-    "variants": {
-      "dagmar_dolby.320.webp": [
-        320,
-        320
-      ],
-      "dagmar_dolby.480.webp": [
-        480,
-        480
-      ]
-    },
-    "dims": [
-      500,
-      500
-    ]
-  },
-  {
-    "name": "endorsements_header.webp",
-    "slug": "endorsements_header",
-    "origin": "endorsements_header.jpg",
-    "variants": {
-      "endorsements_header.1024.webp": [
-        1024,
-        257
-      ],
-      "endorsements_header.1280.webp": [
-        1280,
-        321
-      ],
-      "endorsements_header.1440.webp": [
-        1440,
-        362
-      ],
-      "endorsements_header.1600.webp": [
-        1600,
-        402
-      ],
-      "endorsements_header.320.webp": [
-        320,
-        80
-      ],
-      "endorsements_header.480.webp": [
-        480,
-        121
-      ],
-      "endorsements_header.640.webp": [
-        640,
-        161
-      ],
-      "endorsements_header.768.webp": [
-        768,
-        193
-      ]
-    },
-    "dims": [
-      1884,
-      473
-    ]
-  },
-  {
-    "name": "george_benjamin.webp",
-    "slug": "george_benjamin",
-    "origin": "george_benjamin.jpg",
-    "variants": {},
-    "dims": [
-      156,
-      211
-    ]
-  },
-  {
-    "name": "julia_neuberger.webp",
-    "slug": "julia_neuberger",
-    "origin": "julia_neuberger.jpg",
-    "variants": {
-      "julia_neuberger.1024.webp": [
-        1024,
-        1241
-      ],
-      "julia_neuberger.320.webp": [
-        320,
-        388
-      ],
-      "julia_neuberger.480.webp": [
-        480,
-        582
-      ],
-      "julia_neuberger.640.webp": [
-        640,
-        776
-      ],
-      "julia_neuberger.768.webp": [
-        768,
-        931
-      ]
-    },
-    "dims": [
-      1050,
-      1273
-    ]
-  },
-  {
-    "name": "guy_black.webp",
-    "slug": "guy_black",
-    "origin": "guy_black.jpg",
-    "variants": {
-      "guy_black.320.webp": [
-        320,
-        386
-      ],
-      "guy_black.480.webp": [
-        480,
-        579
-      ],
-      "guy_black.640.webp": [
-        640,
-        773
-      ],
-      "guy_black.768.webp": [
-        768,
-        927
-      ]
-    },
-    "dims": [
-      825,
-      996
-    ]
-  },
-  {
-    "name": "eric_idle.webp",
-    "slug": "eric_idle",
-    "origin": "eric_idle.png",
-    "variants": {
-      "eric_idle.320.webp": [
-        320,
-        480
-      ],
-      "eric_idle.480.webp": [
-        480,
-        720
-      ]
-    },
-    "dims": [
-      634,
-      951
-    ]
-  },
-  {
-    "name": "chris1986.webp",
-    "slug": "chris1986",
-    "origin": "chris1986.webp",
-    "variants": {
-      "chris1986.320.webp": [
-        320,
-        180
-      ]
-    },
-    "dims": [
-      320,
-      180
-    ]
-  },
-  {
-    "name": "chris_smith_parliment.webp",
-    "slug": "chris_smith_parliment",
-    "origin": "chris_smith_parliment.jpg",
-    "variants": {
-      "chris_smith_parliment.1024.webp": [
-        1024,
-        576
-      ],
-      "chris_smith_parliment.320.webp": [
-        320,
-        180
-      ],
-      "chris_smith_parliment.480.webp": [
-        480,
-        270
-      ],
-      "chris_smith_parliment.640.webp": [
-        640,
-        360
-      ],
-      "chris_smith_parliment.768.webp": [
-        768,
-        432
-      ]
-    },
-    "dims": [
-      1024,
-      576
-    ]
-  },
-  {
-    "name": "bbc-museums.webp",
-    "slug": "bbc-museums",
-    "origin": "bbc-museums.png",
-    "variants": {
-      "bbc-museums.1024.webp": [
-        1024,
-        577
-      ],
-      "bbc-museums.320.webp": [
-        320,
-        180
-      ],
-      "bbc-museums.480.webp": [
-        480,
-        271
-      ],
-      "bbc-museums.640.webp": [
-        640,
-        361
-      ],
-      "bbc-museums.768.webp": [
-        768,
-        433
-      ]
-    },
-    "dims": [
-      1174,
-      662
-    ]
-  },
-  {
-    "name": "bbc-env.webp",
-    "slug": "bbc-env",
-    "origin": "bbc-env.webp",
-    "variants": {
-      "bbc-env.320.webp": [
-        320,
-        180
-      ]
-    },
-    "dims": [
-      320,
-      180
-    ]
-  },
-  {
-    "name": "chris-smith-asa.webp",
-    "slug": "chris-smith-asa",
-    "origin": "chris-smith-asa.jpg",
-    "variants": {
-      "chris-smith-asa.1024.webp": [
-        1024,
-        410
-      ],
-      "chris-smith-asa.320.webp": [
-        320,
-        128
-      ],
-      "chris-smith-asa.480.webp": [
-        480,
-        192
-      ],
-      "chris-smith-asa.640.webp": [
-        640,
-        256
-      ],
-      "chris-smith-asa.768.webp": [
-        768,
-        307
-      ]
-    },
-    "dims": [
-      1200,
-      480
-    ]
-  },
-  {
-    "name": "Turner_GuterresPembroke041.webp",
-    "slug": "Turner_GuterresPembroke041",
-    "origin": "Turner_GuterresPembroke041.jpg",
-    "variants": {
-      "Turner_GuterresPembroke041.1024.webp": [
-        1024,
-        684
-      ],
-      "Turner_GuterresPembroke041.1280.webp": [
-        1280,
-        854
-      ],
-      "Turner_GuterresPembroke041.1440.webp": [
-        1440,
-        961
-      ],
-      "Turner_GuterresPembroke041.1600.webp": [
-        1600,
-        1068
-      ],
-      "Turner_GuterresPembroke041.1920.webp": [
-        1920,
-        1282
-      ],
-      "Turner_GuterresPembroke041.320.webp": [
-        320,
-        214
-      ],
-      "Turner_GuterresPembroke041.480.webp": [
-        480,
-        320
-      ],
-      "Turner_GuterresPembroke041.640.webp": [
-        640,
-        427
-      ],
-      "Turner_GuterresPembroke041.768.webp": [
-        768,
-        513
-      ]
-    },
-    "dims": [
-      2000,
-      1335
-    ]
-  },
-  {
-    "name": "andy_burnham.webp",
-    "slug": "andy_burnham",
-    "origin": "andy_burnham.jpg",
-    "variants": {
-      "andy_burnham.320.webp": [
-        320,
-        459
-      ],
-      "andy_burnham.480.webp": [
-        480,
-        689
-      ]
-    },
-    "dims": [
-      533,
-      765
-    ]
-  },
-  {
-    "name": "chris-smith-portrait.webp",
-    "slug": "chris-smith-portrait",
-    "origin": "chris-smith-portrait.jpg",
-    "variants": {
-      "chris-smith-portrait.1024.webp": [
-        1024,
-        853
-      ],
-      "chris-smith-portrait.1280.webp": [
-        1280,
-        1066
-      ],
-      "chris-smith-portrait.1440.webp": [
-        1440,
-        1200
-      ],
-      "chris-smith-portrait.320.webp": [
-        320,
-        267
-      ],
-      "chris-smith-portrait.480.webp": [
-        480,
-        400
-      ],
-      "chris-smith-portrait.640.webp": [
-        640,
-        533
-      ],
-      "chris-smith-portrait.768.webp": [
-        768,
-        640
-      ]
-    },
-    "dims": [
-      1491,
-      1242
-    ]
-  },
-  {
-    "name": "CRS6a.webp",
-    "slug": "CRS6a",
-    "origin": "CRS6a.jpg",
-    "variants": {
-      "CRS6a.320.webp": [
-        320,
-        498
-      ],
-      "CRS6a.480.webp": [
-        480,
-        748
-      ],
-      "CRS6a.640.webp": [
-        640,
-        997
-      ],
-      "CRS6a.768.webp": [
-        768,
-        1196
-      ]
-    },
-    "dims": [
-      942,
-      1467
-    ]
-  },
-  {
-    "name": "CRS19b.webp",
-    "slug": "CRS19b",
-    "origin": "CRS19b.jpg",
-    "variants": {
-      "CRS19b.1024.webp": [
-        1024,
-        676
-      ],
-      "CRS19b.1280.webp": [
-        1280,
-        845
-      ],
-      "CRS19b.1440.webp": [
-        1440,
-        950
-      ],
-      "CRS19b.1600.webp": [
-        1600,
-        1056
-      ],
-      "CRS19b.1920.webp": [
-        1920,
-        1267
-      ],
-      "CRS19b.2560.webp": [
-        2560,
-        1689
-      ],
-      "CRS19b.320.webp": [
-        320,
-        211
-      ],
-      "CRS19b.480.webp": [
-        480,
-        317
-      ],
-      "CRS19b.640.webp": [
-        640,
-        422
-      ],
-      "CRS19b.768.webp": [
-        768,
-        507
-      ]
-    },
-    "dims": [
-      3573,
-      2358
-    ]
-  },
-  {
-    "name": "CI081.webp",
-    "slug": "CI081",
-    "origin": "CI081.jpg",
-    "variants": {
-      "CI081.1024.webp": [
-        1024,
-        682
-      ],
-      "CI081.1280.webp": [
-        1280,
-        853
-      ],
-      "CI081.1440.webp": [
-        1440,
-        960
-      ],
-      "CI081.1600.webp": [
-        1600,
-        1066
-      ],
-      "CI081.1920.webp": [
-        1920,
-        1280
-      ],
-      "CI081.320.webp": [
-        320,
-        213
-      ],
-      "CI081.480.webp": [
-        480,
-        320
-      ],
-      "CI081.640.webp": [
-        640,
-        427
-      ],
-      "CI081.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      2000,
-      1333
-    ]
-  },
-  {
-    "name": "angus_ivory.webp",
-    "slug": "angus_ivory",
-    "origin": "angus_ivory.jpg",
-    "variants": {
-      "angus_ivory.1024.webp": [
-        1024,
-        1234
-      ],
-      "angus_ivory.1280.webp": [
-        1280,
-        1542
-      ],
-      "angus_ivory.1440.webp": [
-        1440,
-        1735
-      ],
-      "angus_ivory.1600.webp": [
-        1600,
-        1928
-      ],
-      "angus_ivory.320.webp": [
-        320,
-        386
-      ],
-      "angus_ivory.480.webp": [
-        480,
-        578
-      ],
-      "angus_ivory.640.webp": [
-        640,
-        771
-      ],
-      "angus_ivory.768.webp": [
-        768,
-        925
-      ]
-    },
-    "dims": [
-      1851,
-      2230
-    ]
-  },
-  {
-    "name": "Stop the Clause.webp",
-    "slug": "Stop the Clause",
-    "origin": "Stop the Clause.jpg",
-    "variants": {
-      "Stop the Clause.1024.webp": [
-        1024,
-        690
-      ],
-      "Stop the Clause.1280.webp": [
-        1280,
-        862
-      ],
-      "Stop the Clause.1440.webp": [
-        1440,
-        970
-      ],
-      "Stop the Clause.1600.webp": [
-        1600,
-        1078
-      ],
-      "Stop the Clause.1920.webp": [
-        1920,
-        1293
-      ],
-      "Stop the Clause.2560.webp": [
-        2560,
-        1724
-      ],
-      "Stop the Clause.320.webp": [
-        320,
-        216
-      ],
-      "Stop the Clause.480.webp": [
-        480,
-        323
-      ],
-      "Stop the Clause.640.webp": [
-        640,
-        431
-      ],
-      "Stop the Clause.768.webp": [
-        768,
-        517
-      ]
-    },
-    "dims": [
-      3483,
-      2346
-    ]
-  },
-  {
-    "name": "CRS17a.webp",
-    "slug": "CRS17a",
-    "origin": "CRS17a.jpg",
-    "variants": {
-      "CRS17a.1024.webp": [
-        1024,
-        1034
-      ],
-      "CRS17a.1280.webp": [
-        1280,
-        1292
-      ],
-      "CRS17a.1440.webp": [
-        1440,
-        1454
-      ],
-      "CRS17a.320.webp": [
-        320,
-        323
-      ],
-      "CRS17a.480.webp": [
-        480,
-        485
-      ],
-      "CRS17a.640.webp": [
-        640,
-        646
-      ],
-      "CRS17a.768.webp": [
-        768,
-        775
-      ]
-    },
-    "dims": [
-      1460,
-      1474
-    ]
-  },
-  {
     "name": "senatehouse.webp",
     "slug": "senatehouse",
     "origin": "senatehouse.jpg",
@@ -820,120 +55,272 @@
     ]
   },
   {
-    "name": "20250203 Sir Ian McKellen3.webp",
-    "slug": "20250203 Sir Ian McKellen3",
-    "origin": "20250203 Sir Ian McKellen3.jpg",
+    "name": "turner-guterres.webp",
+    "slug": "turner-guterres",
+    "origin": "turner-guterres.jpg",
     "variants": {
-      "20250203 Sir Ian McKellen3.1024.webp": [
+      "turner-guterres.1024.webp": [
         1024,
-        576
+        303
       ],
-      "20250203 Sir Ian McKellen3.1280.webp": [
+      "turner-guterres.1280.webp": [
         1280,
-        720
-      ],
-      "20250203 Sir Ian McKellen3.1440.webp": [
-        1440,
-        810
-      ],
-      "20250203 Sir Ian McKellen3.1600.webp": [
-        1600,
-        900
-      ],
-      "20250203 Sir Ian McKellen3.1920.webp": [
-        1920,
-        1080
-      ],
-      "20250203 Sir Ian McKellen3.320.webp": [
-        320,
-        180
-      ],
-      "20250203 Sir Ian McKellen3.480.webp": [
-        480,
-        270
-      ],
-      "20250203 Sir Ian McKellen3.640.webp": [
-        640,
-        360
-      ],
-      "20250203 Sir Ian McKellen3.768.webp": [
-        768,
-        432
-      ]
-    },
-    "dims": [
-      2000,
-      1125
-    ]
-  },
-  {
-    "name": "Beinn Damh.webp",
-    "slug": "Beinn Damh",
-    "origin": "Beinn Damh.jpg",
-    "variants": {
-      "Beinn Damh.1024.webp": [
-        1024,
-        605
-      ],
-      "Beinn Damh.1280.webp": [
-        1280,
-        756
-      ],
-      "Beinn Damh.1440.webp": [
-        1440,
-        851
-      ],
-      "Beinn Damh.1600.webp": [
-        1600,
-        945
-      ],
-      "Beinn Damh.1920.webp": [
-        1920,
-        1134
-      ],
-      "Beinn Damh.2560.webp": [
-        2560,
-        1512
-      ],
-      "Beinn Damh.320.webp": [
-        320,
-        189
-      ],
-      "Beinn Damh.480.webp": [
-        480,
-        284
-      ],
-      "Beinn Damh.640.webp": [
-        640,
         378
       ],
-      "Beinn Damh.768.webp": [
+      "turner-guterres.320.webp": [
+        320,
+        95
+      ],
+      "turner-guterres.480.webp": [
+        480,
+        142
+      ],
+      "turner-guterres.640.webp": [
+        640,
+        189
+      ],
+      "turner-guterres.768.webp": [
         768,
-        454
+        227
       ]
     },
     "dims": [
-      3638,
-      2149
+      1310,
+      387
     ]
   },
   {
-    "name": "responsive/senatehouse-640.webp",
-    "slug": "senatehouse-640",
-    "origin": "responsive/senatehouse-640.webp",
+    "name": "julia_neuberger.webp",
+    "slug": "julia_neuberger",
+    "origin": "julia_neuberger.jpg",
     "variants": {
-      "responsive/senatehouse-640.320.webp": [
-        320,
-        213
+      "julia_neuberger.1024.webp": [
+        1024,
+        1241
       ],
-      "responsive/senatehouse-640.480.webp": [
+      "julia_neuberger.320.webp": [
+        320,
+        388
+      ],
+      "julia_neuberger.480.webp": [
         480,
-        320
+        582
+      ],
+      "julia_neuberger.640.webp": [
+        640,
+        776
+      ],
+      "julia_neuberger.768.webp": [
+        768,
+        931
       ]
     },
     "dims": [
-      639,
-      426
+      1050,
+      1273
+    ]
+  },
+  {
+    "name": "tony-and-chris.webp",
+    "slug": "tony-and-chris",
+    "origin": "tony-and-chris.png",
+    "variants": {
+      "tony-and-chris.320.webp": [
+        320,
+        235
+      ],
+      "tony-and-chris.480.webp": [
+        480,
+        353
+      ],
+      "tony-and-chris.640.webp": [
+        640,
+        471
+      ],
+      "tony-and-chris.768.webp": [
+        768,
+        565
+      ]
+    },
+    "dims": [
+      976,
+      718
+    ]
+  },
+  {
+    "name": "polly_blakesley.webp",
+    "slug": "polly_blakesley",
+    "origin": "polly_blakesley.jpg",
+    "variants": {
+      "polly_blakesley.320.webp": [
+        320,
+        346
+      ]
+    },
+    "dims": [
+      336,
+      363
+    ]
+  },
+  {
+    "name": "guy_black.webp",
+    "slug": "guy_black",
+    "origin": "guy_black.jpg",
+    "variants": {
+      "guy_black.320.webp": [
+        320,
+        386
+      ],
+      "guy_black.480.webp": [
+        480,
+        579
+      ],
+      "guy_black.640.webp": [
+        640,
+        773
+      ],
+      "guy_black.768.webp": [
+        768,
+        927
+      ]
+    },
+    "dims": [
+      825,
+      996
+    ]
+  },
+  {
+    "name": "karan_thapar.webp",
+    "slug": "karan_thapar",
+    "origin": "karan_thapar.jpg",
+    "variants": {
+      "karan_thapar.320.webp": [
+        320,
+        378
+      ],
+      "karan_thapar.480.webp": [
+        480,
+        568
+      ]
+    },
+    "dims": [
+      580,
+      686
+    ]
+  },
+  {
+    "name": "sue_owen.webp",
+    "slug": "sue_owen",
+    "origin": "sue_owen.jpg",
+    "variants": {
+      "sue_owen.320.webp": [
+        320,
+        367
+      ]
+    },
+    "dims": [
+      344,
+      394
+    ]
+  },
+  {
+    "name": "steven_friel.webp",
+    "slug": "steven_friel",
+    "origin": "steven_friel.jpg",
+    "variants": {
+      "steven_friel.320.webp": [
+        320,
+        318
+      ],
+      "steven_friel.480.webp": [
+        480,
+        477
+      ]
+    },
+    "dims": [
+      571,
+      568
+    ]
+  },
+  {
+    "name": "endorsements_header.webp",
+    "slug": "endorsements_header",
+    "origin": "endorsements_header.jpg",
+    "variants": {
+      "endorsements_header.1024.webp": [
+        1024,
+        257
+      ],
+      "endorsements_header.1280.webp": [
+        1280,
+        321
+      ],
+      "endorsements_header.1440.webp": [
+        1440,
+        362
+      ],
+      "endorsements_header.1600.webp": [
+        1600,
+        402
+      ],
+      "endorsements_header.320.webp": [
+        320,
+        80
+      ],
+      "endorsements_header.480.webp": [
+        480,
+        121
+      ],
+      "endorsements_header.640.webp": [
+        640,
+        161
+      ],
+      "endorsements_header.768.webp": [
+        768,
+        193
+      ]
+    },
+    "dims": [
+      1884,
+      473
+    ]
+  },
+  {
+    "name": "eric_idle.webp",
+    "slug": "eric_idle",
+    "origin": "eric_idle.png",
+    "variants": {
+      "eric_idle.320.webp": [
+        320,
+        480
+      ],
+      "eric_idle.480.webp": [
+        480,
+        720
+      ]
+    },
+    "dims": [
+      634,
+      951
+    ]
+  },
+  {
+    "name": "dagmar_dolby.webp",
+    "slug": "dagmar_dolby",
+    "origin": "dagmar_dolby.jpg",
+    "variants": {
+      "dagmar_dolby.320.webp": [
+        320,
+        320
+      ],
+      "dagmar_dolby.480.webp": [
+        480,
+        480
+      ]
+    },
+    "dims": [
+      500,
+      500
     ]
   },
   {
@@ -992,713 +379,92 @@
     ]
   },
   {
-    "name": "responsive/senatehouse-320.webp",
-    "slug": "senatehouse-320",
-    "origin": "responsive/senatehouse-320.webp",
-    "variants": {
-      "responsive/senatehouse-320.320.webp": [
-        320,
-        213
-      ]
-    },
+    "name": "george_benjamin.webp",
+    "slug": "george_benjamin",
+    "origin": "george_benjamin.jpg",
+    "variants": {},
     "dims": [
-      320,
-      213
+      156,
+      211
     ]
   },
   {
-    "name": "responsive/senatehouse-768.webp",
-    "slug": "senatehouse-768",
-    "origin": "responsive/senatehouse-768.webp",
+    "name": "chris-smith-portrait.webp",
+    "slug": "chris-smith-portrait",
+    "origin": "chris-smith-portrait.jpg",
     "variants": {
-      "responsive/senatehouse-768.320.webp": [
-        320,
-        213
-      ],
-      "responsive/senatehouse-768.480.webp": [
-        480,
-        320
-      ],
-      "responsive/senatehouse-768.640.webp": [
-        640,
-        426
-      ]
-    },
-    "dims": [
-      767,
-      511
-    ]
-  },
-  {
-    "name": "responsive/senatehouse-1024.webp",
-    "slug": "senatehouse-1024",
-    "origin": "responsive/senatehouse-1024.webp",
-    "variants": {
-      "responsive/senatehouse-1024.320.webp": [
-        320,
-        213
-      ],
-      "responsive/senatehouse-1024.480.webp": [
-        480,
-        320
-      ],
-      "responsive/senatehouse-1024.640.webp": [
-        640,
-        427
-      ],
-      "responsive/senatehouse-1024.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1023,
-      682
-    ]
-  },
-  {
-    "name": "responsive/senatehouse-1536.webp",
-    "slug": "senatehouse-1536",
-    "origin": "responsive/senatehouse-1536.webp",
-    "variants": {
-      "responsive/senatehouse-1536.1024.webp": [
+      "chris-smith-portrait.1024.webp": [
         1024,
-        683
-      ],
-      "responsive/senatehouse-1536.1280.webp": [
-        1280,
-        854
-      ],
-      "responsive/senatehouse-1536.1440.webp": [
-        1440,
-        960
-      ],
-      "responsive/senatehouse-1536.320.webp": [
-        320,
-        213
-      ],
-      "responsive/senatehouse-1536.480.webp": [
-        480,
-        320
-      ],
-      "responsive/senatehouse-1536.640.webp": [
-        640,
-        427
-      ],
-      "responsive/senatehouse-1536.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1534,
-      1023
-    ]
-  },
-  {
-    "name": "responsive/senatehouse-1280.webp",
-    "slug": "senatehouse-1280",
-    "origin": "responsive/senatehouse-1280.webp",
-    "variants": {
-      "responsive/senatehouse-1280.1024.webp": [
-        1024,
-        682
-      ],
-      "responsive/senatehouse-1280.1280.webp": [
-        1280,
         853
       ],
-      "responsive/senatehouse-1280.320.webp": [
-        320,
-        213
-      ],
-      "responsive/senatehouse-1280.480.webp": [
-        480,
-        320
-      ],
-      "responsive/senatehouse-1280.640.webp": [
-        640,
-        427
-      ],
-      "responsive/senatehouse-1280.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1280,
-      853
-    ]
-  },
-  {
-    "name": "responsive/senatehouse-1920.webp",
-    "slug": "senatehouse-1920",
-    "origin": "responsive/senatehouse-1920.webp",
-    "variants": {
-      "responsive/senatehouse-1920.1024.webp": [
-        1024,
-        682
-      ],
-      "responsive/senatehouse-1920.1280.webp": [
+      "chris-smith-portrait.1280.webp": [
         1280,
-        853
-      ],
-      "responsive/senatehouse-1920.1440.webp": [
-        1440,
-        960
-      ],
-      "responsive/senatehouse-1920.1600.webp": [
-        1600,
         1066
       ],
-      "responsive/senatehouse-1920.320.webp": [
-        320,
-        213
-      ],
-      "responsive/senatehouse-1920.480.webp": [
-        480,
-        320
-      ],
-      "responsive/senatehouse-1920.640.webp": [
-        640,
-        427
-      ],
-      "responsive/senatehouse-1920.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1919,
-      1279
-    ]
-  },
-  {
-    "name": "responsive/chris-smith-portrait-original.webp",
-    "slug": "chris-smith-portrait-original",
-    "origin": "responsive/chris-smith-portrait-original.webp",
-    "variants": {
-      "responsive/chris-smith-portrait-original.1024.webp": [
-        1024,
-        1365
-      ],
-      "responsive/chris-smith-portrait-original.1280.webp": [
-        1280,
-        1707
-      ],
-      "responsive/chris-smith-portrait-original.1440.webp": [
+      "chris-smith-portrait.1440.webp": [
         1440,
-        1920
+        1200
       ],
-      "responsive/chris-smith-portrait-original.320.webp": [
+      "chris-smith-portrait.320.webp": [
         320,
-        427
+        267
       ],
-      "responsive/chris-smith-portrait-original.480.webp": [
+      "chris-smith-portrait.480.webp": [
         480,
+        400
+      ],
+      "chris-smith-portrait.640.webp": [
+        640,
+        533
+      ],
+      "chris-smith-portrait.768.webp": [
+        768,
         640
-      ],
-      "responsive/chris-smith-portrait-original.640.webp": [
-        640,
-        853
-      ],
-      "responsive/chris-smith-portrait-original.768.webp": [
-        768,
-        1024
       ]
     },
     "dims": [
-      1500,
-      2000
+      1491,
+      1242
     ]
   },
   {
-    "name": "responsive/chris-smith-portrait-768.webp",
-    "slug": "chris-smith-portrait-768",
-    "origin": "responsive/chris-smith-portrait-768.webp",
+    "name": "Turner_GuterresPembroke041.webp",
+    "slug": "Turner_GuterresPembroke041",
+    "origin": "Turner_GuterresPembroke041.jpg",
     "variants": {
-      "responsive/chris-smith-portrait-768.320.webp": [
-        320,
-        427
-      ],
-      "responsive/chris-smith-portrait-768.480.webp": [
-        480,
-        640
-      ],
-      "responsive/chris-smith-portrait-768.640.webp": [
-        640,
-        854
-      ]
-    },
-    "dims": [
-      767,
-      1023
-    ]
-  },
-  {
-    "name": "responsive/bbc-museums-original.webp",
-    "slug": "bbc-museums-original",
-    "origin": "responsive/bbc-museums-original.webp",
-    "variants": {
-      "responsive/bbc-museums-original.1024.webp": [
-        1024,
-        577
-      ],
-      "responsive/bbc-museums-original.320.webp": [
-        320,
-        180
-      ],
-      "responsive/bbc-museums-original.480.webp": [
-        480,
-        271
-      ],
-      "responsive/bbc-museums-original.640.webp": [
-        640,
-        361
-      ],
-      "responsive/bbc-museums-original.768.webp": [
-        768,
-        433
-      ]
-    },
-    "dims": [
-      1174,
-      662
-    ]
-  },
-  {
-    "name": "responsive/chris-smith-portrait-640.webp",
-    "slug": "chris-smith-portrait-640",
-    "origin": "responsive/chris-smith-portrait-640.webp",
-    "variants": {
-      "responsive/chris-smith-portrait-640.320.webp": [
-        320,
-        427
-      ],
-      "responsive/chris-smith-portrait-640.480.webp": [
-        480,
-        640
-      ],
-      "responsive/chris-smith-portrait-640.640.webp": [
-        640,
-        853
-      ]
-    },
-    "dims": [
-      640,
-      853
-    ]
-  },
-  {
-    "name": "responsive/chris-smith-portrait-1024.webp",
-    "slug": "chris-smith-portrait-1024",
-    "origin": "responsive/chris-smith-portrait-1024.webp",
-    "variants": {
-      "responsive/chris-smith-portrait-1024.1024.webp": [
-        1024,
-        1365
-      ],
-      "responsive/chris-smith-portrait-1024.320.webp": [
-        320,
-        427
-      ],
-      "responsive/chris-smith-portrait-1024.480.webp": [
-        480,
-        640
-      ],
-      "responsive/chris-smith-portrait-1024.640.webp": [
-        640,
-        853
-      ],
-      "responsive/chris-smith-portrait-1024.768.webp": [
-        768,
-        1024
-      ]
-    },
-    "dims": [
-      1024,
-      1365
-    ]
-  },
-  {
-    "name": "responsive/chris-smith-portrait-320.webp",
-    "slug": "chris-smith-portrait-320",
-    "origin": "responsive/chris-smith-portrait-320.webp",
-    "variants": {
-      "responsive/chris-smith-portrait-320.320.webp": [
-        320,
-        426
-      ]
-    },
-    "dims": [
-      320,
-      426
-    ]
-  },
-  {
-    "name": "responsive/bbc-museums-768.webp",
-    "slug": "bbc-museums-768",
-    "origin": "responsive/bbc-museums-768.webp",
-    "variants": {
-      "responsive/bbc-museums-768.320.webp": [
-        320,
-        180
-      ],
-      "responsive/bbc-museums-768.480.webp": [
-        480,
-        271
-      ],
-      "responsive/bbc-museums-768.640.webp": [
-        640,
-        361
-      ],
-      "responsive/bbc-museums-768.768.webp": [
-        768,
-        433
-      ]
-    },
-    "dims": [
-      768,
-      433
-    ]
-  },
-  {
-    "name": "responsive/bbc-museums-1024.webp",
-    "slug": "bbc-museums-1024",
-    "origin": "responsive/bbc-museums-1024.webp",
-    "variants": {
-      "responsive/bbc-museums-1024.320.webp": [
-        320,
-        180
-      ],
-      "responsive/bbc-museums-1024.480.webp": [
-        480,
-        271
-      ],
-      "responsive/bbc-museums-1024.640.webp": [
-        640,
-        361
-      ],
-      "responsive/bbc-museums-1024.768.webp": [
-        768,
-        433
-      ]
-    },
-    "dims": [
-      1023,
-      577
-    ]
-  },
-  {
-    "name": "responsive/bbc-museums-640.webp",
-    "slug": "bbc-museums-640",
-    "origin": "responsive/bbc-museums-640.webp",
-    "variants": {
-      "responsive/bbc-museums-640.320.webp": [
-        320,
-        181
-      ],
-      "responsive/bbc-museums-640.480.webp": [
-        480,
-        271
-      ]
-    },
-    "dims": [
-      638,
-      360
-    ]
-  },
-  {
-    "name": "responsive/chris-smith-portrait-1280.webp",
-    "slug": "chris-smith-portrait-1280",
-    "origin": "responsive/chris-smith-portrait-1280.webp",
-    "variants": {
-      "responsive/chris-smith-portrait-1280.1024.webp": [
-        1024,
-        1365
-      ],
-      "responsive/chris-smith-portrait-1280.1280.webp": [
-        1280,
-        1706
-      ],
-      "responsive/chris-smith-portrait-1280.320.webp": [
-        320,
-        427
-      ],
-      "responsive/chris-smith-portrait-1280.480.webp": [
-        480,
-        640
-      ],
-      "responsive/chris-smith-portrait-1280.640.webp": [
-        640,
-        853
-      ],
-      "responsive/chris-smith-portrait-1280.768.webp": [
-        768,
-        1024
-      ]
-    },
-    "dims": [
-      1280,
-      1706
-    ]
-  },
-  {
-    "name": "responsive/bbc-museums-320.webp",
-    "slug": "bbc-museums-320",
-    "origin": "responsive/bbc-museums-320.webp",
-    "variants": {},
-    "dims": [
-      319,
-      180
-    ]
-  },
-  {
-    "name": "responsive/Turner_GuterresPembroke041-640.webp",
-    "slug": "Turner_GuterresPembroke041-640",
-    "origin": "responsive/Turner_GuterresPembroke041-640.webp",
-    "variants": {
-      "responsive/Turner_GuterresPembroke041-640.320.webp": [
-        320,
-        214
-      ],
-      "responsive/Turner_GuterresPembroke041-640.480.webp": [
-        480,
-        320
-      ],
-      "responsive/Turner_GuterresPembroke041-640.640.webp": [
-        640,
-        427
-      ]
-    },
-    "dims": [
-      640,
-      427
-    ]
-  },
-  {
-    "name": "responsive/Turner_GuterresPembroke041-1536.webp",
-    "slug": "Turner_GuterresPembroke041-1536",
-    "origin": "responsive/Turner_GuterresPembroke041-1536.webp",
-    "variants": {
-      "responsive/Turner_GuterresPembroke041-1536.1024.webp": [
-        1024,
-        683
-      ],
-      "responsive/Turner_GuterresPembroke041-1536.1280.webp": [
-        1280,
-        854
-      ],
-      "responsive/Turner_GuterresPembroke041-1536.1440.webp": [
-        1440,
-        961
-      ],
-      "responsive/Turner_GuterresPembroke041-1536.320.webp": [
-        320,
-        214
-      ],
-      "responsive/Turner_GuterresPembroke041-1536.480.webp": [
-        480,
-        320
-      ],
-      "responsive/Turner_GuterresPembroke041-1536.640.webp": [
-        640,
-        427
-      ],
-      "responsive/Turner_GuterresPembroke041-1536.768.webp": [
-        768,
-        513
-      ]
-    },
-    "dims": [
-      1536,
-      1025
-    ]
-  },
-  {
-    "name": "responsive/Turner_GuterresPembroke041-768.webp",
-    "slug": "Turner_GuterresPembroke041-768",
-    "origin": "responsive/Turner_GuterresPembroke041-768.webp",
-    "variants": {
-      "responsive/Turner_GuterresPembroke041-768.320.webp": [
-        320,
-        214
-      ],
-      "responsive/Turner_GuterresPembroke041-768.480.webp": [
-        480,
-        320
-      ],
-      "responsive/Turner_GuterresPembroke041-768.640.webp": [
-        640,
-        427
-      ]
-    },
-    "dims": [
-      767,
-      512
-    ]
-  },
-  {
-    "name": "responsive/Turner_GuterresPembroke041-320.webp",
-    "slug": "Turner_GuterresPembroke041-320",
-    "origin": "responsive/Turner_GuterresPembroke041-320.webp",
-    "variants": {},
-    "dims": [
-      319,
-      213
-    ]
-  },
-  {
-    "name": "responsive/senatehouse-original.webp",
-    "slug": "senatehouse-original",
-    "origin": "responsive/senatehouse-original.webp",
-    "variants": {
-      "responsive/senatehouse-original.1024.webp": [
-        1024,
-        683
-      ],
-      "responsive/senatehouse-original.1280.webp": [
-        1280,
-        853
-      ],
-      "responsive/senatehouse-original.1440.webp": [
-        1440,
-        960
-      ],
-      "responsive/senatehouse-original.1600.webp": [
-        1600,
-        1067
-      ],
-      "responsive/senatehouse-original.1920.webp": [
-        1920,
-        1280
-      ],
-      "responsive/senatehouse-original.2560.webp": [
-        2560,
-        1707
-      ],
-      "responsive/senatehouse-original.320.webp": [
-        320,
-        213
-      ],
-      "responsive/senatehouse-original.3840.webp": [
-        3840,
-        2560
-      ],
-      "responsive/senatehouse-original.480.webp": [
-        480,
-        320
-      ],
-      "responsive/senatehouse-original.640.webp": [
-        640,
-        427
-      ],
-      "responsive/senatehouse-original.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      4368,
-      2912
-    ]
-  },
-  {
-    "name": "responsive/Turner_GuterresPembroke041-1024.webp",
-    "slug": "Turner_GuterresPembroke041-1024",
-    "origin": "responsive/Turner_GuterresPembroke041-1024.webp",
-    "variants": {
-      "responsive/Turner_GuterresPembroke041-1024.320.webp": [
-        320,
-        214
-      ],
-      "responsive/Turner_GuterresPembroke041-1024.480.webp": [
-        480,
-        320
-      ],
-      "responsive/Turner_GuterresPembroke041-1024.640.webp": [
-        640,
-        427
-      ],
-      "responsive/Turner_GuterresPembroke041-1024.768.webp": [
-        768,
-        513
-      ]
-    },
-    "dims": [
-      1023,
-      683
-    ]
-  },
-  {
-    "name": "responsive/Turner_GuterresPembroke041-1280.webp",
-    "slug": "Turner_GuterresPembroke041-1280",
-    "origin": "responsive/Turner_GuterresPembroke041-1280.webp",
-    "variants": {
-      "responsive/Turner_GuterresPembroke041-1280.1024.webp": [
+      "Turner_GuterresPembroke041.1024.webp": [
         1024,
         684
       ],
-      "responsive/Turner_GuterresPembroke041-1280.320.webp": [
-        320,
-        214
-      ],
-      "responsive/Turner_GuterresPembroke041-1280.480.webp": [
-        480,
-        321
-      ],
-      "responsive/Turner_GuterresPembroke041-1280.640.webp": [
-        640,
-        427
-      ],
-      "responsive/Turner_GuterresPembroke041-1280.768.webp": [
-        768,
-        513
-      ]
-    },
-    "dims": [
-      1279,
-      854
-    ]
-  },
-  {
-    "name": "responsive/Turner_GuterresPembroke041-original.webp",
-    "slug": "Turner_GuterresPembroke041-original",
-    "origin": "responsive/Turner_GuterresPembroke041-original.webp",
-    "variants": {
-      "responsive/Turner_GuterresPembroke041-original.1024.webp": [
-        1024,
-        684
-      ],
-      "responsive/Turner_GuterresPembroke041-original.1280.webp": [
+      "Turner_GuterresPembroke041.1280.webp": [
         1280,
         854
       ],
-      "responsive/Turner_GuterresPembroke041-original.1440.webp": [
+      "Turner_GuterresPembroke041.1440.webp": [
         1440,
         961
       ],
-      "responsive/Turner_GuterresPembroke041-original.1600.webp": [
+      "Turner_GuterresPembroke041.1600.webp": [
         1600,
         1068
       ],
-      "responsive/Turner_GuterresPembroke041-original.1920.webp": [
+      "Turner_GuterresPembroke041.1920.webp": [
         1920,
         1282
       ],
-      "responsive/Turner_GuterresPembroke041-original.320.webp": [
+      "Turner_GuterresPembroke041.320.webp": [
         320,
         214
       ],
-      "responsive/Turner_GuterresPembroke041-original.480.webp": [
+      "Turner_GuterresPembroke041.480.webp": [
         480,
         320
       ],
-      "responsive/Turner_GuterresPembroke041-original.640.webp": [
+      "Turner_GuterresPembroke041.640.webp": [
         640,
         427
       ],
-      "responsive/Turner_GuterresPembroke041-original.768.webp": [
+      "Turner_GuterresPembroke041.768.webp": [
         768,
         513
       ]
@@ -1709,73 +475,188 @@
     ]
   },
   {
-    "name": "responsive/Stop the Clause-768.webp",
-    "slug": "Stop the Clause-768",
-    "origin": "responsive/Stop the Clause-768.webp",
+    "name": "angus_ivory.webp",
+    "slug": "angus_ivory",
+    "origin": "angus_ivory.jpg",
     "variants": {
-      "responsive/Stop the Clause-768.320.webp": [
+      "angus_ivory.1024.webp": [
+        1024,
+        1234
+      ],
+      "angus_ivory.1280.webp": [
+        1280,
+        1542
+      ],
+      "angus_ivory.1440.webp": [
+        1440,
+        1735
+      ],
+      "angus_ivory.1600.webp": [
+        1600,
+        1928
+      ],
+      "angus_ivory.320.webp": [
         320,
-        215
+        386
       ],
-      "responsive/Stop the Clause-768.480.webp": [
+      "angus_ivory.480.webp": [
         480,
-        323
+        578
       ],
-      "responsive/Stop the Clause-768.640.webp": [
+      "angus_ivory.640.webp": [
         640,
-        431
+        771
       ],
-      "responsive/Stop the Clause-768.768.webp": [
+      "angus_ivory.768.webp": [
         768,
-        517
+        925
       ]
     },
     "dims": [
-      768,
-      517
+      1851,
+      2230
     ]
   },
   {
-    "name": "responsive/Turner_GuterresPembroke041-1920.webp",
-    "slug": "Turner_GuterresPembroke041-1920",
-    "origin": "responsive/Turner_GuterresPembroke041-1920.webp",
+    "name": "chris1986.webp",
+    "slug": "chris1986",
+    "origin": "chris1986.webp",
     "variants": {
-      "responsive/Turner_GuterresPembroke041-1920.1024.webp": [
-        1024,
-        684
-      ],
-      "responsive/Turner_GuterresPembroke041-1920.1280.webp": [
-        1280,
-        854
-      ],
-      "responsive/Turner_GuterresPembroke041-1920.1440.webp": [
-        1440,
-        961
-      ],
-      "responsive/Turner_GuterresPembroke041-1920.1600.webp": [
-        1600,
-        1068
-      ],
-      "responsive/Turner_GuterresPembroke041-1920.320.webp": [
+      "chris1986.320.webp": [
         320,
-        214
-      ],
-      "responsive/Turner_GuterresPembroke041-1920.480.webp": [
-        480,
-        320
-      ],
-      "responsive/Turner_GuterresPembroke041-1920.640.webp": [
-        640,
-        427
-      ],
-      "responsive/Turner_GuterresPembroke041-1920.768.webp": [
-        768,
-        513
+        180
       ]
     },
     "dims": [
-      1919,
-      1281
+      320,
+      180
+    ]
+  },
+  {
+    "name": "chris_smith_parliment.webp",
+    "slug": "chris_smith_parliment",
+    "origin": "chris_smith_parliment.jpg",
+    "variants": {
+      "chris_smith_parliment.1024.webp": [
+        1024,
+        576
+      ],
+      "chris_smith_parliment.320.webp": [
+        320,
+        180
+      ],
+      "chris_smith_parliment.480.webp": [
+        480,
+        270
+      ],
+      "chris_smith_parliment.640.webp": [
+        640,
+        360
+      ],
+      "chris_smith_parliment.768.webp": [
+        768,
+        432
+      ]
+    },
+    "dims": [
+      1024,
+      576
+    ]
+  },
+  {
+    "name": "chris-smith-asa.webp",
+    "slug": "chris-smith-asa",
+    "origin": "chris-smith-asa.jpg",
+    "variants": {
+      "chris-smith-asa.1024.webp": [
+        1024,
+        410
+      ],
+      "chris-smith-asa.320.webp": [
+        320,
+        128
+      ],
+      "chris-smith-asa.480.webp": [
+        480,
+        192
+      ],
+      "chris-smith-asa.640.webp": [
+        640,
+        256
+      ],
+      "chris-smith-asa.768.webp": [
+        768,
+        307
+      ]
+    },
+    "dims": [
+      1200,
+      480
+    ]
+  },
+  {
+    "name": "bbc-museums.webp",
+    "slug": "bbc-museums",
+    "origin": "bbc-museums.png",
+    "variants": {
+      "bbc-museums.1024.webp": [
+        1024,
+        577
+      ],
+      "bbc-museums.320.webp": [
+        320,
+        180
+      ],
+      "bbc-museums.480.webp": [
+        480,
+        271
+      ],
+      "bbc-museums.640.webp": [
+        640,
+        361
+      ],
+      "bbc-museums.768.webp": [
+        768,
+        433
+      ]
+    },
+    "dims": [
+      1174,
+      662
+    ]
+  },
+  {
+    "name": "andy_burnham.webp",
+    "slug": "andy_burnham",
+    "origin": "andy_burnham.jpg",
+    "variants": {
+      "andy_burnham.320.webp": [
+        320,
+        459
+      ],
+      "andy_burnham.480.webp": [
+        480,
+        689
+      ]
+    },
+    "dims": [
+      533,
+      765
+    ]
+  },
+  {
+    "name": "bbc-env.webp",
+    "slug": "bbc-env",
+    "origin": "bbc-env.webp",
+    "variants": {
+      "bbc-env.320.webp": [
+        320,
+        180
+      ]
+    },
+    "dims": [
+      320,
+      180
     ]
   },
   {
@@ -1834,351 +715,23 @@
     ]
   },
   {
-    "name": "responsive/Stop the Clause-640.webp",
-    "slug": "Stop the Clause-640",
-    "origin": "responsive/Stop the Clause-640.webp",
+    "name": "CRS6a.webp",
+    "slug": "CRS6a",
+    "origin": "CRS6a.jpg",
     "variants": {
-      "responsive/Stop the Clause-640.320.webp": [
-        320,
-        216
-      ],
-      "responsive/Stop the Clause-640.480.webp": [
-        480,
-        323
-      ],
-      "responsive/Stop the Clause-640.640.webp": [
-        640,
-        431
-      ]
-    },
-    "dims": [
-      640,
-      431
-    ]
-  },
-  {
-    "name": "responsive/Stop the Clause-320.webp",
-    "slug": "Stop the Clause-320",
-    "origin": "responsive/Stop the Clause-320.webp",
-    "variants": {},
-    "dims": [
-      319,
-      215
-    ]
-  },
-  {
-    "name": "responsive/Stop the Clause-1536.webp",
-    "slug": "Stop the Clause-1536",
-    "origin": "responsive/Stop the Clause-1536.webp",
-    "variants": {
-      "responsive/Stop the Clause-1536.1024.webp": [
-        1024,
-        690
-      ],
-      "responsive/Stop the Clause-1536.1280.webp": [
-        1280,
-        862
-      ],
-      "responsive/Stop the Clause-1536.1440.webp": [
-        1440,
-        970
-      ],
-      "responsive/Stop the Clause-1536.320.webp": [
-        320,
-        216
-      ],
-      "responsive/Stop the Clause-1536.480.webp": [
-        480,
-        323
-      ],
-      "responsive/Stop the Clause-1536.640.webp": [
-        640,
-        431
-      ],
-      "responsive/Stop the Clause-1536.768.webp": [
-        768,
-        517
-      ]
-    },
-    "dims": [
-      1535,
-      1034
-    ]
-  },
-  {
-    "name": "responsive/Stop the Clause-1280.webp",
-    "slug": "Stop the Clause-1280",
-    "origin": "responsive/Stop the Clause-1280.webp",
-    "variants": {
-      "responsive/Stop the Clause-1280.1024.webp": [
-        1024,
-        690
-      ],
-      "responsive/Stop the Clause-1280.1280.webp": [
-        1280,
-        862
-      ],
-      "responsive/Stop the Clause-1280.320.webp": [
-        320,
-        216
-      ],
-      "responsive/Stop the Clause-1280.480.webp": [
-        480,
-        323
-      ],
-      "responsive/Stop the Clause-1280.640.webp": [
-        640,
-        431
-      ],
-      "responsive/Stop the Clause-1280.768.webp": [
-        768,
-        517
-      ]
-    },
-    "dims": [
-      1280,
-      862
-    ]
-  },
-  {
-    "name": "responsive/Stop the Clause-1024.webp",
-    "slug": "Stop the Clause-1024",
-    "origin": "responsive/Stop the Clause-1024.webp",
-    "variants": {
-      "responsive/Stop the Clause-1024.320.webp": [
-        320,
-        216
-      ],
-      "responsive/Stop the Clause-1024.480.webp": [
-        480,
-        323
-      ],
-      "responsive/Stop the Clause-1024.640.webp": [
-        640,
-        431
-      ],
-      "responsive/Stop the Clause-1024.768.webp": [
-        768,
-        517
-      ]
-    },
-    "dims": [
-      1023,
-      689
-    ]
-  },
-  {
-    "name": "responsive/Stop the Clause-original.webp",
-    "slug": "Stop the Clause-original",
-    "origin": "responsive/Stop the Clause-original.webp",
-    "variants": {
-      "responsive/Stop the Clause-original.1024.webp": [
-        1024,
-        690
-      ],
-      "responsive/Stop the Clause-original.1280.webp": [
-        1280,
-        862
-      ],
-      "responsive/Stop the Clause-original.1440.webp": [
-        1440,
-        970
-      ],
-      "responsive/Stop the Clause-original.1600.webp": [
-        1600,
-        1078
-      ],
-      "responsive/Stop the Clause-original.1920.webp": [
-        1920,
-        1293
-      ],
-      "responsive/Stop the Clause-original.2560.webp": [
-        2560,
-        1724
-      ],
-      "responsive/Stop the Clause-original.320.webp": [
-        320,
-        216
-      ],
-      "responsive/Stop the Clause-original.480.webp": [
-        480,
-        323
-      ],
-      "responsive/Stop the Clause-original.640.webp": [
-        640,
-        431
-      ],
-      "responsive/Stop the Clause-original.768.webp": [
-        768,
-        517
-      ]
-    },
-    "dims": [
-      3483,
-      2346
-    ]
-  },
-  {
-    "name": "responsive/Chris Smith-768.webp",
-    "slug": "Chris Smith-768",
-    "origin": "responsive/Chris Smith-768.webp",
-    "variants": {
-      "responsive/Chris Smith-768.320.webp": [
-        320,
-        320
-      ],
-      "responsive/Chris Smith-768.480.webp": [
-        480,
-        480
-      ],
-      "responsive/Chris Smith-768.640.webp": [
-        640,
-        640
-      ],
-      "responsive/Chris Smith-768.768.webp": [
-        768,
-        768
-      ]
-    },
-    "dims": [
-      768,
-      768
-    ]
-  },
-  {
-    "name": "responsive/Stop the Clause-1920.webp",
-    "slug": "Stop the Clause-1920",
-    "origin": "responsive/Stop the Clause-1920.webp",
-    "variants": {
-      "responsive/Stop the Clause-1920.1024.webp": [
-        1024,
-        690
-      ],
-      "responsive/Stop the Clause-1920.1280.webp": [
-        1280,
-        862
-      ],
-      "responsive/Stop the Clause-1920.1440.webp": [
-        1440,
-        970
-      ],
-      "responsive/Stop the Clause-1920.1600.webp": [
-        1600,
-        1078
-      ],
-      "responsive/Stop the Clause-1920.1920.webp": [
-        1920,
-        1293
-      ],
-      "responsive/Stop the Clause-1920.320.webp": [
-        320,
-        216
-      ],
-      "responsive/Stop the Clause-1920.480.webp": [
-        480,
-        323
-      ],
-      "responsive/Stop the Clause-1920.640.webp": [
-        640,
-        431
-      ],
-      "responsive/Stop the Clause-1920.768.webp": [
-        768,
-        517
-      ]
-    },
-    "dims": [
-      1920,
-      1293
-    ]
-  },
-  {
-    "name": "responsive/Chris Smith-1024.webp",
-    "slug": "Chris Smith-1024",
-    "origin": "responsive/Chris Smith-1024.webp",
-    "variants": {
-      "responsive/Chris Smith-1024.1024.webp": [
-        1024,
-        1024
-      ],
-      "responsive/Chris Smith-1024.320.webp": [
-        320,
-        320
-      ],
-      "responsive/Chris Smith-1024.480.webp": [
-        480,
-        480
-      ],
-      "responsive/Chris Smith-1024.640.webp": [
-        640,
-        640
-      ],
-      "responsive/Chris Smith-1024.768.webp": [
-        768,
-        768
-      ]
-    },
-    "dims": [
-      1024,
-      1024
-    ]
-  },
-  {
-    "name": "responsive/Chris Smith-320.webp",
-    "slug": "Chris Smith-320",
-    "origin": "responsive/Chris Smith-320.webp",
-    "variants": {
-      "responsive/Chris Smith-320.320.webp": [
-        320,
-        320
-      ]
-    },
-    "dims": [
-      320,
-      320
-    ]
-  },
-  {
-    "name": "responsive/Chris Smith-640.webp",
-    "slug": "Chris Smith-640",
-    "origin": "responsive/Chris Smith-640.webp",
-    "variants": {
-      "responsive/Chris Smith-640.320.webp": [
-        320,
-        320
-      ],
-      "responsive/Chris Smith-640.480.webp": [
-        480,
-        480
-      ],
-      "responsive/Chris Smith-640.640.webp": [
-        640,
-        640
-      ]
-    },
-    "dims": [
-      640,
-      640
-    ]
-  },
-  {
-    "name": "responsive/CRS6a-original.webp",
-    "slug": "CRS6a-original",
-    "origin": "responsive/CRS6a-original.webp",
-    "variants": {
-      "responsive/CRS6a-original.320.webp": [
+      "CRS6a.320.webp": [
         320,
         498
       ],
-      "responsive/CRS6a-original.480.webp": [
+      "CRS6a.480.webp": [
         480,
         748
       ],
-      "responsive/CRS6a-original.640.webp": [
+      "CRS6a.640.webp": [
         640,
         997
       ],
-      "responsive/CRS6a-original.768.webp": [
+      "CRS6a.768.webp": [
         768,
         1196
       ]
@@ -2189,461 +742,98 @@
     ]
   },
   {
-    "name": "responsive/Chris Smith-1280.webp",
-    "slug": "Chris Smith-1280",
-    "origin": "responsive/Chris Smith-1280.webp",
+    "name": "Beinn Damh.webp",
+    "slug": "Beinn Damh",
+    "origin": "Beinn Damh.jpg",
     "variants": {
-      "responsive/Chris Smith-1280.1024.webp": [
+      "Beinn Damh.1024.webp": [
         1024,
-        1024
+        605
       ],
-      "responsive/Chris Smith-1280.1280.webp": [
+      "Beinn Damh.1280.webp": [
         1280,
-        1280
+        756
       ],
-      "responsive/Chris Smith-1280.320.webp": [
-        320,
-        320
-      ],
-      "responsive/Chris Smith-1280.480.webp": [
-        480,
-        480
-      ],
-      "responsive/Chris Smith-1280.640.webp": [
-        640,
-        640
-      ],
-      "responsive/Chris Smith-1280.768.webp": [
-        768,
-        768
-      ]
-    },
-    "dims": [
-      1280,
-      1280
-    ]
-  },
-  {
-    "name": "responsive/CRS6a-768.webp",
-    "slug": "CRS6a-768",
-    "origin": "responsive/CRS6a-768.webp",
-    "variants": {
-      "responsive/CRS6a-768.320.webp": [
-        320,
-        498
-      ],
-      "responsive/CRS6a-768.480.webp": [
-        480,
-        748
-      ],
-      "responsive/CRS6a-768.640.webp": [
-        640,
-        997
-      ],
-      "responsive/CRS6a-768.768.webp": [
-        768,
-        1196
-      ]
-    },
-    "dims": [
-      768,
-      1196
-    ]
-  },
-  {
-    "name": "responsive/CRS6a-640.webp",
-    "slug": "CRS6a-640",
-    "origin": "responsive/CRS6a-640.webp",
-    "variants": {
-      "responsive/CRS6a-640.320.webp": [
-        320,
-        498
-      ],
-      "responsive/CRS6a-640.480.webp": [
-        480,
-        747
-      ],
-      "responsive/CRS6a-640.640.webp": [
-        640,
-        996
-      ]
-    },
-    "dims": [
-      640,
-      996
-    ]
-  },
-  {
-    "name": "responsive/Chris Smith-1920.webp",
-    "slug": "Chris Smith-1920",
-    "origin": "responsive/Chris Smith-1920.webp",
-    "variants": {
-      "responsive/Chris Smith-1920.1024.webp": [
-        1024,
-        1024
-      ],
-      "responsive/Chris Smith-1920.1280.webp": [
-        1280,
-        1280
-      ],
-      "responsive/Chris Smith-1920.1440.webp": [
+      "Beinn Damh.1440.webp": [
         1440,
-        1440
+        851
       ],
-      "responsive/Chris Smith-1920.1600.webp": [
+      "Beinn Damh.1600.webp": [
         1600,
-        1600
+        945
       ],
-      "responsive/Chris Smith-1920.1920.webp": [
+      "Beinn Damh.1920.webp": [
         1920,
-        1920
+        1134
       ],
-      "responsive/Chris Smith-1920.320.webp": [
+      "Beinn Damh.2560.webp": [
+        2560,
+        1512
+      ],
+      "Beinn Damh.320.webp": [
         320,
-        320
+        189
       ],
-      "responsive/Chris Smith-1920.480.webp": [
+      "Beinn Damh.480.webp": [
         480,
-        480
+        284
       ],
-      "responsive/Chris Smith-1920.640.webp": [
+      "Beinn Damh.640.webp": [
         640,
-        640
+        378
       ],
-      "responsive/Chris Smith-1920.768.webp": [
+      "Beinn Damh.768.webp": [
         768,
-        768
+        454
       ]
     },
     "dims": [
-      1920,
-      1920
+      3638,
+      2149
     ]
   },
   {
-    "name": "responsive/Chris Smith-1536.webp",
-    "slug": "Chris Smith-1536",
-    "origin": "responsive/Chris Smith-1536.webp",
+    "name": "CRS19b.webp",
+    "slug": "CRS19b",
+    "origin": "CRS19b.jpg",
     "variants": {
-      "responsive/Chris Smith-1536.1024.webp": [
-        1024,
-        1024
-      ],
-      "responsive/Chris Smith-1536.1280.webp": [
-        1280,
-        1280
-      ],
-      "responsive/Chris Smith-1536.1440.webp": [
-        1440,
-        1440
-      ],
-      "responsive/Chris Smith-1536.320.webp": [
-        320,
-        320
-      ],
-      "responsive/Chris Smith-1536.480.webp": [
-        480,
-        480
-      ],
-      "responsive/Chris Smith-1536.640.webp": [
-        640,
-        640
-      ],
-      "responsive/Chris Smith-1536.768.webp": [
-        768,
-        768
-      ]
-    },
-    "dims": [
-      1536,
-      1536
-    ]
-  },
-  {
-    "name": "responsive/CRS6a-320.webp",
-    "slug": "CRS6a-320",
-    "origin": "responsive/CRS6a-320.webp",
-    "variants": {
-      "responsive/CRS6a-320.320.webp": [
-        320,
-        498
-      ]
-    },
-    "dims": [
-      320,
-      498
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-320.webp",
-    "slug": "CRS19b-320",
-    "origin": "responsive/CRS19b-320.webp",
-    "variants": {
-      "responsive/CRS19b-320.320.webp": [
-        320,
-        211
-      ]
-    },
-    "dims": [
-      320,
-      211
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-1536.webp",
-    "slug": "CRS19b-1536",
-    "origin": "responsive/CRS19b-1536.webp",
-    "variants": {
-      "responsive/CRS19b-1536.1024.webp": [
+      "CRS19b.1024.webp": [
         1024,
         676
       ],
-      "responsive/CRS19b-1536.1280.webp": [
+      "CRS19b.1280.webp": [
         1280,
         845
       ],
-      "responsive/CRS19b-1536.1440.webp": [
+      "CRS19b.1440.webp": [
         1440,
         950
       ],
-      "responsive/CRS19b-1536.320.webp": [
-        320,
-        211
-      ],
-      "responsive/CRS19b-1536.480.webp": [
-        480,
-        317
-      ],
-      "responsive/CRS19b-1536.640.webp": [
-        640,
-        422
-      ],
-      "responsive/CRS19b-1536.768.webp": [
-        768,
-        507
-      ]
-    },
-    "dims": [
-      1535,
-      1013
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-1920.webp",
-    "slug": "CRS19b-1920",
-    "origin": "responsive/CRS19b-1920.webp",
-    "variants": {
-      "responsive/CRS19b-1920.1024.webp": [
-        1024,
-        676
-      ],
-      "responsive/CRS19b-1920.1280.webp": [
-        1280,
-        845
-      ],
-      "responsive/CRS19b-1920.1440.webp": [
-        1440,
-        950
-      ],
-      "responsive/CRS19b-1920.1600.webp": [
+      "CRS19b.1600.webp": [
         1600,
         1056
       ],
-      "responsive/CRS19b-1920.1920.webp": [
+      "CRS19b.1920.webp": [
         1920,
         1267
       ],
-      "responsive/CRS19b-1920.320.webp": [
-        320,
-        211
-      ],
-      "responsive/CRS19b-1920.480.webp": [
-        480,
-        317
-      ],
-      "responsive/CRS19b-1920.640.webp": [
-        640,
-        422
-      ],
-      "responsive/CRS19b-1920.768.webp": [
-        768,
-        507
-      ]
-    },
-    "dims": [
-      1920,
-      1267
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-1280.webp",
-    "slug": "CRS19b-1280",
-    "origin": "responsive/CRS19b-1280.webp",
-    "variants": {
-      "responsive/CRS19b-1280.1024.webp": [
-        1024,
-        676
-      ],
-      "responsive/CRS19b-1280.320.webp": [
-        320,
-        211
-      ],
-      "responsive/CRS19b-1280.480.webp": [
-        480,
-        317
-      ],
-      "responsive/CRS19b-1280.640.webp": [
-        640,
-        422
-      ],
-      "responsive/CRS19b-1280.768.webp": [
-        768,
-        507
-      ]
-    },
-    "dims": [
-      1279,
-      844
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-1024.webp",
-    "slug": "CRS19b-1024",
-    "origin": "responsive/CRS19b-1024.webp",
-    "variants": {
-      "responsive/CRS19b-1024.320.webp": [
-        320,
-        211
-      ],
-      "responsive/CRS19b-1024.480.webp": [
-        480,
-        317
-      ],
-      "responsive/CRS19b-1024.640.webp": [
-        640,
-        422
-      ],
-      "responsive/CRS19b-1024.768.webp": [
-        768,
-        507
-      ]
-    },
-    "dims": [
-      1023,
-      675
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-640.webp",
-    "slug": "CRS19b-640",
-    "origin": "responsive/CRS19b-640.webp",
-    "variants": {
-      "responsive/CRS19b-640.320.webp": [
-        320,
-        211
-      ],
-      "responsive/CRS19b-640.480.webp": [
-        480,
-        317
-      ]
-    },
-    "dims": [
-      639,
-      422
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-768.webp",
-    "slug": "CRS19b-768",
-    "origin": "responsive/CRS19b-768.webp",
-    "variants": {
-      "responsive/CRS19b-768.320.webp": [
-        320,
-        211
-      ],
-      "responsive/CRS19b-768.480.webp": [
-        480,
-        317
-      ],
-      "responsive/CRS19b-768.640.webp": [
-        640,
-        422
-      ]
-    },
-    "dims": [
-      767,
-      506
-    ]
-  },
-  {
-    "name": "responsive/CRS17a-768.webp",
-    "slug": "CRS17a-768",
-    "origin": "responsive/CRS17a-768.webp",
-    "variants": {
-      "responsive/CRS17a-768.320.webp": [
-        320,
-        485
-      ],
-      "responsive/CRS17a-768.480.webp": [
-        480,
-        728
-      ],
-      "responsive/CRS17a-768.640.webp": [
-        640,
-        971
-      ],
-      "responsive/CRS17a-768.768.webp": [
-        768,
-        1165
-      ]
-    },
-    "dims": [
-      768,
-      1165
-    ]
-  },
-  {
-    "name": "responsive/CRS19b-original.webp",
-    "slug": "CRS19b-original",
-    "origin": "responsive/CRS19b-original.webp",
-    "variants": {
-      "responsive/CRS19b-original.1024.webp": [
-        1024,
-        676
-      ],
-      "responsive/CRS19b-original.1280.webp": [
-        1280,
-        845
-      ],
-      "responsive/CRS19b-original.1440.webp": [
-        1440,
-        950
-      ],
-      "responsive/CRS19b-original.1600.webp": [
-        1600,
-        1056
-      ],
-      "responsive/CRS19b-original.1920.webp": [
-        1920,
-        1267
-      ],
-      "responsive/CRS19b-original.2560.webp": [
+      "CRS19b.2560.webp": [
         2560,
         1689
       ],
-      "responsive/CRS19b-original.320.webp": [
+      "CRS19b.320.webp": [
         320,
         211
       ],
-      "responsive/CRS19b-original.480.webp": [
+      "CRS19b.480.webp": [
         480,
         317
       ],
-      "responsive/CRS19b-original.640.webp": [
+      "CRS19b.640.webp": [
         640,
         422
       ],
-      "responsive/CRS19b-original.768.webp": [
+      "CRS19b.768.webp": [
         768,
         507
       ]
@@ -2654,760 +844,94 @@
     ]
   },
   {
-    "name": "responsive/CRS17a-original.webp",
-    "slug": "CRS17a-original",
-    "origin": "responsive/CRS17a-original.webp",
+    "name": "Stop the Clause.webp",
+    "slug": "Stop the Clause",
+    "origin": "Stop the Clause.jpg",
     "variants": {
-      "responsive/CRS17a-original.1024.webp": [
+      "Stop the Clause.1024.webp": [
         1024,
-        1554
+        690
       ],
-      "responsive/CRS17a-original.1280.webp": [
+      "Stop the Clause.1280.webp": [
         1280,
-        1942
+        862
       ],
-      "responsive/CRS17a-original.1440.webp": [
+      "Stop the Clause.1440.webp": [
         1440,
-        2185
+        970
       ],
-      "responsive/CRS17a-original.320.webp": [
-        320,
-        486
-      ],
-      "responsive/CRS17a-original.480.webp": [
-        480,
-        728
-      ],
-      "responsive/CRS17a-original.640.webp": [
-        640,
-        971
-      ],
-      "responsive/CRS17a-original.768.webp": [
-        768,
-        1165
-      ]
-    },
-    "dims": [
-      1475,
-      2238
-    ]
-  },
-  {
-    "name": "responsive/CRS17a-640.webp",
-    "slug": "CRS17a-640",
-    "origin": "responsive/CRS17a-640.webp",
-    "variants": {
-      "responsive/CRS17a-640.320.webp": [
-        320,
-        486
-      ],
-      "responsive/CRS17a-640.480.webp": [
-        480,
-        728
-      ],
-      "responsive/CRS17a-640.640.webp": [
-        640,
-        971
-      ]
-    },
-    "dims": [
-      640,
-      971
-    ]
-  },
-  {
-    "name": "responsive/CRS17a-320.webp",
-    "slug": "CRS17a-320",
-    "origin": "responsive/CRS17a-320.webp",
-    "variants": {
-      "responsive/CRS17a-320.320.webp": [
-        320,
-        485
-      ]
-    },
-    "dims": [
-      320,
-      485
-    ]
-  },
-  {
-    "name": "responsive/CI081-768.webp",
-    "slug": "CI081-768",
-    "origin": "responsive/CI081-768.webp",
-    "variants": {
-      "responsive/CI081-768.320.webp": [
-        320,
-        213
-      ],
-      "responsive/CI081-768.480.webp": [
-        480,
-        320
-      ],
-      "responsive/CI081-768.640.webp": [
-        640,
-        426
-      ]
-    },
-    "dims": [
-      767,
-      511
-    ]
-  },
-  {
-    "name": "responsive/CI081-640.webp",
-    "slug": "CI081-640",
-    "origin": "responsive/CI081-640.webp",
-    "variants": {
-      "responsive/CI081-640.320.webp": [
-        320,
-        213
-      ],
-      "responsive/CI081-640.480.webp": [
-        480,
-        320
-      ]
-    },
-    "dims": [
-      639,
-      426
-    ]
-  },
-  {
-    "name": "responsive/CI081-original.webp",
-    "slug": "CI081-original",
-    "origin": "responsive/CI081-original.webp",
-    "variants": {
-      "responsive/CI081-original.1024.webp": [
-        1024,
-        682
-      ],
-      "responsive/CI081-original.1280.webp": [
-        1280,
-        853
-      ],
-      "responsive/CI081-original.1440.webp": [
-        1440,
-        960
-      ],
-      "responsive/CI081-original.1600.webp": [
+      "Stop the Clause.1600.webp": [
         1600,
-        1066
+        1078
       ],
-      "responsive/CI081-original.1920.webp": [
+      "Stop the Clause.1920.webp": [
         1920,
-        1280
+        1293
       ],
-      "responsive/CI081-original.320.webp": [
-        320,
-        213
-      ],
-      "responsive/CI081-original.480.webp": [
-        480,
-        320
-      ],
-      "responsive/CI081-original.640.webp": [
-        640,
-        427
-      ],
-      "responsive/CI081-original.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      2000,
-      1333
-    ]
-  },
-  {
-    "name": "responsive/CRS17a-1024.webp",
-    "slug": "CRS17a-1024",
-    "origin": "responsive/CRS17a-1024.webp",
-    "variants": {
-      "responsive/CRS17a-1024.1024.webp": [
-        1024,
-        1553
-      ],
-      "responsive/CRS17a-1024.320.webp": [
-        320,
-        485
-      ],
-      "responsive/CRS17a-1024.480.webp": [
-        480,
-        728
-      ],
-      "responsive/CRS17a-1024.640.webp": [
-        640,
-        971
-      ],
-      "responsive/CRS17a-1024.768.webp": [
-        768,
-        1165
-      ]
-    },
-    "dims": [
-      1024,
-      1553
-    ]
-  },
-  {
-    "name": "responsive/CI081-320.webp",
-    "slug": "CI081-320",
-    "origin": "responsive/CI081-320.webp",
-    "variants": {
-      "responsive/CI081-320.320.webp": [
-        320,
-        213
-      ]
-    },
-    "dims": [
-      320,
-      213
-    ]
-  },
-  {
-    "name": "responsive/CI081-1536.webp",
-    "slug": "CI081-1536",
-    "origin": "responsive/CI081-1536.webp",
-    "variants": {
-      "responsive/CI081-1536.1024.webp": [
-        1024,
-        682
-      ],
-      "responsive/CI081-1536.1280.webp": [
-        1280,
-        853
-      ],
-      "responsive/CI081-1536.1440.webp": [
-        1440,
-        960
-      ],
-      "responsive/CI081-1536.320.webp": [
-        320,
-        213
-      ],
-      "responsive/CI081-1536.480.webp": [
-        480,
-        320
-      ],
-      "responsive/CI081-1536.640.webp": [
-        640,
-        427
-      ],
-      "responsive/CI081-1536.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1535,
-      1023
-    ]
-  },
-  {
-    "name": "responsive/CRS17a-1280.webp",
-    "slug": "CRS17a-1280",
-    "origin": "responsive/CRS17a-1280.webp",
-    "variants": {
-      "responsive/CRS17a-1280.1024.webp": [
-        1024,
-        1554
-      ],
-      "responsive/CRS17a-1280.1280.webp": [
-        1280,
-        1942
-      ],
-      "responsive/CRS17a-1280.320.webp": [
-        320,
-        486
-      ],
-      "responsive/CRS17a-1280.480.webp": [
-        480,
-        728
-      ],
-      "responsive/CRS17a-1280.640.webp": [
-        640,
-        971
-      ],
-      "responsive/CRS17a-1280.768.webp": [
-        768,
-        1165
-      ]
-    },
-    "dims": [
-      1280,
-      1942
-    ]
-  },
-  {
-    "name": "responsive/CI081-1280.webp",
-    "slug": "CI081-1280",
-    "origin": "responsive/CI081-1280.webp",
-    "variants": {
-      "responsive/CI081-1280.1024.webp": [
-        1024,
-        682
-      ],
-      "responsive/CI081-1280.1280.webp": [
-        1280,
-        853
-      ],
-      "responsive/CI081-1280.320.webp": [
-        320,
-        213
-      ],
-      "responsive/CI081-1280.480.webp": [
-        480,
-        320
-      ],
-      "responsive/CI081-1280.640.webp": [
-        640,
-        427
-      ],
-      "responsive/CI081-1280.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1280,
-      853
-    ]
-  },
-  {
-    "name": "responsive/CI081-1024.webp",
-    "slug": "CI081-1024",
-    "origin": "responsive/CI081-1024.webp",
-    "variants": {
-      "responsive/CI081-1024.320.webp": [
-        320,
-        213
-      ],
-      "responsive/CI081-1024.480.webp": [
-        480,
-        320
-      ],
-      "responsive/CI081-1024.640.webp": [
-        640,
-        427
-      ],
-      "responsive/CI081-1024.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1023,
-      682
-    ]
-  },
-  {
-    "name": "responsive/CI081-1920.webp",
-    "slug": "CI081-1920",
-    "origin": "responsive/CI081-1920.webp",
-    "variants": {
-      "responsive/CI081-1920.1024.webp": [
-        1024,
-        682
-      ],
-      "responsive/CI081-1920.1280.webp": [
-        1280,
-        853
-      ],
-      "responsive/CI081-1920.1440.webp": [
-        1440,
-        960
-      ],
-      "responsive/CI081-1920.1600.webp": [
-        1600,
-        1066
-      ],
-      "responsive/CI081-1920.320.webp": [
-        320,
-        213
-      ],
-      "responsive/CI081-1920.480.webp": [
-        480,
-        320
-      ],
-      "responsive/CI081-1920.640.webp": [
-        640,
-        427
-      ],
-      "responsive/CI081-1920.768.webp": [
-        768,
-        512
-      ]
-    },
-    "dims": [
-      1919,
-      1279
-    ]
-  },
-  {
-    "name": "responsive/Beinn Damh-640.webp",
-    "slug": "Beinn Damh-640",
-    "origin": "responsive/Beinn Damh-640.webp",
-    "variants": {
-      "responsive/Beinn Damh-640.320.webp": [
-        320,
-        240
-      ],
-      "responsive/Beinn Damh-640.480.webp": [
-        480,
-        360
-      ],
-      "responsive/Beinn Damh-640.640.webp": [
-        640,
-        480
-      ]
-    },
-    "dims": [
-      640,
-      480
-    ]
-  },
-  {
-    "name": "responsive/Beinn Damh-768.webp",
-    "slug": "Beinn Damh-768",
-    "origin": "responsive/Beinn Damh-768.webp",
-    "variants": {
-      "responsive/Beinn Damh-768.320.webp": [
-        320,
-        240
-      ],
-      "responsive/Beinn Damh-768.480.webp": [
-        480,
-        360
-      ],
-      "responsive/Beinn Damh-768.640.webp": [
-        640,
-        480
-      ],
-      "responsive/Beinn Damh-768.768.webp": [
-        768,
-        576
-      ]
-    },
-    "dims": [
-      768,
-      576
-    ]
-  },
-  {
-    "name": "responsive/Beinn Damh-1024.webp",
-    "slug": "Beinn Damh-1024",
-    "origin": "responsive/Beinn Damh-1024.webp",
-    "variants": {
-      "responsive/Beinn Damh-1024.1024.webp": [
-        1024,
-        768
-      ],
-      "responsive/Beinn Damh-1024.320.webp": [
-        320,
-        240
-      ],
-      "responsive/Beinn Damh-1024.480.webp": [
-        480,
-        360
-      ],
-      "responsive/Beinn Damh-1024.640.webp": [
-        640,
-        480
-      ],
-      "responsive/Beinn Damh-1024.768.webp": [
-        768,
-        576
-      ]
-    },
-    "dims": [
-      1024,
-      768
-    ]
-  },
-  {
-    "name": "responsive/Beinn Damh-1280.webp",
-    "slug": "Beinn Damh-1280",
-    "origin": "responsive/Beinn Damh-1280.webp",
-    "variants": {
-      "responsive/Beinn Damh-1280.1024.webp": [
-        1024,
-        768
-      ],
-      "responsive/Beinn Damh-1280.1280.webp": [
-        1280,
-        960
-      ],
-      "responsive/Beinn Damh-1280.320.webp": [
-        320,
-        240
-      ],
-      "responsive/Beinn Damh-1280.480.webp": [
-        480,
-        360
-      ],
-      "responsive/Beinn Damh-1280.640.webp": [
-        640,
-        480
-      ],
-      "responsive/Beinn Damh-1280.768.webp": [
-        768,
-        576
-      ]
-    },
-    "dims": [
-      1280,
-      960
-    ]
-  },
-  {
-    "name": "responsive/Beinn Damh-320.webp",
-    "slug": "Beinn Damh-320",
-    "origin": "responsive/Beinn Damh-320.webp",
-    "variants": {
-      "responsive/Beinn Damh-320.320.webp": [
-        320,
-        240
-      ]
-    },
-    "dims": [
-      320,
-      240
-    ]
-  },
-  {
-    "name": "responsive/20250203 Sir Ian McKellen3-768.webp",
-    "slug": "20250203 Sir Ian McKellen3-768",
-    "origin": "responsive/20250203 Sir Ian McKellen3-768.webp",
-    "variants": {
-      "responsive/20250203 Sir Ian McKellen3-768.320.webp": [
-        320,
-        180
-      ],
-      "responsive/20250203 Sir Ian McKellen3-768.480.webp": [
-        480,
-        270
-      ],
-      "responsive/20250203 Sir Ian McKellen3-768.640.webp": [
-        640,
-        360
-      ],
-      "responsive/20250203 Sir Ian McKellen3-768.768.webp": [
-        768,
-        432
-      ]
-    },
-    "dims": [
-      768,
-      432
-    ]
-  },
-  {
-    "name": "responsive/20250203 Sir Ian McKellen3-640.webp",
-    "slug": "20250203 Sir Ian McKellen3-640",
-    "origin": "responsive/20250203 Sir Ian McKellen3-640.webp",
-    "variants": {
-      "responsive/20250203 Sir Ian McKellen3-640.320.webp": [
-        320,
-        180
-      ],
-      "responsive/20250203 Sir Ian McKellen3-640.480.webp": [
-        480,
-        270
-      ],
-      "responsive/20250203 Sir Ian McKellen3-640.640.webp": [
-        640,
-        360
-      ]
-    },
-    "dims": [
-      640,
-      360
-    ]
-  },
-  {
-    "name": "responsive/Beinn Damh-1536.webp",
-    "slug": "Beinn Damh-1536",
-    "origin": "responsive/Beinn Damh-1536.webp",
-    "variants": {
-      "responsive/Beinn Damh-1536.1024.webp": [
-        1024,
-        768
-      ],
-      "responsive/Beinn Damh-1536.1280.webp": [
-        1280,
-        960
-      ],
-      "responsive/Beinn Damh-1536.1440.webp": [
-        1440,
-        1080
-      ],
-      "responsive/Beinn Damh-1536.320.webp": [
-        320,
-        240
-      ],
-      "responsive/Beinn Damh-1536.480.webp": [
-        480,
-        360
-      ],
-      "responsive/Beinn Damh-1536.640.webp": [
-        640,
-        480
-      ],
-      "responsive/Beinn Damh-1536.768.webp": [
-        768,
-        576
-      ]
-    },
-    "dims": [
-      1536,
-      1152
-    ]
-  },
-  {
-    "name": "responsive/Chris Smith-original.webp",
-    "slug": "Chris Smith-original",
-    "origin": "responsive/Chris Smith-original.webp",
-    "variants": {
-      "responsive/Chris Smith-original.1024.webp": [
-        1024,
-        1024
-      ],
-      "responsive/Chris Smith-original.1280.webp": [
-        1280,
-        1280
-      ],
-      "responsive/Chris Smith-original.1440.webp": [
-        1440,
-        1440
-      ],
-      "responsive/Chris Smith-original.1600.webp": [
-        1600,
-        1600
-      ],
-      "responsive/Chris Smith-original.1920.webp": [
-        1920,
-        1920
-      ],
-      "responsive/Chris Smith-original.2560.webp": [
+      "Stop the Clause.2560.webp": [
         2560,
-        2560
+        1724
       ],
-      "responsive/Chris Smith-original.320.webp": [
+      "Stop the Clause.320.webp": [
         320,
-        320
+        216
       ],
-      "responsive/Chris Smith-original.3840.webp": [
-        3840,
-        3840
-      ],
-      "responsive/Chris Smith-original.480.webp": [
+      "Stop the Clause.480.webp": [
         480,
-        480
+        323
       ],
-      "responsive/Chris Smith-original.640.webp": [
+      "Stop the Clause.640.webp": [
         640,
-        640
+        431
       ],
-      "responsive/Chris Smith-original.768.webp": [
+      "Stop the Clause.768.webp": [
         768,
-        768
+        517
       ]
     },
     "dims": [
-      4800,
-      4800
+      3483,
+      2346
     ]
   },
   {
-    "name": "responsive/Beinn Damh-original.webp",
-    "slug": "Beinn Damh-original",
-    "origin": "responsive/Beinn Damh-original.webp",
+    "name": "20250203 Sir Ian McKellen3.webp",
+    "slug": "20250203 Sir Ian McKellen3",
+    "origin": "20250203 Sir Ian McKellen3.jpg",
     "variants": {
-      "responsive/Beinn Damh-original.1024.webp": [
-        1024,
-        768
-      ],
-      "responsive/Beinn Damh-original.1280.webp": [
-        1280,
-        960
-      ],
-      "responsive/Beinn Damh-original.1440.webp": [
-        1440,
-        1080
-      ],
-      "responsive/Beinn Damh-original.1600.webp": [
-        1600,
-        1200
-      ],
-      "responsive/Beinn Damh-original.1920.webp": [
-        1920,
-        1440
-      ],
-      "responsive/Beinn Damh-original.2560.webp": [
-        2560,
-        1920
-      ],
-      "responsive/Beinn Damh-original.320.webp": [
-        320,
-        240
-      ],
-      "responsive/Beinn Damh-original.480.webp": [
-        480,
-        360
-      ],
-      "responsive/Beinn Damh-original.640.webp": [
-        640,
-        480
-      ],
-      "responsive/Beinn Damh-original.768.webp": [
-        768,
-        576
-      ]
-    },
-    "dims": [
-      3648,
-      2736
-    ]
-  },
-  {
-    "name": "responsive/20250203 Sir Ian McKellen3-original.webp",
-    "slug": "20250203 Sir Ian McKellen3-original",
-    "origin": "responsive/20250203 Sir Ian McKellen3-original.webp",
-    "variants": {
-      "responsive/20250203 Sir Ian McKellen3-original.1024.webp": [
+      "20250203 Sir Ian McKellen3.1024.webp": [
         1024,
         576
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.1280.webp": [
+      "20250203 Sir Ian McKellen3.1280.webp": [
         1280,
         720
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.1440.webp": [
+      "20250203 Sir Ian McKellen3.1440.webp": [
         1440,
         810
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.1600.webp": [
+      "20250203 Sir Ian McKellen3.1600.webp": [
         1600,
         900
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.1920.webp": [
+      "20250203 Sir Ian McKellen3.1920.webp": [
         1920,
         1080
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.320.webp": [
+      "20250203 Sir Ian McKellen3.320.webp": [
         320,
         180
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.480.webp": [
+      "20250203 Sir Ian McKellen3.480.webp": [
         480,
         270
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.640.webp": [
+      "20250203 Sir Ian McKellen3.640.webp": [
         640,
         360
       ],
-      "responsive/20250203 Sir Ian McKellen3-original.768.webp": [
+      "20250203 Sir Ian McKellen3.768.webp": [
         768,
         432
       ]
@@ -3418,217 +942,124 @@
     ]
   },
   {
-    "name": "responsive/Beinn Damh-1920.webp",
-    "slug": "Beinn Damh-1920",
-    "origin": "responsive/Beinn Damh-1920.webp",
+    "name": "CI081.webp",
+    "slug": "CI081",
+    "origin": "CI081.jpg",
     "variants": {
-      "responsive/Beinn Damh-1920.1024.webp": [
+      "CI081.1024.webp": [
         1024,
-        768
+        682
       ],
-      "responsive/Beinn Damh-1920.1280.webp": [
+      "CI081.1280.webp": [
         1280,
+        853
+      ],
+      "CI081.1440.webp": [
+        1440,
         960
       ],
-      "responsive/Beinn Damh-1920.1440.webp": [
-        1440,
-        1080
-      ],
-      "responsive/Beinn Damh-1920.1600.webp": [
+      "CI081.1600.webp": [
         1600,
-        1200
+        1066
       ],
-      "responsive/Beinn Damh-1920.1920.webp": [
+      "CI081.1920.webp": [
         1920,
-        1440
+        1280
       ],
-      "responsive/Beinn Damh-1920.320.webp": [
+      "CI081.320.webp": [
         320,
-        240
+        213
       ],
-      "responsive/Beinn Damh-1920.480.webp": [
+      "CI081.480.webp": [
         480,
-        360
+        320
       ],
-      "responsive/Beinn Damh-1920.640.webp": [
+      "CI081.640.webp": [
         640,
-        480
+        427
       ],
-      "responsive/Beinn Damh-1920.768.webp": [
+      "CI081.768.webp": [
         768,
-        576
+        512
       ]
     },
     "dims": [
-      1920,
-      1440
+      2000,
+      1333
     ]
   },
   {
-    "name": "responsive/20250203 Sir Ian McKellen3-1920.webp",
-    "slug": "20250203 Sir Ian McKellen3-1920",
-    "origin": "responsive/20250203 Sir Ian McKellen3-1920.webp",
+    "name": "CRS17a.webp",
+    "slug": "CRS17a",
+    "origin": "CRS17a.jpg",
     "variants": {
-      "responsive/20250203 Sir Ian McKellen3-1920.1024.webp": [
+      "CRS17a.1024.webp": [
         1024,
-        576
+        1034
       ],
-      "responsive/20250203 Sir Ian McKellen3-1920.1280.webp": [
+      "CRS17a.1280.webp": [
         1280,
-        720
+        1292
       ],
-      "responsive/20250203 Sir Ian McKellen3-1920.1440.webp": [
+      "CRS17a.1440.webp": [
         1440,
-        810
+        1454
       ],
-      "responsive/20250203 Sir Ian McKellen3-1920.1600.webp": [
-        1600,
-        900
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1920.1920.webp": [
-        1920,
-        1080
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1920.320.webp": [
+      "CRS17a.320.webp": [
         320,
-        180
+        323
       ],
-      "responsive/20250203 Sir Ian McKellen3-1920.480.webp": [
+      "CRS17a.480.webp": [
         480,
-        270
+        485
       ],
-      "responsive/20250203 Sir Ian McKellen3-1920.640.webp": [
+      "CRS17a.640.webp": [
         640,
-        360
+        646
       ],
-      "responsive/20250203 Sir Ian McKellen3-1920.768.webp": [
+      "CRS17a.768.webp": [
         768,
-        432
+        775
       ]
     },
     "dims": [
-      1920,
-      1080
+      1460,
+      1474
     ]
   },
   {
-    "name": "responsive/20250203 Sir Ian McKellen3-320.webp",
-    "slug": "20250203 Sir Ian McKellen3-320",
-    "origin": "responsive/20250203 Sir Ian McKellen3-320.webp",
+    "name": "dove-cottage.webp",
+    "slug": "dove-cottage",
+    "origin": "dove-cottage.jpg",
     "variants": {
-      "responsive/20250203 Sir Ian McKellen3-320.320.webp": [
-        320,
-        180
-      ]
-    },
-    "dims": [
-      320,
-      180
-    ]
-  },
-  {
-    "name": "responsive/20250203 Sir Ian McKellen3-1536.webp",
-    "slug": "20250203 Sir Ian McKellen3-1536",
-    "origin": "responsive/20250203 Sir Ian McKellen3-1536.webp",
-    "variants": {
-      "responsive/20250203 Sir Ian McKellen3-1536.1024.webp": [
+      "dove-cottage.1024.webp": [
         1024,
-        576
+        724
       ],
-      "responsive/20250203 Sir Ian McKellen3-1536.1280.webp": [
+      "dove-cottage.1280.webp": [
         1280,
-        720
+        905
       ],
-      "responsive/20250203 Sir Ian McKellen3-1536.1440.webp": [
-        1440,
-        810
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1536.320.webp": [
+      "dove-cottage.320.webp": [
         320,
-        180
+        226
       ],
-      "responsive/20250203 Sir Ian McKellen3-1536.480.webp": [
+      "dove-cottage.480.webp": [
         480,
-        270
+        339
       ],
-      "responsive/20250203 Sir Ian McKellen3-1536.640.webp": [
+      "dove-cottage.640.webp": [
         640,
-        360
+        452
       ],
-      "responsive/20250203 Sir Ian McKellen3-1536.768.webp": [
+      "dove-cottage.768.webp": [
         768,
-        432
+        543
       ]
     },
     "dims": [
-      1536,
-      864
-    ]
-  },
-  {
-    "name": "responsive/20250203 Sir Ian McKellen3-1280.webp",
-    "slug": "20250203 Sir Ian McKellen3-1280",
-    "origin": "responsive/20250203 Sir Ian McKellen3-1280.webp",
-    "variants": {
-      "responsive/20250203 Sir Ian McKellen3-1280.1024.webp": [
-        1024,
-        576
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1280.1280.webp": [
-        1280,
-        720
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1280.320.webp": [
-        320,
-        180
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1280.480.webp": [
-        480,
-        270
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1280.640.webp": [
-        640,
-        360
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1280.768.webp": [
-        768,
-        432
-      ]
-    },
-    "dims": [
-      1280,
-      720
-    ]
-  },
-  {
-    "name": "responsive/20250203 Sir Ian McKellen3-1024.webp",
-    "slug": "20250203 Sir Ian McKellen3-1024",
-    "origin": "responsive/20250203 Sir Ian McKellen3-1024.webp",
-    "variants": {
-      "responsive/20250203 Sir Ian McKellen3-1024.1024.webp": [
-        1024,
-        576
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1024.320.webp": [
-        320,
-        180
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1024.480.webp": [
-        480,
-        270
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1024.640.webp": [
-        640,
-        360
-      ],
-      "responsive/20250203 Sir Ian McKellen3-1024.768.webp": [
-        768,
-        432
-      ]
-    },
-    "dims": [
-      1024,
-      576
+      1429,
+      1010
     ]
   }
 ]
