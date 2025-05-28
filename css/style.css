@@ -29,6 +29,8 @@ body {
     overflow-x: hidden;
 }
 
+
+
 .smooth-scroll {
     scroll-behavior: smooth;
 }
@@ -650,6 +652,10 @@ h6 {
 
 .text-black {
     color: black;
+}
+
+.text-navy {
+    color: var(--cambridge-blue);
 }
 
 .text-accent {
