@@ -152,6 +152,34 @@
             background-color: var(--gold);
         }
         
+        /* LinkedIn logo */
+        .linkedin-logo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            background-color: var(--cambridge-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .linkedin-logo:hover {
+            background-color: var(--cambridge-dark);
+            transform: scale(1.1);
+        }
+
+        .linkedin-logo img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0) invert(1);
+        }
+        
         /* Navigation button */
         .nav-toggle {
             position: fixed;
@@ -1990,6 +2018,11 @@
                 left: -1rem;
             }
 
+            .linkedin-logo {
+                top: 1rem;
+                left: 1rem;
+            }
+            
             .nav-toggle {
                 top: 1rem;
                 right: 1rem;
@@ -1998,6 +2031,11 @@
     </style>
 </head>
 <body>
+    <!-- LinkedIn Logo -->
+    <a href="https://www.linkedin.com/in/lord-chris-smith" target="_blank" class="linkedin-logo" aria-label="Connect with Lord Chris Smith on LinkedIn">
+        <img src="linkedin.svg" alt="LinkedIn">
+    </a>
+    
     <!-- Navigation Overlay -->
     <div class="nav-overlay">
         <div class="close-nav"></div>
@@ -2659,6 +2697,22 @@
         <div class="section-content">
             <h2 class="news-title" data-aos="fade-up">Latest News</h2>
             <div class="news-container" data-aos="fade-up" data-aos-delay="200">
+                <article class="news-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="news-date">May 28, 2025</div>
+                    <h3 class="news-headline">Lord Chris Smith: "Cambridge has always valued great minds over personal vendettas"</h3>
+                    <div class="news-source">
+                        <span class="news-publisher">The Times</span>
+                        <span class="news-author">by Geraldine Scott and Sophie McBain</span>
+                    </div>
+                    <div class="news-summary">
+                        Lord Chris Smith speaks about his vision for Cambridge, addressing recent controversies and emphasizing the university's commitment to academic excellence and free speech.
+                    </div>
+                    <div class="news-content">
+                        <p>The Master of Pembroke discusses his candidacy for Chancellor, highlighting his commitment to defending academic freedom while maintaining Cambridge's position as a world-leading institution.</p>
+                        <p>Smith addresses recent debates around free speech and academic governance, arguing that Cambridge must remain a place where ideas can be freely debated and challenged.</p>
+                    </div>
+                    <a href="https://www.thetimes.com/article/d4073d35-b746-4c3f-813e-c6988b628300?shareToken=0f0e8de1f55786eef27ae87464800dfd" class="news-link" target="_blank">Read Full Article</a>
+                </article>
                 <article class="news-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="news-date">May 5, 2025</div>
                     <h3 class="news-headline">Pembroke Master announces Chancellorship candidacy</h3>
