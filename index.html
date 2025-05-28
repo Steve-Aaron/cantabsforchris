@@ -1,2002 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lord Chris Smith for Cambridge Chancellor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/ggr7bpy.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <style>
-        :root {
-            --cambridge-blue: #012158;
-            --cambridge-light: #84ABCE;
-            --cambridge-dark: #001534;
-            --text-color: #333;
-            --background-color: #f9f9f9;
-            --accent-color: #94262f;
-            --gold: #d4af37;
-            --gold-rgb: 212, 175, 55;
-            --transition-timing: cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Crimson Pro', serif;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            line-height: 1.5;
-            font-size: 1.125rem;
-            overflow-x: hidden;
-        }
-        
-        .smooth-scroll {
-            scroll-behavior: smooth;
-        }
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
-        /* Fixed overlay navigation */
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(1, 33, 88, 0.95);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.5s var(--transition-timing);
-        }
-
-        .nav-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .nav-list {
-            list-style: none;
-            text-align: center;
-        }
-
-        .nav-list li {
-            margin: 1.5rem 0;
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.5s var(--transition-timing);
-        }
-
-        .nav-overlay.active .nav-list li {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .nav-overlay.active .nav-list li:nth-child(1) { transition-delay: 0.1s; }
-        .nav-overlay.active .nav-list li:nth-child(2) { transition-delay: 0.2s; }
-        .nav-overlay.active .nav-list li:nth-child(3) { transition-delay: 0.3s; }
-        .nav-overlay.active .nav-list li:nth-child(4) { transition-delay: 0.4s; }
-        .nav-overlay.active .nav-list li:nth-child(5) { transition-delay: 0.5s; }
-        .nav-overlay.active .nav-list li:nth-child(6) { transition-delay: 0.6s; }
-
-        .nav-list a {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-list a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-list a:hover {
-            color: var(--gold);
-        }
-
-        .nav-list a:hover::after {
-            width: 100%;
-        }
-
-        .close-nav {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .close-nav::before,
-        .close-nav::after {
-            content: '';
-            position: absolute;
-            width: 30px;
-            height: 2px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        .close-nav::before {
-            transform: rotate(45deg);
-        }
-
-        .close-nav::after {
-            transform: rotate(-45deg);
-        }
-
-        .close-nav:hover::before,
-        .close-nav:hover::after {
-            background-color: var(--gold);
-        }
-        
-        /* Navigation button */
-        .nav-toggle {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            z-index: 100;
-            width: 50px;
-            height: 50px;
-            background-color: var(--cambridge-blue);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .nav-toggle:hover {
-            background-color: var(--cambridge-dark);
-            transform: scale(1.1);
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: white;
-            transition: all 0.3s ease;
-            margin: 3px 0;
-        }
-
-        .nav-toggle.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .nav-toggle.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* Sections */
-        .section {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 3rem 2rem;
-        }
-        
-        .section.hero {
-            min-height: 100vh;
-        }
-
-        .section-content {
-            max-width: 1200px;
-            width: 100%;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Hero section */
-        .hero {
-            background-color: transparent;
-            color: white;
-            position: relative;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(1, 33, 88, 0.8), rgba(0, 21, 52, 0.9)), 
-                        url('images/senatehouse.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .hero-portrait {
-            flex: 0 0 40%;
-            position: relative;
-        }
-
-        .hero-portrait img {
-            width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-            border: 4px solid var(--gold);
-            transition: all 0.5s var(--transition-timing);
-        }
-
-        /* Video container styling */
-        .video-container {
-            position: relative;
-            padding-top: 56.25%; /* 16:9 aspect ratio */
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-            border: 4px solid var(--gold);
-            transition: all 0.5s var(--transition-timing);
-            background-color: #000;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 8px;
-        }
-
-        .hero-portrait:hover .video-container {
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-portrait:hover img {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-text {
-            flex: 0 0 55%;
-        }
-
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.5s var(--transition-timing) forwards;
-            animation-delay: 0.3s;
-        }
-
-        .hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.5s var(--transition-timing) forwards;
-            animation-delay: 0.6s;
-        }
-        
-        .hero-quicklinks {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.5s var(--transition-timing) forwards;
-            animation-delay: 0.8s;
-        }
-        
-        .quicklink {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .quicklink:hover {
-            background-color: var(--gold);
-            color: var(--cambridge-dark);
-            transform: translateY(-2px);
-            border-color: var(--gold);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        #voting-countdown {
-            background: linear-gradient(to right, var(--gold), var(--cambridge-blue));
-            animation: pulse 2s infinite;
-        }
-
-        #voting-countdown #days-remaining {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(var(--gold-rgb), 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(var(--gold-rgb), 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(var(--gold-rgb), 0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Portrait section */
-        .portrait {
-            display: flex;
-            align-items: center;
-            background-color: white;
-        }
-
-        .quote-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .quote {
-            font-size: 2.5rem;
-            line-height: 1.3;
-            font-style: italic;
-            color: var(--cambridge-dark);
-            position: relative;
-            padding-left: 3rem;
-        }
-
-        .quote::before {
-            content: """;
-            font-size: 8rem;
-            position: absolute;
-            top: -3rem;
-            left: -1rem;
-            color: var(--gold);
-            opacity: 0.6;
-            font-family: Georgia, serif;
-        }
-
-        /* Endorsements section */
-        .endorsements {
-            background: linear-gradient(135deg, var(--cambridge-blue), var(--cambridge-dark));
-            color: white;
-            overflow: hidden;
-            padding: 4rem 2rem;
-        }
-
-        .endorsements-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            color: white;
-        }
-
-        .endorsements-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        /* Responsive Grid Layout */
-        .endorsements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        /* Endorsement Card */
-        .endorsement-card {
-            background-color: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s var(--transition-timing);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        /* Introduction Card Styling */
-        .introduction-card {
-            background: linear-gradient(135deg, rgba(0, 33, 88, 0.4), rgba(0, 21, 52, 0.6));
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .intro-content {
-            text-align: left;
-        }
-
-        .intro-image {
-            width: 100%;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            max-height: 150px;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .intro-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            object-position: center;
-            filter: brightness(1.05) contrast(0.95);
-        }
-
-        .introduction-card {
-            padding: 0;
-        }
-
-        .introduction-card .intro-content {
-            padding: 1rem 2rem 2rem;
-        }
-
-        .intro-content p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        .endorsement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            background-color: rgba(255, 255, 255, 0.12);
-            border-color: var(--gold);
-        }
-
-        /* Endorsement Author Section */
-        .endorsement-card .endorsement-author {
-            display: flex;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(0, 0, 0, 0.2);
-            width: 100%;
-            float: none;
-            max-width: 100%;
-            margin: 0;
-        }
-
-        .endorsement-card .author-image {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 1rem;
-            border: 2px solid var(--gold);
-            flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .endorsement-card .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .endorsement-card:hover .author-image {
-            border-width: 3px;
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .endorsement-card .author-info {
-            flex: 1;
-        }
-
-        .endorsement-card .author-info h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            color: white;
-            line-height: 1.3;
-            transition: color 0.3s ease;
-        }
-
-        .endorsement-card:hover .author-info h3 {
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-
-        .endorsement-card .author-info span {
-            color: var(--gold);
-            font-weight: 400;
-            font-style: italic;
-            display: block;
-            font-size: 0.9rem;
-            margin-top: 0.2rem;
-            opacity: 0.9;
-            transition: all 0.3s ease;
-        }
-
-        .endorsement-card:hover .author-info span {
-            opacity: 1;
-            transform: translateX(3px);
-        }
-
-        /* Endorsement Content */
-        .endorsement-card .endorsement-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .endorsement-card .endorsement-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0;
-            flex: 1;
-        }
-
-        /* Responsive adjustments for endorsement grid */
-        @media (max-width: 768px) {
-            .endorsements-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .endorsement-card {
-                max-width: 100%;
-            }
-
-            .endorsements {
-                padding: 3rem 1rem;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1100px) {
-            .endorsements-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Custom scrollbar for WebKit browsers */
-        .endorsement-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .endorsement-content::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .endorsement-content::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-        }
-
-        .endorsement-content::-webkit-scrollbar-thumb:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .endorsements-carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            height: 450px; /* Fixed height */
-            padding-bottom: 50px;
-            margin-bottom: 20px;
-            overflow: visible;
-            touch-action: pan-y;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            cursor: grab;
-            transform: translateZ(0); /* Force GPU acceleration to prevent jumps */
-        }
-
-        .endorsements-carousel:active {
-            cursor: grabbing;
-        }
-
-        .endorsement-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 400px; /* Fixed height */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.8s var(--transition-timing), visibility 0.8s var(--transition-timing), transform 0.8s var(--transition-timing);
-            padding: 1.5rem 2rem 2rem 2rem; /* Less padding on top for author */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            transform: scale(0.9) translateX(30px);
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            background-color: rgba(1, 33, 88, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
-            transform-origin: center center; /* Set transform origin to center */
-            will-change: transform, opacity; /* Hint for browser optimization */
-            backface-visibility: hidden; /* Prevent flickering */
-            -webkit-font-smoothing: subpixel-antialiased; /* Improve text rendering */
-        }
-
-        /* Scroll indicator for endorsement slides - always visible now */
-        .endorsement-slide::after {
-            content: '';
-            position: absolute;
-            bottom: 0; /* At the bottom */
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background: linear-gradient(to top, rgba(1, 33, 88, 1), rgba(1, 33, 88, 0.9) 50%, rgba(1, 33, 88, 0.6) 80%, transparent);
-            pointer-events: none;
-            opacity: 1; /* Always visible */
-            transition: opacity 0.3s ease;
-            z-index: 2; /* Ensure it's above the content */
-        }
-
-        /* Custom scrollbar for WebKit browsers */
-        .endorsement-slide::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .endorsement-slide::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .endorsement-slide::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-        }
-
-        .endorsement-slide::-webkit-scrollbar-thumb:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Scroll indicator icon */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 15px; /* Position closer to the bottom */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            color: var(--gold);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            display: none;
-            z-index: 3; /* Make sure it's above the gradient */
-            background-color: rgba(1, 33, 88, 0.6);
-            border-radius: 50%;
-            padding: 3px;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-
-        .scroll-indicator svg {
-            fill: currentColor;
-            animation: bounce 1.5s infinite;
-        }
-
-        /* Always show the scroll indicator for scrollable content */
-        .endorsement-slide.has-overflow .scroll-indicator {
-            opacity: 0.9;
-            display: block;
-        }
-
-        /* Keep the scroll indicator visible */
-        .endorsement-slide .scroll-indicator {
-            transition: opacity 0.5s ease;
-        }
-
-        /* Ensure the flow around the author works well */
-        .endorsement-slide p:first-of-type {
-            margin-top: 0;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-5px);
-            }
-            60% {
-                transform: translateY(-2px);
-            }
-        }
-
-        .endorsement-slide.next-slide {
-            transform: scale(0.9) translateX(30px);
-        }
-
-        .endorsement-slide.prev-slide {
-            transform: scale(0.9) translateX(-30px);
-        }
-
-        .endorsement-slide.active {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1) translateX(0);
-            position: relative;
-        }
-
-        .endorsement-text {
-            font-size: 1.3rem;
-            line-height: 1.5;
-            text-align: left;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            overflow: visible;
-            display: block;
-            clear: right; /* Ensure text flows around the floated author section */
-        }
-
-        .endorsement-author {
-            font-size: 1.2rem;
-            display: flex;
-            align-items: flex-start;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            padding-bottom: 0;
-            float: left;
-            margin-right: 1.2rem;
-            margin-bottom: 1rem;
-            max-width: 50%;
-        }
-
-        .endorsement-author .author-info {
-            flex: 1;
-            text-align: left;
-        }
-
-        .endorsement-author .author-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 1rem;
-            border: 2px solid var(--gold);
-            flex-shrink: 0;
-        }
-
-        .endorsement-author .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .endorsement-author span {
-            color: var(--gold);
-            font-weight: 400;
-            font-style: italic;
-            display: block;
-            font-size: 1rem;
-            margin-top: 0.2rem;
-        }
-
-        .carousel-nav-arrows {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            display: none; /* Hide side arrows by default, will be visible on mobile only */
-            justify-content: space-between;
-            pointer-events: none;
-            z-index: 20;
-        }
-
-        .carousel-arrow {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(1, 33, 88, 0.8);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            pointer-events: auto;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            opacity: 0.7;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .carousel-arrow:hover {
-            background-color: var(--gold);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .carousel-arrow:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.5);
-        }
-
-        .carousel-arrow::before {
-            content: '';
-            display: block;
-            width: 12px;
-            height: 12px;
-            border-top: 2px solid white;
-            border-right: 2px solid white;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-arrow.prev {
-            left: -15px;
-            margin-left: 10px;
-        }
-
-        .carousel-arrow.prev::before {
-            transform: rotate(-135deg);
-            margin-left: 4px;
-        }
-
-        .carousel-arrow.next {
-            right: -15px;
-            margin-right: 10px;
-        }
-
-        .carousel-arrow.next::before {
-            transform: rotate(45deg);
-            margin-right: 4px;
-        }
-
-        /* Desktop navigation */
-        .nav-controls {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-            gap: 15px;
-        }
-
-        .slider-nav {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            z-index: 10;
-            padding: 10px 0;
-            flex-wrap: wrap;
-        }
-
-        .dot-nav-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .nav-btn {
-            width: 32px;
-            height: 32px;
-            background-color: rgba(1, 33, 88, 0.7);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .nav-btn:hover {
-            background-color: var(--gold);
-            transform: scale(1.1);
-        }
-
-        .nav-btn::before {
-            content: '';
-            display: block;
-            width: 10px;
-            height: 10px;
-            border-top: 2px solid white;
-            border-right: 2px solid white;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn.prev::before {
-            transform: rotate(-135deg);
-            margin-left: 3px;
-        }
-
-        .nav-btn.next::before {
-            transform: rotate(45deg);
-            margin-right: 3px;
-        }
-
-        .slider-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: block;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            margin: 0 3px;
-        }
-
-        .slider-dot:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.5);
-        }
-
-        .slider-dot.active {
-            background-color: var(--gold);
-            transform: scale(1.2);
-            border-color: var(--gold);
-            box-shadow: 0 0 5px rgba(var(--gold-rgb), 0.7);
-        }
-
-        .swipe-hint {
-            display: none;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .endorsement-slide {
-                padding: 1.5rem 1.8rem 1.5rem 1.8rem;
-            }
-
-            .endorsement-author {
-                max-width: 55%;
-            }
-
-            .endorsement-author .author-image {
-                width: 60px;
-                height: 60px;
-            }
-
-            .endorsement-text {
-                font-size: 1.3rem;
-            }
-
-            .swipe-hint {
-                display: block;
-            }
-
-            .carousel-nav-arrows {
-                display: none; /* Hide side arrows on mobile */
-            }
-
-            .nav-controls .nav-btn {
-                display: none; /* Hide dot-adjacent buttons on mobile */
-            }
-        }
-
-        /* Adjustments for smaller screens */
-        @media (max-width: 600px) {
-            .endorsement-slide {
-                padding: 1.2rem 1.4rem 1.2rem 1.4rem;
-            }
-
-            .endorsement-author {
-                max-width: 100%;
-                float: none;
-                margin-right: 0;
-                margin-bottom: 1.2rem;
-            }
-
-            .endorsement-author .author-image {
-                width: 50px;
-                height: 50px;
-            }
-
-            .endorsement-text {
-                clear: both;
-            }
-        }
-
-        /* Manifesto section */
-        .manifesto {
-            background-color: white;
-            position: relative;
-        }
-
-        .manifesto::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/Chris Smith.webp');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.04;
-            z-index: 0;
-        }
-
-        .manifesto-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            position: relative;
-            color: var(--cambridge-blue);
-        }
-
-        .manifesto-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        .manifesto-summary {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem auto;
-            text-align: center;
-        }
-
-        .manifesto-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .manifesto-item {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s var(--transition-timing);
-            transform: translateY(0);
-            border-top: 4px solid var(--cambridge-blue);
-        }
-
-        .manifesto-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-top-color: var(--gold);
-        }
-
-        .manifesto-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--cambridge-blue);
-        }
-
-        .learn-more-btn {
-            background-color: transparent;
-            border: 2px solid var(--cambridge-blue);
-            color: var(--cambridge-blue);
-            padding: 0.5rem 1rem;
-            margin-top: 1rem;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .learn-more-btn:hover {
-            background-color: var(--cambridge-blue);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: linear-gradient(to right, var(--cambridge-blue), var(--cambridge-dark));
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 30px;
-            margin-top: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(to right, var(--cambridge-dark), var(--accent-color));
-        }
-
-        .btn-center {
-            display: block;
-            margin: 2rem auto;
-            text-align: center;
-            max-width: 250px;
-        }
-
-        /* Full statement modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s var(--transition-timing);
-        }
-
-        .modal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .modal-content {
-            background-color: white;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 3rem;
-            border-radius: 8px;
-            position: relative;
-            transform: translateY(50px);
-            opacity: 0;
-            transition: all 0.5s var(--transition-timing);
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-        }
-
-        .modal-close::before,
-        .modal-close::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-color);
-            top: 50%;
-            left: 0;
-        }
-
-        .modal-close::before {
-            transform: rotate(45deg);
-        }
-
-        .modal-close::after {
-            transform: rotate(-45deg);
-        }
-
-        /* Highlight effect for modal sections */
-        .highlight-section {
-            animation: highlight-pulse 1.5s ease;
-        }
-
-        @keyframes highlight-pulse {
-            0% { background-color: transparent; }
-            30% { background-color: rgba(var(--gold-rgb, 212, 175, 55), 0.15); }
-            100% { background-color: transparent; }
-        }
-
-        /* Gallery section */
-        .gallery {
-            background-color: #f0f0f0;
-            position: relative;
-        }
-
-        .gallery-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            position: relative;
-            color: var(--cambridge-blue);
-        }
-
-        .gallery-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            aspect-ratio: 4/3;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 1s var(--transition-timing);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(1, 33, 88, 0.7), transparent);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 1rem;
-            color: white;
-            font-size: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.5s var(--transition-timing);
-            z-index: 1;
-        }
-
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-
-        /* Voting section */
-        .voting {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
-                      url('images/responsive/senatehouse-original.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .voting-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            position: relative;
-            color: var(--accent-color);
-        }
-
-        .voting-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        .voting-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .voting-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s var(--transition-timing);
-            border-left: 4px solid var(--cambridge-blue);
-        }
-
-        .voting-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-left-color: var(--gold);
-        }
-
-        .voting-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--cambridge-blue);
-        }
-
-        .voting-card p {
-            margin-bottom: 1rem;
-        }
-
-        .voting-card ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .voting-links {
-            margin-top: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .voting-links a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: var(--cambridge-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .voting-links a:hover {
-            background-color: var(--cambridge-dark);
-            transform: translateY(-2px);
-        }
-
-        /* News section */
-        .news {
-            background-color: white;
-            position: relative;
-        }
-        
-        .news::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/responsive/senatehouse-original.webp');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.03;
-            z-index: 0;
-        }
-        
-        .news-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            position: relative;
-            color: var(--cambridge-blue);
-        }
-        
-        .news-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-        
-        .news-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .news-item {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid var(--cambridge-blue);
-            transition: all 0.3s ease;
-        }
-        
-        .news-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            border-left-color: var(--gold);
-        }
-        
-        .news-date {
-            display: inline-block;
-            background-color: var(--cambridge-light);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 1rem;
-        }
-        
-        .news-headline {
-            font-size: 1.8rem;
-            color: var(--cambridge-blue);
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-        
-        .news-source {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .news-publisher {
-            font-weight: 600;
-        }
-        
-        .news-summary {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #444;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .news-content {
-            line-height: 1.6;
-        }
-        
-        .news-content p {
-            margin-bottom: 1rem;
-        }
-        
-        .news-link {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.5rem 1.2rem;
-            background-color: var(--cambridge-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .news-link:hover {
-            background-color: var(--cambridge-dark);
-            transform: translateY(-2px);
-        }
-        
-        /* Timeline section */
-        .timeline {
-            background-color: #f9f9f9;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/Chris Smith.webp');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.03;
-            z-index: 0;
-        }
-
-        .timeline-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            position: relative;
-            color: var(--cambridge-blue);
-        }
-
-        .timeline-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        .timeline-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1.5rem 0;
-        }
-
-        .timeline-line {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--cambridge-blue), var(--cambridge-dark));
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .timeline-items {
-            position: relative;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 1.8rem;
-            width: 46%;
-            box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.3s var(--transition-timing);
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item:nth-child(odd) {
-            margin-left: auto;
-            padding-left: 2rem;
-        }
-
-        .timeline-item:nth-child(even) {
-            margin-right: auto;
-            padding-right: 2rem;
-            text-align: right;
-        }
-
-        .timeline-year {
-            position: absolute;
-            top: 0;
-            width: 80px;
-            height: 36px;
-            background-color: var(--cambridge-blue);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 10;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-year {
-            left: -40px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-year {
-            right: -40px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            top: 10px;
-            width: 16px;
-            height: 16px;
-            background-color: var(--gold);
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            left: -9px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            right: -9px;
-        }
-
-        .timeline-content {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-top: 3px solid transparent;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            border-top-color: var(--gold);
-        }
-
-        .timeline-event {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-            color: var(--cambridge-blue);
-        }
-
-        .timeline-description {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: var(--text-color);
-        }
-        
-        /* Hide descriptions for entries without images by default */
-        .timeline-item:not(:has(.timeline-image)) .timeline-description {
-            height: 0;
-            overflow: hidden;
-            margin: 0;
-            opacity: 0;
-            transition: all 0.2s ease;
-        }
-        
-        /* Show descriptions on hover for entries without images */
-        .timeline-item:not(:has(.timeline-image)):hover .timeline-description {
-            height: auto;
-            opacity: 1;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 20px;
-            }
-
-            .timeline-item {
-                width: auto;
-                margin-left: 70px !important;
-                margin-right: 20px !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                text-align: left !important;
-                margin-bottom: 2.5rem;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-year,
-            .timeline-item:nth-child(even) .timeline-year {
-                left: -70px;
-                right: auto;
-                width: 65px;
-                font-size: 0.9rem;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-dot,
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: -13px;
-                right: auto;
-            }
-
-            .timeline-content {
-                padding-top: 1.5rem;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--cambridge-blue), var(--cambridge-dark));
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative;
-        }
-
-        /* Main content links - subtle styling */
-        .manifesto a, .modal-content a, .timeline-content a {
-            color: inherit;
-            text-decoration: none;
-            border-bottom: 1px dotted rgba(0, 33, 88, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        .manifesto a:hover, .modal-content a:hover, .timeline-content a:hover {
-            color: var(--cambridge-blue);
-            border-bottom: 1px solid var(--cambridge-blue);
-        }
-
-        /* Footer links maintain gold color */
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        footer a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--gold);
-        }
-
-        /* Media queries */
-        @media (max-width: 992px) {
-            .section {
-                padding: 3rem 1.5rem;
-            }
-
-            .portrait-container {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .portrait-image, .quote-box {
-                flex: 0 0 100%;
-            }
-
-            .manifesto-grid, .voting-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-            }
-
-            .quote {
-                font-size: 2rem;
-                padding-left: 2rem;
-            }
-
-            .quote::before {
-                font-size: 6rem;
-                top: -2rem;
-            }
-
-            .voting-card {
-                padding: 1.25rem;
-            }
-
-            .section-content {
-                padding: 0 0.5rem;
-            }
-
-            .btn {
-                white-space: normal;
-                max-width: 100%;
-                padding: 0.8rem 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            html {
-                font-size: 14px;
-            }
-
-            .hero-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .hero-portrait {
-                flex: 0 0 100%;
-                width: 100%;
-                max-width: 350px;
-                margin: 0 auto;
-            }
-
-            .video-container {
-                border-radius: 10px;
-                border-width: 3px;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-            }
-
-            .video-container iframe {
-                border-radius: 6px;
-            }
-
-            .hero-text {
-                flex: 0 0 100%;
-                text-align: center;
-            }
-
-            .hero-quicklinks {
-                justify-content: center;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-
-            .nav-list a {
-                font-size: 1.5rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-
-            .endorsements-carousel {
-                height: 500px;
-            }
-
-            .endorsement-text {
-                font-size: 1.15rem;
-                line-height: 1.4;
-            }
-
-            .modal-content {
-                padding: 2rem;
-                width: 95%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-
-            .hero-portrait {
-                max-width: 100%;
-            }
-
-            .video-container {
-                border-radius: 8px;
-                border-width: 2px;
-            }
-
-            .video-container iframe {
-                border-radius: 5px;
-            }
-
-            .manifesto-title, .timeline-title,
-            .voting-title, .news-title, .gallery-title, .endorsements-title {
-                font-size: 2rem;
-            }
-
-            .endorsement-text {
-                font-size: 1.2rem;
-                line-height: 1.4;
-            }
-
-            .endorsements-carousel {
-                height: 500px;
-                padding-bottom: 60px;
-                transform: translateZ(0); /* Force GPU acceleration */
-                will-change: transform; /* Hint for browser optimization */
-            }
-
-            .quote {
-                font-size: 1.6rem;
-                padding-left: 1.5rem;
-            }
-
-            .quote::before {
-                font-size: 5rem;
-                top: -2rem;
-                left: -1rem;
-            }
-
-            .nav-toggle {
-                top: 1rem;
-                right: 1rem;
-            }
-        }
-    </style>
 </head>
+
 <body>
     <!-- Navigation Overlay -->
     <div class="nav-overlay">
@@ -2025,11 +43,14 @@
             <div class="hero-content">
                 <div class="hero-portrait" data-aos="fade-right" data-aos-duration="1200">
                     <div class="video-container">
-<iframe title="Chris Smith for Chancellor of Cambridge" width="560" height="315" src="https://crank.recoil.org/videos/embed/mzojFKgtkz9Gpd74TdYoCa?title=0&amp;warningTitle=0&amp;peertubeLink=0" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>                    
-</div>
+                        <iframe title="Chris Smith for Chancellor of Cambridge" width="560" height="315"
+                            src="https://crank.recoil.org/videos/embed/mzojFKgtkz9Gpd74TdYoCa?title=0&amp;warningTitle=0&amp;peertubeLink=0"
+                            frameborder="0" allowfullscreen=""
+                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                    </div>
                 </div>
-                <div class="hero-text" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    <h1 class="hero-title">Lord Chris Smith <br>for Cambridge Chancellor</h1>
+                <div class="hero-text text-white" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <h1 class="hero-title text-white">Lord Chris Smith <br>for Cambridge Chancellor</h1>
                     <p class="hero-subtitle">Rt Hon Lord Smith of Finsbury</p>
                     <div class="hero-quicklinks">
                         <a href="#manifesto" class="quicklink">Manifesto</a>
@@ -2039,7 +60,7 @@
                     </div>
                     <div class="hero-buttons">
                         <a href="#endorsements" class="btn">Learn More</a>
-                        <a href="#voting" id="voting-countdown" class="btn">
+                        <a href="#voting" id="voting-countdown" class="btn gold-btn">
                             <span id="days-remaining">--</span> days until voting
                         </a>
                     </div>
@@ -2051,302 +72,149 @@
     <!-- Quote Section -->
     <section id="portrait" class="section portrait">
         <div class="section-content">
-            <div class="quote-container" data-aos="fade-up" data-aos-duration="1000">
-                <blockquote class="quote">
-                    "Universities matter more than ever in these difficult times. The Chancellor must be a champion for Cambridge, and for the role the University plays in fostering learning and knowledge."
-<br><br>
-                    "I stand for freedom of thought and expression, and for championing the educational, cultural and economic importance of Cambridge both nationally and globally, waking the UK government up to the major international asset they have here."
-                </blockquote>
+            <div class="mission-statement-container serif" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
+                <p data-aos="fade-in" data-aos-duration="1000" data-aos-delay="750">
+                    Cambridge stands at a crossroads. In an age of misinformation and division, and growing pressures on
+                    universities,
+                    Cambridge needs a leader who’s shaped policy, stood up for what matters, and has been a force for
+                    good on the world stage.
+                    That's why we're backing Chris Smith for Chancellor.
+                </p>
+                <p data-aos="fade-in" data-aos-duration="1000" data-aos-delay="750">
+                    A former Culture Secretary and Environment Agency Chair, Chris has spent decades fighting for what
+                    matters — the arts, the planet, and equality. As the world's first openly gay Cabinet Minister, and
+                    first politician
+                    to come out in the UK, he’s been a key advocate for good.
+                </p>
+                <p data-aos="fade-in" data-aos-duration="1000" data-aos-delay="750">
+                    And Chris lives and breathes Cambridge. A double graduate and Pembroke’s Master since 2015, he’s
+                    delivered major donations, sustainable expansion, and full divestment from fossil fuels. He oversaw
+                    major developments - including Cambridge’s largest-ever single donation of £35 million from alumnus
+                    Ray Dolby for college expansion - and delivered an £82 million sustainable expansion with new
+                    student housing. And he drove Pembroke’s full divestment from fossil fuels by 2023.
+                </p>
+                <p data-aos="fade-in" data-aos-duration="1000" data-aos-delay="750">
+                    We need someone with that experience leading Cambridge, fighting for what's right, protecting truth
+                    and
+                    academic freedom, ensuring financial stability and growth, and championing diversity and inclusion
+                    at Cambridge.
+                    That means voting for Chris Smith as Cambridge Chancellor.</p>
+                <p data-aos="fade-in" data-aos-duration="2000" data-aos-delay="750">
+                    If you back our campaign, let us know and add your name to our list. Join the Cantabs for Chris.
+                </p>
+
             </div>
         </div>
     </section>
 
     <!-- Endorsements Section -->
-    <section id="endorsements" class="section endorsements">
-        <div class="section-content">
-            <h2 class="endorsements-title" data-aos="fade-up">Endorsements</h2>
-            <div class="endorsements-grid" data-aos="fade-up" data-aos-delay="200">
-                <!-- Introduction Box -->
-                <div class="endorsement-card introduction-card" data-aos="fade-up" data-aos-delay="50">
-                    <div class="intro-content">
-                        <div class="intro-image">
-                            <img src="images/endorsements_header.webp" 
-                                 srcset="images/endorsements_header.320.webp 320w,
-                                        images/endorsements_header.480.webp 480w,
-                                        images/endorsements_header.640.webp 640w,
-                                        images/endorsements_header.768.webp 768w,
-                                        images/endorsements_header.1024.webp 1024w,
-                                        images/endorsements_header.1280.webp 1280w,
-                                        images/endorsements_header.1440.webp 1440w,
-                                        images/endorsements_header.1600.webp 1600w"
-                                 sizes="(max-width: 768px) 100vw, 1200px"
-                                 alt="Endorsements Header" />
+    <section id="endorsements">
+        <div class="section-content section-background">
+            <h2 class="endorsements-title pt-5" data-aos="fade-up">Join the Campaign</h2>
+            <div class="section-content pb-5">
+                <div class="signup-form" data-aos="fade-up" data-aos-delay="100">
+                    <form id="campaign-form">
+                        <div class="form-two-col">
+                            <div class="form-group">
+                                <label for="fname" class="form-label required">First Name</label>
+                                <input type="text" id="fname" name="FNAME" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lname" class="form-label required">Last Name</label>
+                                <input type="text" id="lname" name="LNAME" class="form-input" required>
+                            </div>
                         </div>
-                        <p>Chris Smith's candidacy is supported by a diverse range of individuals spanning multiple decades of Cambridge life, from current students to distinguished alumni.</p>
-                        <p>These endorsements come from academics, politicians, artists, journalists, and benefactors who have witnessed his leadership and commitment to Cambridge.</p>
-                    </div>
-                </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label required">Email</label>
+                            <input type="email" id="email" name="EMAIL" class="form-input" required>
+                        </div>
 
-                <!-- Baroness Julia Neuberger -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/julia_neuberger.webp" 
-                                 srcset="images/julia_neuberger.320.webp 320w,
-                                        images/julia_neuberger.480.webp 480w,
-                                        images/julia_neuberger.640.webp 640w,
-                                        images/julia_neuberger.768.webp 768w,
-                                        images/julia_neuberger.1024.webp 1024w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Baroness Julia Neuberger">
+                        <div class="form-group">
+                            <label for="college" class="form-label">Cambridge University College</label>
+                            <input type="text" id="college" name="COLLEGE" class="form-input">
                         </div>
-                        <div class="author-info">
-                            <h3>Baroness Julia Neuberger</h3>
-                            <span>Newnham 1969, Liberal Democrat, 2nd woman to be ordained as a rabbi in the UK</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">Chris Smith has been devoted to Cambridge since his undergraduate days, which is when we first met. He's a passionate academic, a seasoned politician, a man with a cross party set of friendships and allies, and someone who always gives of his all. He is ideally suited for the Chancellorship, and will bring great charm, energy, skill, diplomacy and humour to the role.</p>
-                    </div>
-                </div>
 
-                <!-- Andy Burnham -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/andy_burnham.webp" 
-                                 srcset="images/andy_burnham.320.webp 320w,
-                                        images/andy_burnham.480.webp 480w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Andy Burnham">
+                        <div class="form-group">
+                            <label for="job-title" class="form-label">Job Title</label>
+                            <input type="text" id="job-title" name="JOB_TITLE" class="form-input">
                         </div>
-                        <div class="author-info">
-                            <h3>Andy Burnham</h3>
-                            <span>Fitzwilliam 1988, former Secretary of State, Labour Mayor of Greater Manchester</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">Chris Smith's far-sighted decision to introduce free entry to Britain's museums and galleries remains the most inspirational example of cultural leadership this country has ever seen. His lifelong approach of promoting academic and cultural excellence, whilst opening up the widest possible access to it, marks him out as the right leader for our university in its next phase.</p>
-                    </div>
-                </div>
 
-                <!-- Angus Ivory -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/angus_ivory.webp" 
-                                 srcset="images/angus_ivory.320.webp 320w,
-                                        images/angus_ivory.480.webp 480w,
-                                        images/angus_ivory.640.webp 640w,
-                                        images/angus_ivory.768.webp 768w,
-                                        images/angus_ivory.1024.webp 1024w,
-                                        images/angus_ivory.1280.webp 1280w,
-                                        images/angus_ivory.1440.webp 1440w,
-                                        images/angus_ivory.1600.webp 1600w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Angus Ivory">
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" id="company" name="COMPANY" class="form-input">
                         </div>
-                        <div class="author-info">
-                            <h3>Angus Ivory</h3>
-                            <span>current undergraduate in Engineering, President of Pembroke JCR</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">As an undergraduate, I have really appreciated Lord Smith's engagement with students – he is generous in the time he spends hosting student events and in the daily conversations he has with us. He genuinely listens and takes our perspective seriously. As JPC President, I have been able to count on Chris to lend his full support to our work and champion the student point of view.</p>
-                    </div>
-                </div>
 
-                <!-- Professor Polly Blakesley -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/polly_blakesley.webp" 
-                                 srcset="images/polly_blakesley.320.webp 320w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Professor Polly Blakesley">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="email-consent" name="EMAIL_CONSENT" class="checkbox-input"
+                                value="yes">
+                            <label for="email-consent" class="checkbox-label text-black">Please keep me updated about
+                                the campaign
+                                for Chris Smith as Cambridge Chancellor.</label>
                         </div>
-                        <div class="author-info">
-                            <h3>Professor Polly Blakesley</h3>
-                            <span>Master-Elect for Pembroke College, Professor of Russian &amp; European Art</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">The role of Chancellor requires a vast array of skills. With his distinguished career in politics and public service, Lord Smith has all the acumen and expertise that this unique position requires, as well as deep knowledge of a University that he has served so faithfully.</p>
-                    </div>
-                </div>
 
-                <!-- George Benjamin -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="350">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/george_benjamin.webp" 
-                                 alt="George Benjamin">
-                        </div>
-                        <div class="author-info">
-                            <h3>George Benjamin</h3>
-                            <span>King's 1978, CBE, composer, conductor, pianist and teacher</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">Chris Smith is a man of integrity, determination, subtlety and courage who has remained faithful to his beliefs and guiding principles over decades of distinguished public service. He was also possibly the most effective and impassioned Culture Secretary since the post was created. For these reasons – amongst many others – I believe he would be a marvellous choice for Chancellor.</p>
-                    </div>
-                </div>
+                        <button type="submit" class="btn">Join the Campaign</button>
 
-                <!-- Karan Thapar -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/karan_thapar.webp" 
-                                 srcset="images/karan_thapar.320.webp 320w,
-                                        images/karan_thapar.480.webp 480w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Karan Thapar">
+                        <div class="form-note">
+                            <p>Your privacy is important to us. We will never share your information with third parties
+                                without your consent.</p>
                         </div>
-                        <div class="author-info">
-                            <h3>Karan Thapar</h3>
-                            <span>Pembroke 1974, distinguished Indian journalist, news presenter and interviewer</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">I have known Chris Smith for almost 50 years, going back to the time we were together at Pembroke, and I can say with certainty that there's no one better suited to be Chancellor of the University of Cambridge than Chris. His commitment to the University is well-known and unquestionable. The University would do itself a favour by electing him as its next Chancellor.</p>
-                    </div>
+                    </form>
                 </div>
-
-                <!-- Dame Sue Owen -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="250">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/sue_owen.webp" 
-                                 srcset="images/sue_owen.320.webp 320w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Dame Sue Owen">
-                        </div>
-                        <div class="author-info">
-                            <h3>Dame Sue Owen</h3>
-                            <span>Newnham 1973, civil servant, economist, former Permanent Secretary for the DCMS</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">I am delighted to support Lord Smith's application to be Chancellor of the University; not only does he have the gravitas, respect and integrity required, he has a wide Cambridge perspective from a decade as Master of Pembroke and earlier time as undergraduate, PhD student and President of the Union. Chris brings breadth and depth of leadership and sector experience spanning academia, local and central government politics, housing, culture, sport and the environment. He was arguably the most successful ever Secretary of State for Culture, Media and Sport.</p>
-                    </div>
-                </div>
-
-
-                <!-- Steven Friel -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/steven_friel.webp" 
-                                 srcset="images/steven_friel.320.webp 320w,
-                                        images/steven_friel.480.webp 480w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Steven Friel">
-                        </div>
-                        <div class="author-info">
-                            <h3>Steven Friel</h3>
-                            <span>Jesus 1996, Chair of Cambridge University LGBT+ Alumni Association</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">We should all be proud that Cambridge produces leaders like Chris Smith. The first openly gay Cabinet Minister in the world, and a genuine champion of diversity throughout his life, Chris is a true statesman. He is an inspirational figure among students, academics and alumni, and an influential champion of the University of Cambridge on a national and international level. There are a number of able candidates in this election, making it all the more important for alumni to allocate their first and second preference votes to candidates who stand for common values. Chris will be getting my first preference vote.</p>
-                    </div>
-                </div>
-
-                <!-- Dagmar Dolby -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="550">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/dagmar_dolby.webp" 
-                                 srcset="images/dagmar_dolby.320.webp 320w,
-                                        images/dagmar_dolby.480.webp 480w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Dagmar Dolby">
-                        </div>
-                        <div class="author-info">
-                            <h3>Dagmar Dolby</h3>
-                            <span>widow of Ray Dolby, major benefactor of both Pembroke College and the University</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">For the last ten years, I have had the pleasure of knowing Chris Smith in his role as Master of Pembroke. On being elected Master, he assumed leadership of the project to substantially expand the college by redeveloping the property along Mill Lane and facing the historic Pembroke College. Our family has been delighted to support this project that has so transformed the capacities of the college to educate its students and support its scholars. In very short order, Chris was able to establish relationships with the architects, builders, Cambridge planning authorities and the University to enable the project to progress rapidly and ultimately achieve the magnificent result the College is enjoying today. I always felt that with Chris at the helm, this new campus would become a reality. I have been uniquely impressed with Chris's can-do spirit and ability to inspire others to believe that this massive project was indeed achievable. <b>Chris has the ability to genuinely relate to all he meets, whether students, academics, alumni and certainly regardless of which side of the Atlantic they may be.</b></p>
-                    </div>
-                </div>
-
-                <!-- Eric Idle -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/eric_idle.webp" 
-                                 srcset="images/eric_idle.320.webp 320w,
-                                        images/eric_idle.480.webp 480w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Eric Idle">
-                        </div>
-                        <div class="author-info">
-                            <h3>Eric Idle</h3>
-                            <span>Pembroke 1962, member of Monty Python, Grammy Award winner, is very funny</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">I met Lord Smith, the current Master of Pembroke, in Hollywood, when I was invited to attend a College event. I found him to be generous, kind, patient, thoughtful and utterly dedicated to the College we both love. Under his inspired leadership Pembroke had negotiated to purchase and develop the old Mill Lane site, a highly ambitious project expanding the College by a third. During all that time I have been very impressed by Lord Smith's enthusiasm, his constant encouragement and his quiet generous leadership. I am a rare and highly fortunate survivor of pancreatic cancer and I have learned the value of great people in important positions and I think it would be a ridiculous waste to allow such a brilliant leader to simply leave the University, which is why I am very happy to support him in his current bid. I believe he would make a magnificent Chancellor for our University. I make you all a solemn pledge, that in the event we are successful, I promise not to sing.</p>
-                    </div>
-                </div>
-
-                <!-- Lord Guy Black -->
-                <div class="endorsement-card" data-aos="fade-up" data-aos-delay="650">
-                    <div class="endorsement-author">
-                        <div class="author-image">
-                            <img src="images/guy_black.webp" 
-                                 srcset="images/guy_black.320.webp 320w,
-                                        images/guy_black.480.webp 480w,
-                                        images/guy_black.640.webp 640w,
-                                        images/guy_black.768.webp 768w"
-                                 sizes="(max-width: 768px) 100vw, 350px"
-                                 alt="Lord Guy Black">
-                        </div>
-                        <div class="author-info">
-                            <h3>Lord Guy Black</h3>
-                            <span>Peterhouse 1982, deputy chairman of the Telegraph Group, Conservative life peer</span>
-                        </div>
-                    </div>
-                    <div class="endorsement-content">
-                        <p class="endorsement-text">I'm backing Chris Smith because he's the real deal. He is a man of pristine integrity and honesty, with a proud record of distinguished public service and profound commitment to our University. His belief in freedom of expression, which I have spent my career defending, is deep in his bone marrow, and Cambridge – which for centuries has relied upon and championed free speech – could have no more powerful advocate in its defence. Above all, he is a man who knows how to get things done. He has spent a hugely successful career in politics – but he is no tribalist or ideologue, and eschews dogma: as I have witnessed so many times when we have worked together, he understands in a unique way how to reach out to people of all opinions and none, build alliances, bridge differences and achieve consensus. That is a priceless asset in an institution such as ours so rich in its diversity of opinion and thought. He will be a remarkable Chancellor.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </section>
+    </div>
+    </div>
     </section>
 
     <!-- Manifesto Section -->
     <section id="manifesto" class="section manifesto">
         <div class="section-content">
             <h2 class="manifesto-title" data-aos="fade-up">Manifesto</h2>
-            <div class="manifesto-summary" data-aos="fade-up" data-aos-delay="200">
-                <p>Universities matter more than ever in these difficult times. The Chancellor must be a champion for <a href="https://www.cam.ac.uk/" target="_blank">Cambridge</a>, and for the role the University plays in fostering learning and knowledge. We live in a dangerous world of misinformation and "fake news". Universities are the places where facts are researched and honoured, where information is discovered and tested and debated.</p>
+            <div class="mission-statement-container serif pt-4" data-aos="fade-up" data-aos-delay="200">
+                <p>Universities matter more than ever in these difficult times. The Chancellor must be a champion for <a
+                        href="https://www.cam.ac.uk/" target="_blank">Cambridge</a>, and for the role the University
+                    plays in fostering learning and knowledge. We live in a dangerous world of misinformation and "fake
+                    news". Universities are the places where facts are researched and honoured, where information is
+                    discovered and tested and debated.</p>
             </div>
             <div class="manifesto-grid">
-                <div class="manifesto-item" data-aos="flip-up" data-aos-delay="300">
+                <div class="manifesto-item " data-aos="flip-up" data-aos-delay="300">
                     <h3>Leadership that Delivers Change</h3>
-                    <p>As Secretary of State for Culture, I established <a href="https://www.nesta.org.uk/brief-history-nesta/" target="_blank">NESTA</a>, the <a href="https://www.youthmusic.org.uk/" target="_blank">Foundation for Youth Music</a>, Creative Partnerships for Schools, funding for Olympic athletes, the switchover to digital television, and made all the national museums and galleries free.</p>
+                    <p>As Secretary of State for Culture, I established <a
+                            href="https://www.nesta.org.uk/brief-history-nesta/" target="_blank">NESTA</a>, the <a
+                            href="https://www.youthmusic.org.uk/" target="_blank">Foundation for Youth Music</a>,
+                        Creative Partnerships for Schools, funding for Olympic athletes, the switchover to digital
+                        television, and made all the national museums and galleries free.</p>
                     <button class="learn-more-btn" data-section="leadership">Learn More</button>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="400">
                     <h3>Commitment to Diversity</h3>
-                    <p>In 1984 I became the first MP in the UK voluntarily to come out as gay. When I was appointed to the Cabinet in 1997 I was the <a href="https://www.theguardian.com/politics/2005/jan/30/uk.aids">first openly gay</a> Cabinet Minister anywhere in the world.</p>
+                    <p>In 1984 I became the first MP in the UK voluntarily to come out as gay. When I was appointed to
+                        the Cabinet in 1997 I was the <a
+                            href="https://www.theguardian.com/politics/2005/jan/30/uk.aids">first openly gay</a> Cabinet
+                        Minister anywhere in the world.</p>
                     <button class="learn-more-btn" data-section="diversity">Learn More</button>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="500">
                     <h3>Successful Fundraising</h3>
-                    <p>During my Mastership of <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke</a>, we have expanded the footprint of the College by a third with our <a href="https://www.pem.cam.ac.uk/college/master-and-fellowship/master/message-master" target="_blank">Mill Lane development</a>; and we have successfully raised £82 million to complete it.</p>
+                    <p>During my Mastership of <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke</a>, we
+                        have expanded the footprint of the College by a third with our <a
+                            href="https://www.pem.cam.ac.uk/college/master-and-fellowship/master/message-master"
+                            target="_blank">Mill Lane development</a>; and we have successfully raised £82 million to
+                        complete it.</p>
                     <button class="learn-more-btn" data-section="fundraising">Learn More</button>
                 </div>
                 <div class="manifesto-item" data-aos="flip-up" data-aos-delay="600">
                     <h3>Committed to Academic Excellence</h3>
-                    <p>I read English as an undergraduate at <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke</a>, from 1969 to 1972; I went on to do a PhD on Wordsworth and Coleridge and graduated with my doctorate in 1979. I spent a year at Harvard as a <a href="https://kennedytrust.org.uk/" target="_blank">Kennedy Scholar</a>. I am now the President of the <a href="https://wordsworth.org.uk/" target="_blank">Wordsworth Trust</a>.</p>
+                    <p>I read English as an undergraduate at <a href="https://www.pem.cam.ac.uk/"
+                            target="_blank">Pembroke</a>, from 1969 to 1972; I went on to do a PhD on Wordsworth and
+                        Coleridge and graduated with my doctorate in 1979. I spent a year at Harvard as a <a
+                            href="https://kennedytrust.org.uk/" target="_blank">Kennedy Scholar</a>. I am now the
+                        President of the <a href="https://wordsworth.org.uk/" target="_blank">Wordsworth Trust</a>.</p>
                     <button class="learn-more-btn" data-section="academic">Learn More</button>
                 </div>
             </div>
-            <button id="read-full-statement" class="btn btn-center" data-aos="fade-up" data-aos-delay="700">Read Full Statement</button>
+            <button id="read-full-statement" class="btn btn-center" data-aos="fade-up" data-aos-delay="700">Read Full
+                Statement</button>
         </div>
     </section>
 
@@ -2361,71 +229,73 @@
                         <div class="timeline-year">1969</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Begins undergraduate studies at <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke College, Cambridge</a></h3>
-                            <p class="timeline-description">Started his Cambridge journey as an undergraduate reading English. Graduated in 1972 with First Class Honours and became President of the Cambridge Union debating society.</p>
+                            <h3 class="timeline-event">Begins undergraduate studies at <a
+                                    href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke College, Cambridge</a>
+                            </h3>
+                            <p class="timeline-description">Started his Cambridge journey as an undergraduate reading
+                                English. Graduated in 1972 with First Class Honours and became President of the
+                                Cambridge Union debating society.</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <img src="images/CRS6a.webp" 
-                                     srcset="images/CRS6a.320.webp 320w,
+                                <img src="images/CRS6a.webp" srcset="images/CRS6a.320.webp 320w,
                                             images/CRS6a.480.webp 480w,
                                             images/CRS6a.640.webp 640w,
-                                            images/CRS6a.768.webp 768w"
-                                     sizes="(max-width: 768px) 100vw, 768px"
-                                     alt="Chris Smith at Pembroke College" style="width: 100%; display: block;">
+                                            images/CRS6a.768.webp 768w" sizes="(max-width: 768px) 100vw, 768px"
+                                    alt="Chris Smith at Pembroke College" style="width: 100%; display: block;">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">1979</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Earns PhD from Cambridge on Wordsworth and Coleridge</h3>
-                            <p class="timeline-description">Chris spent a year at Harvard as a Kennedy Scholar, and was awarded a doctorate for his research on Wordsworth and Coleridge. He subsequently became Chairman of the Wordsworth Trust in Grasmere, and is now President.</p>
-                        </div>
+                            <p class="timeline-description">Chris spent a year at Harvard as a Kennedy Scholar, and was
+                                awarded a doctorate for his research on Wordsworth and Coleridge. He subsequently became
+                                Chairman of the Wordsworth Trust in Grasmere, and is now President.</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <img src="images/dove-cottage.webp" 
-                                     srcset="images/dove-cottage.320.webp 320w,
-                                             images/dove-cottage.480.webp 480w,
-                                             images/dove-cottage.640.webp 640w,
-                                             images/dove-cottage.768.webp 768w,
-                                             images/dove-cottage.1024.webp 1024w,
-                                             images/dove-cottage.1280.webp 1280w"
-                                     sizes="(max-width: 1280px) 100vw, 1280px"
-                                     alt="Dove Cottage" style="width: 100%; display: block;">
+                                <img src="images/dove-cottage.webp" srcset="images/dove-cottage.320.webp 320w,
+                                                                 images/dove-cottage.480.webp 480w,
+                                                                 images/dove-cottage.640.webp 640w,
+                                                                 images/dove-cottage.768.webp 768w,
+                                                                 images/dove-cottage.1024.webp 1024w,
+                                                                 images/dove-cottage.1280.webp 1280w"
+                                    sizes="(max-width: 1280px) 100vw, 1280px" alt="Dove Cottage" style="width: 100%; display: block;">
                             </div>
+                        </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">1983</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Elected as Member of Parliament</h3>
-                            <p class="timeline-description">First elected as MP for Islington South and Finsbury in 1983, and remained there until 2005.</p>
+                            <p class="timeline-description">First elected as MP for Islington South and Finsbury in
+                                1983, and remained there until 2005.</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
                                 <a href="https://www.bbc.co.uk/news/uk-politics-56116131" target="_blank">
-                                    <img src="images/chris_smith_parliment.webp" 
-                                         srcset="images/chris_smith_parliment.320.webp 320w,
+                                    <img src="images/chris_smith_parliment.webp" srcset="images/chris_smith_parliment.320.webp 320w,
                                                 images/chris_smith_parliment.480.webp 480w,
                                                 images/chris_smith_parliment.640.webp 640w,
                                                 images/chris_smith_parliment.768.webp 768w,
                                                 images/chris_smith_parliment.1024.webp 1024w"
-                                         sizes="(max-width: 768px) 100vw, 768px"
-                                         alt="Chris Smith as Member of Parliament" style="width: 100%; display: block;">
+                                        sizes="(max-width: 768px) 100vw, 768px"
+                                        alt="Chris Smith as Member of Parliament" style="width: 100%; display: block;">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">1984</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Makes history for equality</h3>
-                            <p class="timeline-description">Becomes the first MP in the UK to voluntarily come out as gay, a pioneering moment for LGBTQ+ representation in politics.</p>
+                            <p class="timeline-description">Becomes the first MP in the UK to voluntarily come out as
+                                gay, a pioneering moment for LGBTQ+ representation in politics.</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
                                 <a href="https://www.theguardian.com/politics/2005/jan/30/uk.aids">
-                                <img src="images/Stop the Clause.webp" 
-                                     srcset="images/Stop the Clause.320.webp 320w,
+                                    <img src="images/Stop the Clause.webp" srcset="images/Stop the Clause.320.webp 320w,
                                             images/Stop the Clause.480.webp 480w,
                                             images/Stop the Clause.640.webp 640w,
                                             images/Stop the Clause.768.webp 768w,
@@ -2435,22 +305,23 @@
                                             images/Stop the Clause.1600.webp 1600w,
                                             images/Stop the Clause.1920.webp 1920w,
                                             images/Stop the Clause.2560.webp 2560w"
-                                     sizes="(max-width: 768px) 100vw, 768px"
-                                     alt="Chris Smith at Stop the Clause demonstration" style="width: 100%; display: block;">
-                                 </a>
+                                        sizes="(max-width: 768px) 100vw, 768px"
+                                        alt="Chris Smith at Stop the Clause demonstration"
+                                        style="width: 100%; display: block;">
+                                </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">1989</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Completes climbing all 284 Munros in Scotland</h3>
-                            <p class="timeline-description">Accomplishes the feat of climbing all mountains in Scotland over 3,000 feet high!</p>
+                            <p class="timeline-description">Accomplishes the feat of climbing all mountains in Scotland
+                                over 3,000 feet high!</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                              <img src="images/Beinn Damh.webp" 
-                                   srcset="images/Beinn Damh.320.webp 320w,
+                                <img src="images/Beinn Damh.webp" srcset="images/Beinn Damh.320.webp 320w,
                                           images/Beinn Damh.480.webp 480w,
                                           images/Beinn Damh.640.webp 640w,
                                           images/Beinn Damh.768.webp 768w,
@@ -2459,42 +330,47 @@
                                           images/Beinn Damh.1440.webp 1440w,
                                           images/Beinn Damh.1600.webp 1600w,
                                           images/Beinn Damh.1920.webp 1920w,
-                                          images/Beinn Damh.2560.webp 2560w"
-                                   sizes="(max-width: 768px) 100vw, 768px"
-                                   alt="Chris Smith" style="width: 100%; display: block;">
+                                          images/Beinn Damh.2560.webp 2560w" sizes="(max-width: 768px) 100vw, 768px"
+                                    alt="Chris Smith" style="width: 100%; display: block;">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">1992</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Appointed Shadow Secretary of State for Environmental Protection</h3>
-                            <p class="timeline-description">Takes on a key shadow cabinet role focusing on environmental issues</p>
+                            <h3 class="timeline-event">Appointed Shadow Secretary of State for Environmental Protection
+                            </h3>
+                            <p class="timeline-description">Takes on a key shadow cabinet role focusing on environmental
+                                issues</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                               <a href="https://www.alumni.cam.ac.uk/alumni-stories/celebrating-difference-lord-chris-smith"> 
-                                  <img src="images/tony-and-chris.webp" 
-                                       srcset="images/tony-and-chris.320.webp 320w,
+                                <a
+                                    href="https://www.alumni.cam.ac.uk/alumni-stories/celebrating-difference-lord-chris-smith">
+                                    <img src="images/tony-and-chris.webp" srcset="images/tony-and-chris.320.webp 320w,
                                               images/tony-and-chris.480.webp 480w,
                                               images/tony-and-chris.640.webp 640w,
                                               images/tony-and-chris.768.webp 768w"
-                                       sizes="(max-width: 768px) 100vw, 768px"
-                                       alt="Chris Smith as Shadow Secretary of State" style="width: 100%; display: block;"> 
-                               </a>
+                                        sizes="(max-width: 768px) 100vw, 768px"
+                                        alt="Chris Smith as Shadow Secretary of State"
+                                        style="width: 100%; display: block;">
+                                </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">1997</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Appointed as Secretary of State for Culture, Media and Sport</h3>
-                            <p class="timeline-description">Joins the Cabinet with historic significance as the first openly gay Cabinet Minister in the world. During his tenure, he established <a href="https://www.nesta.org.uk/" target="_blank">NESTA</a> and the <a href="https://www.youthmusic.org.uk/" target="_blank">Foundation for Youth Music</a>.</p>
+                            <p class="timeline-description">Joins the Cabinet with historic significance as the first
+                                openly gay Cabinet Minister in the world. During his tenure, he established <a
+                                    href="https://www.nesta.org.uk/" target="_blank">NESTA</a> and the <a
+                                    href="https://www.youthmusic.org.uk/" target="_blank">Foundation for Youth
+                                    Music</a>.</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <img src="images/CRS19b.webp" 
-                                     srcset="images/CRS19b.320.webp 320w,
+                                <img src="images/CRS19b.webp" srcset="images/CRS19b.320.webp 320w,
                                             images/CRS19b.480.webp 480w,
                                             images/CRS19b.640.webp 640w,
                                             images/CRS19b.768.webp 768w,
@@ -2503,127 +379,138 @@
                                             images/CRS19b.1440.webp 1440w,
                                             images/CRS19b.1600.webp 1600w,
                                             images/CRS19b.1920.webp 1920w,
-                                            images/CRS19b.2560.webp 2560w"
-                                     sizes="(max-width: 768px) 100vw, 768px"
-                                     alt="Chris Smith as Secretary of State for Culture, Media and Sport" style="width: 100%; display: block;">
+                                            images/CRS19b.2560.webp 2560w" sizes="(max-width: 768px) 100vw, 768px"
+                                    alt="Chris Smith as Secretary of State for Culture, Media and Sport"
+                                    style="width: 100%; display: block;">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2001</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Makes national museums and galleries free</h3>
-                            <p class="timeline-description">Implements the transformative policy of free entry to Britain's museums and galleries</p>
+                            <p class="timeline-description">Implements the transformative policy of free entry to
+                                Britain's museums and galleries</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
                                 <a href="https://www.bbc.co.uk/news/av/uk-politics-12309160" target="_blank">
-                                    <img src="images/CRS17a.webp" 
-                                         srcset="images/CRS17a.320.webp 320w,
+                                    <img src="images/CRS17a.webp" srcset="images/CRS17a.320.webp 320w,
                                                 images/CRS17a.480.webp 480w,
                                                 images/CRS17a.640.webp 640w,
                                                 images/CRS17a.768.webp 768w,
                                                 images/CRS17a.1024.webp 1024w,
                                                 images/CRS17a.1280.webp 1280w,
-                                                images/CRS17a.1440.webp 1440w"
-                                         sizes="(max-width: 768px) 100vw, 768px"
-                                         alt="BBC News coverage of free museums policy" style="width: 100%; display: block;">
+                                                images/CRS17a.1440.webp 1440w" sizes="(max-width: 768px) 100vw, 768px"
+                                        alt="BBC News coverage of free museums policy"
+                                        style="width: 100%; display: block;">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">2005</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3 class="timeline-event">Created Life Peer as Baron Smith of Finsbury</h3>
-                            <p class="timeline-description">Appointed to the House of Lords, recognizing his significant public service</p>
+                            <p class="timeline-description">Appointed to the House of Lords, recognizing his significant
+                                public service</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <img src="images/chris-smith-portrait.webp" 
-                                     srcset="images/chris-smith-portrait.320.webp 320w,
+                                <img src="images/chris-smith-portrait.webp" srcset="images/chris-smith-portrait.320.webp 320w,
                                             images/chris-smith-portrait.480.webp 480w,
                                             images/chris-smith-portrait.640.webp 640w,
                                             images/chris-smith-portrait.768.webp 768w,
                                             images/chris-smith-portrait.1024.webp 1024w,
                                             images/chris-smith-portrait.1280.webp 1280w,
                                             images/chris-smith-portrait.1440.webp 1440w"
-                                     sizes="(max-width: 768px) 100vw, 768px"
-                                     alt="Lord Chris Smith portrait" style="width: 100%; display: block;">
+                                    sizes="(max-width: 768px) 100vw, 768px" alt="Lord Chris Smith portrait"
+                                    style="width: 100%; display: block;">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2006</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Becomes Chairman of the <a href="https://www.asa.org.uk/" target="_blank">Advertising Standards Authority</a></h3>
-                            <p class="timeline-description">Takes leadership role in regulating advertising in the UK, a position he held for ten years</p>
+                            <h3 class="timeline-event">Becomes Chairman of the <a href="https://www.asa.org.uk/"
+                                    target="_blank">Advertising Standards Authority</a></h3>
+                            <p class="timeline-description">Takes leadership role in regulating advertising in the UK, a
+                                position he held for ten years</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <a href="https://www.campaignlive.co.uk/article/12-rounds-heavyweight-chris-smith/1292217" target="_blank">
-                                    <img src="images/chris-smith-asa.webp" 
-                                         srcset="images/chris-smith-asa.320.webp 320w,
+                                <a href="https://www.campaignlive.co.uk/article/12-rounds-heavyweight-chris-smith/1292217"
+                                    target="_blank">
+                                    <img src="images/chris-smith-asa.webp" srcset="images/chris-smith-asa.320.webp 320w,
                                                 images/chris-smith-asa.480.webp 480w,
                                                 images/chris-smith-asa.640.webp 640w,
                                                 images/chris-smith-asa.768.webp 768w,
                                                 images/chris-smith-asa.1024.webp 1024w"
-                                         sizes="(max-width: 768px) 100vw, 768px"
-                                         alt="Chris Smith as ASA Chairman" style="width: 100%; display: block;">
+                                        sizes="(max-width: 768px) 100vw, 768px" alt="Chris Smith as ASA Chairman"
+                                        style="width: 100%; display: block;">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2008</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Appointed Chairman of the <a href="https://www.gov.uk/government/organisations/environment-agency" target="_blank">Environment Agency</a></h3>
-                            <p class="timeline-description">Takes on leadership of the principal environmental regulator in England</p>
+                            <h3 class="timeline-event">Appointed Chairman of the <a
+                                    href="https://www.gov.uk/government/organisations/environment-agency"
+                                    target="_blank">Environment Agency</a></h3>
+                            <p class="timeline-description">Takes on leadership of the principal environmental regulator
+                                in England</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
                                 <a href="https://www.bbc.co.uk/news/uk-politics-26116881" target="_blank">
-                                    <img src="images/bbc-env.webp" 
-                                         srcset="images/bbc-env.320.webp 320w"
-                                         sizes="(max-width: 768px) 100vw, 768px"
-                                         alt="BBC coverage of Environment Agency" style="width: 100%; display: block;">
-                                    <div style="position: absolute; bottom: 8px; right: 10px; background-color: rgba(0,0,0,0.6); color: white; padding: 3px 8px; border-radius: 3px; font-size: 0.8rem;">
+                                    <img src="images/bbc-env.webp" srcset="images/bbc-env.320.webp 320w"
+                                        sizes="(max-width: 768px) 100vw, 768px" alt="BBC coverage of Environment Agency"
+                                        style="width: 100%; display: block;">
+                                    <div
+                                        style="position: absolute; bottom: 8px; right: 10px; background-color: rgba(0,0,0,0.6); color: white; padding: 3px 8px; border-radius: 3px; font-size: 0.8rem;">
                                         Source: BBC
                                     </div>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2015</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Becomes Master of <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke College, Cambridge</a></h3>
-                            <p class="timeline-description">Returns to his alma mater to lead one of Cambridge's oldest colleges founded in 1347. The photo shows Chris with Rowan Williams, Antonio Guterres (UN Secretary-General), and Pembroke students at the College.</p>
+                            <h3 class="timeline-event">Becomes Master of <a href="https://www.pem.cam.ac.uk/"
+                                    target="_blank">Pembroke College, Cambridge</a></h3>
+                            <p class="timeline-description">Returns to his alma mater to lead one of Cambridge's oldest
+                                colleges founded in 1347. The photo shows Chris with Rowan Williams, Antonio Guterres
+                                (UN Secretary-General), and Pembroke students at the College.</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <img src="images/turner-guterres.webp" 
-                                     srcset="images/turner-guterres.320.webp 320w,
+                                <img src="images/turner-guterres.webp" srcset="images/turner-guterres.320.webp 320w,
                                             images/turner-guterres.480.webp 480w,
                                             images/turner-guterres.640.webp 640w,
                                             images/turner-guterres.768.webp 768w,
                                             images/turner-guterres.1024.webp 1024w,
                                             images/turner-guterres.1280.webp 1280w"
-                                     sizes="(max-width: 768px) 100vw, 768px"
-                                     alt="Chris Smith as Master of Pembroke with UN Secretary-General" style="width: 100%; display: block;">
+                                    sizes="(max-width: 768px) 100vw, 768px"
+                                    alt="Chris Smith as Master of Pembroke with UN Secretary-General"
+                                    style="width: 100%; display: block;">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-left" data-aos-delay="50">
                         <div class="timeline-year">2023</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Completes <a href="https://www.pem.cam.ac.uk/alumni-development/support-pembroke/time-and-place/mill-lane-development" target="_blank">Mill Lane development</a> at Pembroke</h3>
-                            <p class="timeline-description">Successfully raises £82 million and oversees expansion of the College footprint by one-third. The photo shows Chris with Julia Gillard and Polly Blakesley in the new Mill Lane development</p>
+                            <h3 class="timeline-event">Completes <a
+                                    href="https://www.pem.cam.ac.uk/alumni-development/support-pembroke/time-and-place/mill-lane-development"
+                                    target="_blank">Mill Lane development</a> at Pembroke</h3>
+                            <p class="timeline-description">Successfully raises £82 million and oversees expansion of
+                                the College footprint by one-third. The photo shows Chris with Julia Gillard and Polly
+                                Blakesley in the new Mill Lane development</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                                <img src="images/CI081.webp" 
-                                     srcset="images/CI081.320.webp 320w,
+                                <img src="images/CI081.webp" srcset="images/CI081.320.webp 320w,
                                             images/CI081.480.webp 480w,
                                             images/CI081.640.webp 640w,
                                             images/CI081.768.webp 768w,
@@ -2631,21 +518,27 @@
                                             images/CI081.1280.webp 1280w,
                                             images/CI081.1440.webp 1440w,
                                             images/CI081.1600.webp 1600w,
-                                            images/CI081.1920.webp 1920w"
-                                     sizes="(max-width: 768px) 100vw, 768px"
-                                     alt="Mill Lane development at Pembroke College" style="width: 100%; display: block;">
+                                            images/CI081.1920.webp 1920w" sizes="(max-width: 768px) 100vw, 768px"
+                                    alt="Mill Lane development at Pembroke College"
+                                    style="width: 100%; display: block;">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                         <div class="timeline-year">2025</div>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-event">Stands for election as Chancellor of the University of Cambridge</h3>
+                            <h3 class="timeline-event">Stands for election as Chancellor of the University of Cambridge
+                            </h3>
                             <p class="timeline-description"><a href="#voting">Vote for Chris Smith</a> in July!</p>
                             <div class="timeline-image" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
-<div style="position: relative; padding-top: 56.25%;"><iframe title="Chris Smith for Chancellor of Cambridge" width="100%" height="100%" src="https://crank.recoil.org/videos/embed/mzojFKgtkz9Gpd74TdYoCa?title=0&amp;warningTitle=0&amp;peertubeLink=0&amp;p2p=0" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="position: absolute; inset: 0px;"></iframe></div>
+                                <div style="position: relative; padding-top: 56.25%;"><iframe
+                                        title="Chris Smith for Chancellor of Cambridge" width="100%" height="100%"
+                                        src="https://crank.recoil.org/videos/embed/mzojFKgtkz9Gpd74TdYoCa?title=0&amp;warningTitle=0&amp;peertubeLink=0&amp;p2p=0"
+                                        frameborder="0" allowfullscreen=""
+                                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                        style="position: absolute; inset: 0px;"></iframe></div>
                             </div>
                         </div>
                     </div>
@@ -2667,44 +560,60 @@
                         <span class="news-author">by Elizabeth Bratton</span>
                     </div>
                     <div class="news-summary">
-                        Chris Smith, Master of Pembroke and former Cabinet Minister, has announced his candidacy for University Chancellor, emphasizing academic freedom and commitment to Cambridge.
+                        Chris Smith, Master of Pembroke and former Cabinet Minister, has announced his candidacy for
+                        University Chancellor, emphasizing academic freedom and commitment to Cambridge.
                     </div>
                     <div class="news-content">
-                        <p>Chris Smith, the Master of Pembroke and former Cabinet Minister, has announced that he will be running for the position of University Chancellor.</p>
-                        <p>The House of Lords member was the Secretary of State for Culture, Media, and Sport under Tony Blair, and served as the Chairman of the Environment Agency from 2008-2014. In 2015, he became the Master of Pembroke.</p>
-                        <p>Smith was the first MP in the UK to voluntarily come out as gay, and in 1997 became the first openly gay Cabinet Minister anywhere in the world.</p>
-                        <p>Smith says: "I have always set great store by openness and transparency in public life; it is important always to stand up for what you believe in."</p>
+                        <p>Chris Smith, the Master of Pembroke and former Cabinet Minister, has announced that he will
+                            be running for the position of University Chancellor.</p>
+                        <p>The House of Lords member was the Secretary of State for Culture, Media, and Sport under Tony
+                            Blair, and served as the Chairman of the Environment Agency from 2008-2014. In 2015, he
+                            became the Master of Pembroke.</p>
+                        <p>Smith was the first MP in the UK to voluntarily come out as gay, and in 1997 became the first
+                            openly gay Cabinet Minister anywhere in the world.</p>
+                        <p>Smith says: "I have always set great store by openness and transparency in public life; it is
+                            important always to stand up for what you believe in."</p>
                     </div>
-                    <a href="https://www.varsity.co.uk/news/29584" class="news-link" target="_blank">Read Full Article</a>
+                    <a href="https://www.varsity.co.uk/news/29584" class="news-link" target="_blank">Read Full
+                        Article</a>
                 </article>
             </div>
         </div>
     </section>
-    
+
 
     <!-- Voting Section -->
     <section id="voting" class="section voting">
         <div class="section-content">
-            <h2 class="voting-title" data-aos="fade-up">How to Vote <span style="font-size: 0.8em; font-weight: normal; display: block; margin-top: 0.5rem;">All alumni can vote in person!</span></h2>
+            <h2 class="voting-title" data-aos="fade-up">How to Vote <span
+                    style="font-size: 0.8em; font-weight: normal; display: block; margin-top: 0.5rem;">All alumni can
+                    vote in person!</span></h2>
             <div class="voting-grid">
                 <div class="voting-card" data-aos="fade-right" data-aos-delay="200">
                     <h3>In-Person Voting</h3>
-                    <p>Qualifying voters can vote in person in the Senate House in Cambridge between 10am and 5pm UK time (UTC+1) on either:</p>
+                    <p>Qualifying voters can vote in person in the Senate House in Cambridge between 10am and 5pm UK
+                        time (UTC+1) on either:</p>
                     <ul>
                         <li>Saturday 12 July 2025</li>
                         <li>Wednesday 16 July 2025</li>
                     </ul>
-                    <p><strong>Important:</strong> All alumni can vote in person, even if you missed the online registration deadline! We would be delighted to welcome you back to Cambridge.</p>
-                    <p>You will be expected to wear a gown in the Senate House if able to do so, and one will be provided if you do not have one.</p>
+                    <p><strong>Important:</strong> All alumni can vote in person, even if you missed the online
+                        registration deadline! We would be delighted to welcome you back to Cambridge.</p>
+                    <p>You will be expected to wear a gown in the Senate House if able to do so, and one will be
+                        provided if you do not have one.</p>
                     <div class="voting-links">
-                        <a href="https://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work/people/chancellor/election-of-the-next-chancellor/how-to-register-for-online-voting" target="_blank">Check Eligibility</a>
+                        <a href="https://www.cam.ac.uk/about-the-university/how-the-university-and-colleges-work/people/chancellor/election-of-the-next-chancellor/how-to-register-for-online-voting"
+                            target="_blank">Check Eligibility</a>
                     </div>
                 </div>
                 <div class="voting-card" data-aos="fade-left" data-aos-delay="300">
                     <h3>Online Voting</h3>
-                    <p>Online voting will be open from 10am UK time (UTC+1) on Wednesday 9 July until 5pm UK time (UTC+1) on Friday 18 July 2025.</p>
-                    <p>The registration deadline for online voting has now passed. If you have already registered, you will be able to cast your vote online during the above dates.</p>
-                    <p><strong>Important:</strong> Even if you missed the online registration deadline, you can still vote in person! We would be delighted to welcome you back to Cambridge.</p>
+                    <p>Online voting will be open from 10am UK time (UTC+1) on Wednesday 9 July until 5pm UK time
+                        (UTC+1) on Friday 18 July 2025.</p>
+                    <p>The registration deadline for online voting has now passed. If you have already registered, you
+                        will be able to cast your vote online during the above dates.</p>
+                    <p><strong>Important:</strong> Even if you missed the online registration deadline, you can still
+                        vote in person! We would be delighted to welcome you back to Cambridge.</p>
                 </div>
             </div>
         </div>
@@ -2714,7 +623,9 @@
     <footer>
         <div class="container">
             <small>
-            <p>&copy; 2025 Chris Smith. This site has no cookies or third-party trackers. Direct technical questions to <a href="https://anil.recoil.org/">Anil Madhavapeddy</a>.</p></small>
+                <p>&copy; 2025 Chris Smith. This site has no cookies or third-party trackers. Direct technical questions
+                    to <a href="https://anil.recoil.org/">Anil Madhavapeddy</a>.</p>
+            </small>
         </div>
     </footer>
 
@@ -2723,27 +634,67 @@
         <div class="modal-content">
             <div class="modal-close"></div>
             <h2 style="color: var(--cambridge-blue); margin-bottom: 1.5rem;">Statement from Chris Smith</h2>
-            <p>Universities matter more than ever in these difficult times. The Chancellor must be a champion for <a href="https://www.cam.ac.uk/" target="_blank">Cambridge</a>, and for the role the University plays in fostering learning and knowledge. We live in a dangerous world of misinformation and "fake news". Universities are the places where facts are researched and honoured, where information is discovered and tested and debated. It is why a genuine commitment to freedom of speech is so important. It is no accident that the first target of autocrats everywhere is education; tyrants do not want people to have and acquire knowledge. The Chancellor has above all to be an advocate for the vital importance of knowledge and expertise.</p>
+            <p>Universities matter more than ever in these difficult times. The Chancellor must be a champion for <a
+                    href="https://www.cam.ac.uk/" target="_blank">Cambridge</a>, and for the role the University plays
+                in fostering learning and knowledge. We live in a dangerous world of misinformation and "fake news".
+                Universities are the places where facts are researched and honoured, where information is discovered and
+                tested and debated. It is why a genuine commitment to freedom of speech is so important. It is no
+                accident that the first target of autocrats everywhere is education; tyrants do not want people to have
+                and acquire knowledge. The Chancellor has above all to be an advocate for the vital importance of
+                knowledge and expertise.</p>
 
             <p>I believe I have much to offer the University as Chancellor:</p>
 
-            <div id="leadership" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
-                <p><strong>Proven leadership:</strong> As Secretary of State for Culture, I established <a href="https://www.nesta.org.uk/brief-history-nesta/" target="_blank">NESTA</a>, the <a href="https://www.youthmusic.org.uk/" target="_blank">Foundation for Youth Music</a>, Creative Partnerships for Schools, funding for Olympic athletes, the switchover to digital television, and made all the national museums and galleries free. I believe that the best politics and governance are non-partisan; I was appointed as Chairman of the <a href="https://www.gov.uk/government/organisations/environment-agency" target="_blank">Environment Agency</a> by a Labour Secretary of State, and reappointed by a Conservative. After leaving Government, I led the parliamentary opposition to the Iraq war; I was the Founding Director of the <a href="https://www.cloreleadership.org/" target="_blank">Clore Leadership Programme</a> in the arts and culture; and I became Chairman of the <a href="https://www.asa.org.uk/" target="_blank">Advertising Standards Authority</a> for ten years. Since 2015 I have been Master of Pembroke.</p>
+            <div id="leadership"
+                style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+                <p><strong>Proven leadership:</strong> As Secretary of State for Culture, I established <a
+                        href="https://www.nesta.org.uk/brief-history-nesta/" target="_blank">NESTA</a>, the <a
+                        href="https://www.youthmusic.org.uk/" target="_blank">Foundation for Youth Music</a>, Creative
+                    Partnerships for Schools, funding for Olympic athletes, the switchover to digital television, and
+                    made all the national museums and galleries free. I believe that the best politics and governance
+                    are non-partisan; I was appointed as Chairman of the <a
+                        href="https://www.gov.uk/government/organisations/environment-agency"
+                        target="_blank">Environment Agency</a> by a Labour Secretary of State, and reappointed by a
+                    Conservative. After leaving Government, I led the parliamentary opposition to the Iraq war; I was
+                    the Founding Director of the <a href="https://www.cloreleadership.org/" target="_blank">Clore
+                        Leadership Programme</a> in the arts and culture; and I became Chairman of the <a
+                        href="https://www.asa.org.uk/" target="_blank">Advertising Standards Authority</a> for ten
+                    years. Since 2015 I have been Master of Pembroke.</p>
             </div>
 
-            <div id="diversity" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
-                <p><strong>A commitment to diversity, openness and ethics:</strong> In 1984 I became the first MP in the UK voluntarily to come out as gay. When I was appointed to the Cabinet in 1997 I was the first openly gay Cabinet Minister anywhere in the world. I have always set great store by openness and transparency in public life; it is important always to stand up for what you believe in.</p>
+            <div id="diversity"
+                style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+                <p><strong>A commitment to diversity, openness and ethics:</strong> In 1984 I became the first MP in the
+                    UK voluntarily to come out as gay. When I was appointed to the Cabinet in 1997 I was the first
+                    openly gay Cabinet Minister anywhere in the world. I have always set great store by openness and
+                    transparency in public life; it is important always to stand up for what you believe in.</p>
             </div>
 
-            <div id="fundraising" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
-                <p><strong>A record of successful fundraising:</strong> During my Mastership of <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke</a>, we have expanded the footprint of the College by a third with our <a href="https://www.pem.cam.ac.uk/college/master-and-fellowship/master/message-master" target="_blank">Mill Lane development</a>; and we have successfully raised £82 million to complete it.</p>
+            <div id="fundraising"
+                style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+                <p><strong>A record of successful fundraising:</strong> During my Mastership of <a
+                        href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke</a>, we have expanded the footprint
+                    of the College by a third with our <a
+                        href="https://www.pem.cam.ac.uk/college/master-and-fellowship/master/message-master"
+                        target="_blank">Mill Lane development</a>; and we have successfully raised £82 million to
+                    complete it.</p>
             </div>
 
-            <div id="academic" style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
-                <p><strong>A strong commitment to Academic and Collegiate Cambridge:</strong> I read English as an undergraduate at <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke</a>, from 1969 to 1972; I went on to do a PhD on Wordsworth and Coleridge and graduated with my doctorate in 1979. I spent a year at Harvard as a <a href="https://kennedytrust.org.uk/" target="_blank">Kennedy Scholar</a>. I believe someone who has a record of successfully leading a College, and who understands the fundamental importance of the relationship between the University and the Colleges, has the right background to become Chancellor.</p>
+            <div id="academic"
+                style="margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--cambridge-blue);">
+                <p><strong>A strong commitment to Academic and Collegiate Cambridge:</strong> I read English as an
+                    undergraduate at <a href="https://www.pem.cam.ac.uk/" target="_blank">Pembroke</a>, from 1969 to
+                    1972; I went on to do a PhD on Wordsworth and Coleridge and graduated with my doctorate in 1979. I
+                    spent a year at Harvard as a <a href="https://kennedytrust.org.uk/" target="_blank">Kennedy
+                        Scholar</a>. I believe someone who has a record of successfully leading a College, and who
+                    understands the fundamental importance of the relationship between the University and the Colleges,
+                    has the right background to become Chancellor.</p>
             </div>
-            
-            <p><a href="https://www.cam.ac.uk/" target="_blank">Cambridge</a> is one of the leading Universities of the world, devoted to teaching, learning and research. We are a genuine centre of excellence, a major national and international asset for Britain. We must channel all our energy into sustaining and developing that excellence. I hope to be given the chance to play my role in that, as Chancellor.</p>
+
+            <p><a href="https://www.cam.ac.uk/" target="_blank">Cambridge</a> is one of the leading Universities of the
+                world, devoted to teaching, learning and research. We are a genuine centre of excellence, a major
+                national and international asset for Britain. We must channel all our energy into sustaining and
+                developing that excellence. I hope to be given the chance to play my role in that, as Chancellor.</p>
         </div>
     </div>
 
@@ -2765,236 +716,8 @@
     </style>
 
     <!-- Main script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS with reduced duration for faster animations
-            AOS.init({
-                duration: 350,
-                easing: 'ease',
-                once: true
-            });
-
-            // Endorsements animation effects
-            // Add animation effects to endorsement cards when they come into view
-            const endorsementCards = document.querySelectorAll('.endorsement-card');
-
-            // Add intersection observer for animation on scroll
-            if ('IntersectionObserver' in window) {
-                const endorsementObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('in-view');
-                            // Unobserve after animation is triggered
-                            endorsementObserver.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -10% 0px'
-                });
-
-                endorsementCards.forEach(card => {
-                    endorsementObserver.observe(card);
-                });
-            } else {
-                // Fallback for browsers that don't support IntersectionObserver
-                endorsementCards.forEach(card => {
-                    card.classList.add('in-view');
-                });
-            }
-
-            // Calculate days until voting begins (July 9, 2025)
-            function updateCountdown() {
-                const votingDate = new Date('July 9, 2025 10:00:00 UTC+0100');
-                const today = new Date();
-
-                // Calculate the difference in days
-                const timeDiff = votingDate.getTime() - today.getTime();
-                let daysRemaining = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-                // Ensure we don't show negative days
-                daysRemaining = Math.max(0, daysRemaining);
-
-                // Update the countdown text
-                document.getElementById('days-remaining').textContent = daysRemaining;
-
-                // If voting has started, change the text
-                if (daysRemaining === 0 && today < new Date('July 18, 2025 17:00:00 UTC+0100')) {
-                    document.getElementById('voting-countdown').textContent = 'Voting is open now!';
-                } else if (daysRemaining === 0) {
-                    document.getElementById('voting-countdown').textContent = 'Voting has ended';
-                } else {
-                    document.getElementById('voting-countdown').innerHTML =
-                        '<span id="days-remaining">' + daysRemaining + '</span> days until voting';
-                }
-            }
-
-            // Initialize countdown
-            updateCountdown();
-            
-            // Navigation toggle
-            const navToggle = document.querySelector('.nav-toggle');
-            const navOverlay = document.querySelector('.nav-overlay');
-            const closeNav = document.querySelector('.close-nav');
-            const navLinks = document.querySelectorAll('.nav-list a');
-            
-            navToggle.addEventListener('click', function() {
-                navOverlay.classList.add('active');
-                navToggle.classList.add('active');
-            });
-            
-            closeNav.addEventListener('click', function() {
-                navOverlay.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navOverlay.classList.remove('active');
-                    navToggle.classList.remove('active');
-                });
-            });
-            
-            // Scroll indicator removed
-            
-            // Endorsements carousel code removed to fix console errors
-
-            // Make all endorsement slides visible
-            const endorsementSlides = document.querySelectorAll('.endorsement-slide');
-            if (endorsementSlides.length > 0) {
-                endorsementSlides.forEach(slide => {
-                    slide.classList.add('active');
-                    slide.style.position = 'relative';
-                    slide.style.opacity = '1';
-                    slide.style.visibility = 'visible';
-                });
-            }
-
-            // Modal functionality
-            const readFullBtn = document.getElementById('read-full-statement');
-            const statementModal = document.getElementById('statement-modal');
-            const modalClose = document.querySelector('.modal-close');
-            const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
-
-            readFullBtn.addEventListener('click', function() {
-                statementModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-
-            modalClose.addEventListener('click', function() {
-                statementModal.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-
-            // Close modal when clicking outside the content
-            statementModal.addEventListener('click', function(e) {
-                if (e.target === statementModal) {
-                    statementModal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            // Learn More button functionality
-            learnMoreBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const sectionId = this.getAttribute('data-section');
-                    statementModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-
-                    // Scroll to the specific section after a small delay to allow modal to open
-                    setTimeout(() => {
-                        const sectionElement = document.getElementById(sectionId);
-                        if (sectionElement) {
-                            sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                            // Add highlight effect
-                            sectionElement.classList.add('highlight-section');
-                            setTimeout(() => {
-                                sectionElement.classList.remove('highlight-section');
-                            }, 1500);
-                        }
-                    }, 400);
-                });
-            });
-            
-            // Parallax scroll effects
-            const sections = document.querySelectorAll('.section');
-            
-            window.addEventListener('scroll', function() {
-                const scrollY = window.scrollY;
-                
-                sections.forEach(section => {
-                    const offsetY = section.offsetTop;
-                    const height = section.offsetHeight;
-                    
-                    if (scrollY > offsetY - window.innerHeight && scrollY < offsetY + height) {
-                        // Add parallax effects based on scroll position
-                        const speed = section.dataset.speed || 0.1;
-                        const yPos = (scrollY - offsetY) * speed;
-                        
-                        if (section.classList.contains('hero')) {
-                            section.querySelector('.hero-background').style.transform = `translateY(${yPos}px)`;
-                        }
-                    }
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Intersection Observer for revealing elements on scroll
-            const revealElements = document.querySelectorAll('.reveal');
-            
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            revealElements.forEach(el => {
-                revealObserver.observe(el);
-            });
-            
-            // Create intersection observer for timeline items
-            const timelineObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Add a much shorter delay before visibility
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, 100); // Reduced delay
-                        timelineObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '-30px' // Trigger slightly earlier
-            });
-            
-            // Observe all timeline items for animation on scroll
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                timelineObserver.observe(item);
-            });
-        });
-    </script>
+     <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/college_adder.js" defer></script>
 </body>
+
 </html>
