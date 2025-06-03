@@ -1672,13 +1672,13 @@ h6 {
 
 }
 
-/* Manifesto section */
-.manifesto {
+/* challenges section */
+.challenges {
     background-color: var(--background-color);
     position: relative;
 }
 
-.manifesto::before {
+.challenges::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1727,7 +1727,7 @@ h6 {
     height: 100%;
 }
 
-.manifesto-title {
+.challenges-title {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -1735,7 +1735,7 @@ h6 {
     color: var(--cambridge-blue);
 }
 
-.manifesto-title::after {
+.challenges-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -1746,14 +1746,14 @@ h6 {
     background-color: var(--gold);
 }
 
-.manifesto-summary {
+.challenges-summary {
     font-size: 1.2rem;
     max-width: 800px;
     margin: 0 auto 2rem auto;
     text-align: center;
 }
 
-.manifesto-grid {
+.challenges-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -1762,7 +1762,7 @@ h6 {
     margin: 0 auto;
 }
 
-.manifesto-item {
+.challenges-item {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 1.5rem;
     border-radius: 8px;
@@ -1772,13 +1772,13 @@ h6 {
     border-top: 4px solid var(--cambridge-blue);
 }
 
-.manifesto-item:hover {
+.challenges-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border-top-color: var(--gold);
 }
 
-.manifesto-item h3 {
+.challenges-item h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--cambridge-blue);
@@ -1995,7 +1995,6 @@ h6 {
     margin-bottom: 1.5rem;
     text-align: center;
     position: relative;
-    color: var(--accent-color);
 }
 
 .voting-title::after {
@@ -2410,7 +2409,7 @@ footer {
 }
 
 /* Main content links - subtle styling */
-.manifesto a,
+.challenges a,
 .modal-content a,
 .timeline-content a {
     color: inherit;
@@ -2419,7 +2418,7 @@ footer {
     transition: all 0.2s ease;
 }
 
-.manifesto a:hover,
+.challenges a:hover,
 .modal-content a:hover,
 .timeline-content a:hover {
     color: var(--cambridge-blue);
@@ -2459,7 +2458,7 @@ footer::before {
         flex: 0 0 100%;
     }
 
-    .manifesto-grid,
+    .challenges-grid,
     .voting-grid {
         grid-template-columns: 1fr;
         gap: 1.25rem;
@@ -2498,7 +2497,7 @@ footer::before {
         margin-bottom: 3rem;
     }
 
-    .manifesto-title,
+    .challenges-title,
     .timeline-title,
     .voting-title,
     .news-title,

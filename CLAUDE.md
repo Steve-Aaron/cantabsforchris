@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a single-page responsive website for Lord Chris Smith's campaign to become Chancellor of the University of Cambridge. The website showcases his manifesto, endorsements from supporters, timeline of his career, and voting information.
+This is a single-page responsive website for Lord Chris Smith's campaign to become Chancellor of the University of Cambridge. The website showcases his challenges, endorsements from supporters, timeline of his career, and voting information.
 
 ## Site Structure
 
 - `index.html`: The main HTML file containing the entire website
-- `statement.txt`: Chris Smith's manifesto statement
+- `statement.txt`: Chris Smith's challenges statement
 - `endorsements.txt`: Collection of endorsements from notable supporters
 - `timeline.json`: JSON data containing Chris Smith's career timeline
 - `news.json`: JSON data containing news articles about the campaign
@@ -19,7 +19,7 @@ This is a single-page responsive website for Lord Chris Smith's campaign to beco
 ## Content Management
 
 The site content is primarily managed through:
-- `statement.txt`: Contains the main campaign manifesto
+- `statement.txt`: Contains the main campaign challenges
 - `endorsements.txt`: Contains endorsements from supporters
 - `timeline.json`: Contains chronological data about Chris Smith's career
 - `news.json`: Contains news articles related to the campaign
