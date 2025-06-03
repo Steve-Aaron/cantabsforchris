@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Cantabs for Chris - Lord Chris Smith for Cambridge Chancellor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/ggr7bpy.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay">
+        <div class="close-nav"></div>
+        <ul class="nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#portrait">About Chris</a></li>
+            <li><a href="#challenges">Cambridge's Challenges</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#voting">How to Vote</a></li>
+        </ul>
+    </div>
+
+    <!-- Navigation Button -->
+    <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section hero">
+        <div class="hero-background"></div>
+        <div class="section-content">
+            <div class="hero-content">
+                <div class="hero-text text-white" data-aos="fade-up" data-aos-duration="1200">
+                    <h1 class="hero-title text-white">About Cantabs for Chris</h1>
+                    <p class="hero-subtitle">An alumni-led group supporting Lord Chris Smith's candidacy for Chancellor
+                        of Cambridge University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-content">
+            <div class="mission-statement-container serif" data-aos="fade-in" data-aos-duration="1000">
+                <h2 class="manifesto-title">Who We Are</h2>
+                <p class="manifesto-summary">
+                    Cantabs for Chris is an alumni-led group supporting Lord Chris Smith's candidacy for Chancellor of
+                    Cambridge University. We represent a diverse community of academics, students, and alumni who
+                    believe Chris Smith has the experience, vision, and values to lead Cambridge through the challenges
+                    ahead.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supporters Grid -->
+    <section id="supporters" class="section section-background flex-column">
+        <div class="section-content">
+            <h2 class="endorsements-title text-white">Our Supporters</h2>
+            <div class="endorsements-grid" id="supporters-grid">
+                <!-- Grid items will be populated by JavaScript -->
+            </div>
+        </div>
+        <!-- Call to Action component, asking people if they want to endorse Chris Smith too, to click the button which takes them to /signup.html -->
+        <aside class=" pt-5 call-to-action text-white text-center d-flex flex-column align-items-center justify-content-center">
+            <!-- same header styles as above -->
+            <h2 class="endorsements-title text-white">Add Your Name</h2>
+            <p class="call-to-action-text text-center">If you are a Cambridge alumnus and would like to endorse Lord Chris
+                Smith's
+                candidacy, please sign up below.</p>
+            <a href="signup.html" class="btn btn-primary d-flex fit-content">Sign Up to Endorse</a>
+        </aside>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cantabs for Chris. Supporting Lord Chris Smith for Cambridge Chancellor.</p>
+            <p><a href="index.html">Return to main campaign site</a></p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/endorsements.js"></script>
+</body>
+
+</html>

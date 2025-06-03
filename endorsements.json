@@ -1,0 +1,65 @@
+[
+  {
+    "id": "anil-madhavapeddy",
+    "name": "Professor Anil Madhavapeddy",
+    "title": "Professor of Planetary Computing",
+    "affiliation": "Department of Computer Science and Technology, Cambridge University",
+    "college": "Pembroke College Fellow",
+    "image": "images/anil_madhavapeddy.webp",
+    "endorsement": "Chris Smith brings exactly the kind of leadership Cambridge needs in challenging times. His experience in government, commitment to sustainability, and deep understanding of university governance make him the ideal Chancellor."
+  },
+  {
+    "id": "rebecca-laemmle",
+    "name": "Dr Rebecca Laemmle",
+    "title": "Associate Professor of Classics",
+    "affiliation": "Faculty of Classics, Cambridge University",
+    "college": "Pembroke College Fellow",
+    "image": "images/rebecca_laemmle.webp",
+    "endorsement": "Lord Smith's dedication to academic excellence and his proven track record in higher education leadership demonstrate his ability to champion Cambridge's values while navigating modern challenges."
+  },
+  {
+    "id": "angus-ivory",
+    "name": "Angus Ivory",
+    "title": "President of Pembroke Junior Parlour (JCR)",
+    "affiliation": "Current student",
+    "college": "Pembroke College",
+    "image": "images/angus_ivory.webp",
+    "endorsement": "As current students, we see firsthand Lord Smith's commitment to student welfare and inclusive education. His leadership at Pembroke has been transformational."
+  },
+  {
+    "id": "sandra-fuhrmann",
+    "name": "Sandra Fuhrmann",
+    "title": "Current student",
+    "affiliation": "Cambridge University",
+    "college": "",
+    "image": "images/sandra_fuhrmann.webp",
+    "endorsement": "Lord Smith represents the progressive leadership we need to ensure Cambridge remains at the forefront of global education and research."
+  },
+  {
+    "id": "daniel-gerring",
+    "name": "Daniel Gerring",
+    "title": "Partner and Head of Pensions",
+    "affiliation": "Travers Smith LLP",
+    "college": "Corpus Christi College alumnus",
+    "image": "images/daniel_gerring.webp",
+    "endorsement": "Chris Smith's championing of diversity and inclusion, combined with his strategic vision, makes him uniquely qualified to lead Cambridge into the future."
+  },
+  {
+    "id": "sue-owen",
+    "name": "Dame Sue Owen",
+    "title": "Former Permanent Secretary",
+    "affiliation": "Department for Digital, Culture, Media and Sport",
+    "college": "Newnham College alumna",
+    "image": "images/sue_owen.webp",
+    "endorsement": "Having worked alongside Chris in government, I've seen his exceptional leadership capabilities and commitment to public service. Cambridge would benefit enormously from his experience."
+  },
+  {
+    "id": "daniel-zeichner",
+    "name": "Daniel Zeichner MP",
+    "title": "Member of Parliament for Cambridge",
+    "affiliation": "Minister of State for Food Security and Rural Affairs",
+    "college": "",
+    "image": "images/daniel_zeichner_mp.webp",
+    "endorsement": "Chris Smith's deep understanding of both Cambridge and the broader policy landscape makes him an outstanding choice for Chancellor. His advocacy for education and research is exactly what we need."
+  }
+]
