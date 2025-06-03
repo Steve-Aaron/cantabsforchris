@@ -11,11 +11,23 @@
       "content": "Chris Smith, the Master of Pembroke and former Cabinet Minister, has announced that he will be running for the position of University Chancellor.\n\nThe House of Lords member was the Secretary of State for Culture, Media, and Sport under Tony Blair, and served as the Chairman of the Environment Agency from 2008-2014. In 2015, he became the Master of Pembroke.\n\nSmith was the first MP in the UK to voluntarily come out as gay, and in 1997 became the first openly gay Cabinet Minister anywhere in the world.\n\nSmith says: \"I have always set great store by openness and transparency in public life; it is important always to stand up for what you believe in.\"",
       "image": null,
       "categories": ["announcement", "campaign"]
+    },
+    {
+      "id": "thetimes-20250527",
+      "title": "Lord Smith will run to be chancellor of Cambridge University",
+      "source": "The Times",
+      "url": "https://www.thetimes.com/uk/education/article/lord-smith-will-run-to-be-chancellor-of-cambridge-university-67qtp8q0r",
+      "date": "2025-05-27",
+      "author": "Georgia Lambert",
+      "summary": "Lord Smith, former Cabinet Minister and Master of Pembroke, has launched his bid to become Chancellor of Cambridge University.",
+      "content": "Lord Smith, who served under Tony Blair and currently heads Pembroke College, has officially launched his candidacy for the position of Chancellor at Cambridge. His campaign follows recent remarks on international education policies and underscores his long-standing commitment to higher education and public service.",
+      "image": "https://www.thetimes.com/imageserver/image/%2Ffc119906-26cc-4550-947e-9eefee62b994.jpg?crop=5997%2C3373%2C0%2C84&resize=1200",
+      "categories": ["announcement", "education", "campaign"]
     }
   ],
   "meta": {
-    "lastUpdated": "2025-05-08",
-    "totalItems": 1,
+    "lastUpdated": "2025-06-03",
+    "totalItems": 2,
     "schema": {
       "version": "1.0",
       "fields": {

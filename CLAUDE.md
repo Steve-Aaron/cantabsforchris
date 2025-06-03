@@ -21,7 +21,7 @@ This is a single-page responsive website for Lord Chris Smith's campaign to beco
 The site content is primarily managed through:
 - `statement.txt`: Contains the main campaign challenges
 - `endorsements.txt`: Contains endorsements from supporters
-- `timeline.json`: Contains chronological data about Chris Smith's career
+- `timeline.json`: Contains chronological data About Us Smith's career
 - `news.json`: Contains news articles related to the campaign
 
 ## Image Management
